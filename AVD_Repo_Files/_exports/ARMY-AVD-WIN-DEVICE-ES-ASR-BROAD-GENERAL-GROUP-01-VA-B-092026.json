@@ -1,0 +1,630 @@
+{
+    "id":  "68bd479c-39cd-458d-8732-4d766d62a288",
+    "name":  "ARMY-AVD-WIN-DEVICE-ES-ASR-BROAD-GENERAL-GROUP-01-VA-B-092026",
+    "description":  "10-19-2026__09-41-38: Export of ARMY-AVD-WIN-DEVICE-ES-ASR-BROAD-GENERAL-GROUP-01-VA-B-092026 from Intune into C:\\_DELETEME.",
+    "platforms":  "windows10",
+    "technologies":  "mdm,microsoftSense",
+    "roleScopeTagIds":  [
+                            "10"
+                        ],
+    "templateReference":  {
+                              "templateId":  "e8c053d6-9f95-42b1-a7f1-ebfd71c67a4b_1",
+                              "templateFamily":  "endpointSecurityAttackSurfaceReduction",
+                              "templateDisplayName":  "Attack Surface Reduction Rules",
+                              "templateDisplayVersion":  "Version 1"
+                          },
+    "settings":  [
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance",
+                                                 "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules",
+                                                 "settingInstanceTemplateReference":  {
+                                                                                          "settingInstanceTemplateId":  "19600663-e264-4c02-8f55-f2983216d6d7"
+                                                                                      },
+                                                 "auditRuleInformation":  null,
+                                                 "groupSettingCollectionValue":  [
+                                                                                     {
+                                                                                         "settingValueTemplateReference":  null,
+                                                                                         "children":  [
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockadobereaderfromcreatingchildprocesses",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockadobereaderfromcreatingchildprocesses_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockprocesscreationsfrompsexecandwmicommands_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutionofpotentiallyobfuscatedscripts",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutionofpotentiallyobfuscatedscripts_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockpersistencethroughwmieventsubscription_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockwin32apicallsfromofficemacros",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockwin32apicallsfromofficemacros_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockofficeapplicationsfromcreatingexecutablecontent",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockofficeapplicationsfromcreatingexecutablecontent_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockcredentialstealingfromwindowslocalsecurityauthoritysubsystem_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablefilesrunningunlesstheymeetprevalenceagetrustedlistcriterion_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockjavascriptorvbscriptfromlaunchingdownloadedexecutablecontent",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockjavascriptorvbscriptfromlaunchingdownloadedexecutablecontent_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockofficecommunicationappfromcreatingchildprocesses",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockofficecommunicationappfromcreatingchildprocesses_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockofficeapplicationsfrominjectingcodeintootherprocesses",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockofficeapplicationsfrominjectingcodeintootherprocesses_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockallofficeapplicationsfromcreatingchildprocesses",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockallofficeapplicationsfromcreatingchildprocesses_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockwebshellcreationforservers",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockwebshellcreationforservers_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockuntrustedunsignedprocessesthatrunfromusb",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockuntrustedunsignedprocessesthatrunfromusb_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_useadvancedprotectionagainstransomware_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockexecutablecontentfromemailclientandwebmail_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockabuseofexploitedvulnerablesigneddrivers_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockuseofcopiedorimpersonatedsystemtools",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockuseofcopiedorimpersonatedsystemtools_block"
+                                                                                                                                     }
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                              "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockrebootingmachineinsafemode",
+                                                                                                              "settingInstanceTemplateReference":  null,
+                                                                                                              "auditRuleInformation":  null,
+                                                                                                              "choiceSettingValue":  {
+                                                                                                                                         "children":  [
+
+                                                                                                                                                      ],
+                                                                                                                                         "settingValueTemplateReference":  null,
+                                                                                                                                         "value":  "device_vendor_msft_policy_config_defender_attacksurfacereductionrules_blockrebootingmachineinsafemode_block"
+                                                                                                                                     }
+                                                                                                          }
+                                                                                                      ]
+                                                                                     }
+                                                                                 ]
+                                             }
+                     },
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance",
+                                                 "settingDefinitionId":  "device_vendor_msft_policy_config_defender_attacksurfacereductiononlyexclusions",
+                                                 "settingInstanceTemplateReference":  {
+                                                                                          "settingInstanceTemplateId":  "0eaea6bb-736e-44ed-a450-b2ef5bea1377"
+                                                                                      },
+                                                 "simpleSettingCollectionValue":  [
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Aternity Information Systems\\Agent\\A180AG.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\cmd.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Microsoft\\EdgeUpdate\\MicrosoftEdgeUpdate.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Microsoft\\Temp\\*\\MicrosoftEdgeUpdate.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\HealthService.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\Updates\\*\\OfficeClickToRun.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\OfficeClickToRun.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MOMPerfSnapshotHelper.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft OneDrive\\OneDriveStandaloneUpdater.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Microsoft OneDrive\\OneDriveStandaloneUpdater.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\ProgramData\\Microsoft\\Windows Defender Advanced Threat Protection\\DataCollection\\*\\OpenHandleCollector.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft RDInfra\\*\\Agent\\MonAgentCore.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\NETSTAT.EXE"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\SysWOW64\\msiexec.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\msiexec.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Printer Properties Pro\\Printer Installer Client\\PrinterInstallerClient.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Common Files\\Adobe\\AdobeGCClient\\AGMService.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft RDInfra\\RDAgentBootLoader\\RDAgentBootLoader.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\Microsoft.NET\\Framework64\\*\\csc.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\conhost.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\Microsoft.NET\\Framework64\\*\\cvtres.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\tasklist.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  " C:\\Windows\\SysWOW64\\tasklist.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\find.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\sc.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\WINDOWS\\system32\\bcdedit.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\Dism\\DismHost.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\FSLogix\\Apps\\frxsvc.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\FSLogix\\Apps\\frxccds.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\FSLogix\\Apps\\trxtray.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\CredentialUIBroker.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Tychon\\TychonCoreService.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\WindowsAzure\\*\\WaAppAgent.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\ProgramData\\Package Cache\\*\\PowerAutomate.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\ProgramData\\Package Cache\\*\\Setup.Microsoft.PowerAutomate.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Printer Properties Pro\\Printer Installer Client\\bin\\PPP_Watchdog.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Printer Properties Pro\\Printer Installer Client\\bin\\PrinterInstallerClient.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\PPP_TEMP\\*\\ppp_watchdog.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Printer Properties Pro\\Printer Installer Client\\bin\\PrinterInstallerClientLauncher.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\IMECache\\*\\PowerAutomate.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\Temp\\*\\.cr\\PowerAutomate.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\ArmyAVD\\ArmyAVD-BookmarksUtility-CONSOLE.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\ArmyAVD\\ArmyAVD-BookmarksUtility-SILENT.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Users\\*\\ArmyAVD-BookmarksUtility-CONSOLE.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Users\\*\\ArmyAVD-BookmarksUtility-SILENT.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\WindowsApps\\d4eceeaf-5f28-4d94-825f-88c356f40a1c_1.4.192.0_x64__k6kdscn4my786\\PurebredRegistration.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\Printer Properties Pro\\Printer Installer Client\\bin\\DMClientPRT.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft RDInfra\\StackSxS\\*\\rdpinit.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\Microsoft RDInfra\\StackSxS\\*\\rdpshell.exe"
+                                                                                      }
+                                                                                  ],
+                                                 "auditRuleInformation":  null
+                                             }
+                     },
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                 "settingDefinitionId":  "device_vendor_msft_policy_config_defender_enablecontrolledfolderaccess",
+                                                 "settingInstanceTemplateReference":  {
+                                                                                          "settingInstanceTemplateId":  "78c83b32-56c0-445a-932a-872d69af6e49"
+                                                                                      },
+                                                 "auditRuleInformation":  null,
+                                                 "choiceSettingValue":  {
+                                                                            "children":  [
+
+                                                                                         ],
+                                                                            "settingValueTemplateReference":  {
+                                                                                                                  "useTemplateDefault":  false,
+                                                                                                                  "settingValueTemplateId":  "e57db701-c3c6-4264-ab50-7896cb90dfd6"
+                                                                                                              },
+                                                                            "value":  "device_vendor_msft_policy_config_defender_enablecontrolledfolderaccess_1"
+                                                                        }
+                                             }
+                     },
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance",
+                                                 "settingDefinitionId":  "device_vendor_msft_policy_config_defender_controlledfolderaccessallowedapplications",
+                                                 "settingInstanceTemplateReference":  {
+                                                                                          "settingInstanceTemplateId":  "e10f2cf5-121a-4890-af23-d4e91e0fab5f"
+                                                                                      },
+                                                 "simpleSettingCollectionValue":  [
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files\\*"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Program Files (x86)\\*"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\System32\\*"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\Windows\\SysWOW64\\*"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\ProgramData\\DTPLite\\DTP_Lite_v6.0.8.3.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\OCETOOL\\OCE.exe"
+                                                                                      },
+                                                                                      {
+                                                                                          "@odata.type":  "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+                                                                                          "settingValueTemplateReference":  null,
+                                                                                          "value":  "C:\\users\\*\\appdata\\local\\smimeoutlookwebchrome\\Microsoft.Outlook.stdiolisteningnativeapp.exe"
+                                                                                      }
+                                                                                  ],
+                                                 "auditRuleInformation":  null
+                                             }
+                     }
+                 ]
+}

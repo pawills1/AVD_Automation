@@ -1,0 +1,110 @@
+**********************
+PowerShell transcript start
+Start time: 20260921122102
+Username: NORTHAMERICA\pawills
+RunAs User: NORTHAMERICA\pawills
+Configuration Name: 
+Machine: LAPTOP-2LFNEU2C (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\pawills\AppData\Local\Programs\Microsoft VS Code\7debcd0e2a\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 11660
+PSVersion: 7.6.6
+PSEdition: Core
+GitCommitId: 7.6.6
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[2026-09-21 12:21:02] Installation run started. Logs: C:\Repo\Mimic_Files\Software\scripts\Logs\20260921-122102
+[2026-09-21 12:21:02] [1/26] Starting 7-Zip
+[2026-09-21 12:21:02] [1/26] 7-Zip: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:02] [2/26] Starting Google Chrome
+[2026-09-21 12:21:02] [2/26] Google Chrome: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:02] [3/26] Starting DAX Studio
+[2026-09-21 12:21:02] [3/26] DAX Studio: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:02] [4/26] Starting Mozilla Firefox
+[2026-09-21 12:21:02] [4/26] Mozilla Firefox: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:02] [5/26] Starting Foundry SQL ODBC Driver
+[2026-09-21 12:21:02] [5/26] Foundry SQL ODBC Driver: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:02] [6/26] Starting GCSS-Army Integrated Installer
+[2026-09-21 12:21:03] [6/26] GCSS-Army Integrated Installer: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [7/26] Starting InstallRoot
+[2026-09-21 12:21:03] [7/26] InstallRoot: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [8/26] Starting Remote Desktop WebRTC Redirector
+[2026-09-21 12:21:03] [8/26] Remote Desktop WebRTC Redirector: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [9/26] Starting NetBanner
+[2026-09-21 12:21:03] [9/26] NetBanner: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [10/26] Starting Power BI Desktop
+[2026-09-21 12:21:03] [10/26] Power BI Desktop: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [11/26] Starting Power BI Report Builder
+[2026-09-21 12:21:03] [11/26] Power BI Report Builder: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [12/26] Starting Printer Installer Client
+[2026-09-21 12:21:03] [12/26] Printer Installer Client: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [13/26] Starting S/MIME for Outlook Web
+[2026-09-21 12:21:03] [13/26] S/MIME for Outlook Web: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [14/26] Starting YubiKey Manager
+[2026-09-21 12:21:03] [14/26] YubiKey Manager: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [15/26] Starting Microsoft 365 Apps
+[2026-09-21 12:21:03] [15/26] Microsoft 365 Apps: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [16/26] Starting Microsoft Teams
+[2026-09-21 12:21:03] [16/26] Microsoft Teams: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [17/26] Starting Microsoft Teams Meeting Add-in
+[2026-09-21 12:21:03] [17/26] Microsoft Teams Meeting Add-in: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [18/26] Starting OCE Tool
+[2026-09-21 12:21:03] [18/26] OCE Tool: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [19/26] Starting STIG Viewer 3
+[2026-09-21 12:21:03] [19/26] STIG Viewer 3: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [20/26] Starting FSLogix Apps
+[2026-09-21 12:21:03] [20/26] FSLogix Apps: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [21/26] Starting FSLogix Rule Editor
+[2026-09-21 12:21:03] [21/26] FSLogix Rule Editor: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [22/26] Starting Purebred Registration
+[2026-09-21 12:21:03] [22/26] Purebred Registration: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [23/26] Starting Adobe Acrobat Professional
+[2026-09-21 12:21:03] [23/26] Adobe Acrobat Professional: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [24/26] Starting DISA DEPTH
+[2026-09-21 12:21:03] [24/26] DISA DEPTH: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [25/26] Starting DTP Lite
+[2026-09-21 12:21:03] [25/26] DTP Lite: WhatIf (0s) Installation was not started.
+[2026-09-21 12:21:03] [26/26] Starting IADS4
+[2026-09-21 12:21:03] [26/26] IADS4: WhatIf (0s) Installation was not started.
+
+Installation Summary
+
+Number Software                         Result ExitCode DurationSeconds
+------ --------                         ------ -------- ---------------
+     1 7-Zip                            WhatIf        0            0.00
+     2 Google Chrome                    WhatIf        0            0.00
+     3 DAX Studio                       WhatIf        0            0.00
+     4 Mozilla Firefox                  WhatIf        0            0.00
+     5 Foundry SQL ODBC Driver          WhatIf        0            0.00
+     6 GCSS-Army Integrated Installer   WhatIf        0            0.00
+     7 InstallRoot                      WhatIf        0            0.00
+     8 Remote Desktop WebRTC Redirector WhatIf        0            0.00
+     9 NetBanner                        WhatIf        0            0.00
+    10 Power BI Desktop                 WhatIf        0            0.00
+    11 Power BI Report Builder          WhatIf        0            0.00
+    12 Printer Installer Client         WhatIf        0            0.00
+    13 S/MIME for Outlook Web           WhatIf        0            0.00
+    14 YubiKey Manager                  WhatIf        0            0.00
+    15 Microsoft 365 Apps               WhatIf        0            0.00
+    16 Microsoft Teams                  WhatIf        0            0.00
+    17 Microsoft Teams Meeting Add-in   WhatIf        0            0.00
+    18 OCE Tool                         WhatIf        0            0.00
+    19 STIG Viewer 3                    WhatIf        0            0.00
+    20 FSLogix Apps                     WhatIf        0            0.00
+    21 FSLogix Rule Editor              WhatIf        0            0.00
+    22 Purebred Registration            WhatIf        0            0.00
+    23 Adobe Acrobat Professional       WhatIf        0            0.00
+    24 DISA DEPTH                       WhatIf        0            0.00
+    25 DTP Lite                         WhatIf        0            0.00
+    26 IADS4                            WhatIf        0            0.00
+
+Selected: 26  Succeeded: 0  Failed: 0  WhatIf: 26  Reboot required: 0
+Summary log: C:\Repo\Mimic_Files\Software\scripts\Logs\20260921-122102\Install-Summary.csv
+**********************
+PowerShell transcript end
+End time: 20260921122103
+**********************

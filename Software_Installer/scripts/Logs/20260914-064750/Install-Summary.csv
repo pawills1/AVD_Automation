@@ -1,0 +1,5 @@
+"Number","Software","Result","ExitCode","DurationSeconds","Package","Message"
+"1","Adobe Acrobat Professional","WhatIf","0","0","D:\Mimic_Files\Software\Unified_Installer.ps1","Installation was not started."
+"2","DISA DEPTH","WhatIf","0","0","D:\Mimic_Files\Software\DEPTH\Source\install.ps1","Installation was not started."
+"3","DTP Lite","WhatIf","0","0","D:\Mimic_Files\Software\DTP_Lite_v6.0.8.2\DTP_Lite.ps1","Installation was not started."
+"4","IADS4","WhatIf","0","0","D:\Mimic_Files\Software\IADS4_Workspace\IADS_Setup.exe","Installation was not started."

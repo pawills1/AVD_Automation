@@ -1,0 +1,94 @@
+{
+    "id":  "18c98ca0-fd8c-496e-b371-3796535d6011",
+    "name":  "ARMY-AVD-WIN-USER-WINDOWS-11-OS-STIG-USER-v2r8-BROAD-GENERAL-GROUP-01-VA-B-092026",
+    "description":  "09-17-2026__14-56-37: Update of JSON to add 092026 to name to reflect current sprint.",
+    "platforms":  "windows10",
+    "technologies":  "mdm",
+    "roleScopeTagIds":  [
+                            "10"
+                        ],
+    "templateReference":  {
+                              "templateId":  "",
+                              "templateFamily":  "none",
+                              "templateDisplayName":  null,
+                              "templateDisplayVersion":  null
+                          },
+    "settings":  [
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                 "settingDefinitionId":  "user_vendor_msft_policy_config_admx_wpn_nolockscreentoastnotification",
+                                                 "settingInstanceTemplateReference":  null,
+                                                 "auditRuleInformation":  null,
+                                                 "choiceSettingValue":  {
+                                                                            "children":  [
+
+                                                                                         ],
+                                                                            "settingValueTemplateReference":  null,
+                                                                            "value":  "user_vendor_msft_policy_config_admx_wpn_nolockscreentoastnotification_1"
+                                                                        }
+                                             }
+                     },
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                 "settingDefinitionId":  "user_vendor_msft_policy_config_attachmentmanager_donotpreservezoneinformation",
+                                                 "settingInstanceTemplateReference":  null,
+                                                 "auditRuleInformation":  null,
+                                                 "choiceSettingValue":  {
+                                                                            "children":  [
+
+                                                                                         ],
+                                                                            "settingValueTemplateReference":  null,
+                                                                            "value":  "user_vendor_msft_policy_config_attachmentmanager_donotpreservezoneinformation_0"
+                                                                        }
+                                             }
+                     },
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                 "settingDefinitionId":  "user_vendor_msft_policy_config_experience_allowwindowsspotlight",
+                                                 "settingInstanceTemplateReference":  null,
+                                                 "auditRuleInformation":  null,
+                                                 "choiceSettingValue":  {
+                                                                            "children":  [
+                                                                                             {
+                                                                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                                                                 "settingDefinitionId":  "user_vendor_msft_policy_config_experience_allowthirdpartysuggestionsinwindowsspotlight",
+                                                                                                 "settingInstanceTemplateReference":  null,
+                                                                                                 "auditRuleInformation":  null,
+                                                                                                 "choiceSettingValue":  {
+                                                                                                                            "children":  [
+
+                                                                                                                                         ],
+                                                                                                                            "settingValueTemplateReference":  null,
+                                                                                                                            "value":  "user_vendor_msft_policy_config_experience_allowthirdpartysuggestionsinwindowsspotlight_0"
+                                                                                                                        }
+                                                                                             }
+                                                                                         ],
+                                                                            "settingValueTemplateReference":  null,
+                                                                            "value":  "user_vendor_msft_policy_config_experience_allowwindowsspotlight_1"
+                                                                        }
+                                             }
+                     },
+                     {
+                         "@odata.type":  "#microsoft.graph.deviceManagementConfigurationSetting",
+                         "settingInstance":  {
+                                                 "@odata.type":  "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                                                 "settingDefinitionId":  "user_vendor_msft_policy_config_windowsai_turnoffwindowscopilot",
+                                                 "settingInstanceTemplateReference":  null,
+                                                 "auditRuleInformation":  null,
+                                                 "choiceSettingValue":  {
+                                                                            "children":  [
+
+                                                                                         ],
+                                                                            "settingValueTemplateReference":  null,
+                                                                            "value":  "user_vendor_msft_policy_config_windowsai_turnoffwindowscopilot_1"
+                                                                        }
+                                             }
+                     }
+                 ]
+}

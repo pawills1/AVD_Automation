@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SiPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" PolicyType="Supplemental Policy" xmlns="urn:schemas-microsoft-com:sipolicy">
+  <VersionEx>10.0.4.4</VersionEx>
+  <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
+  <PolicyID>{0AE05A8A-5635-4D61-8AB5-E3E26CBF6AFE}</PolicyID>
+  <BasePolicyID>{5B4CDE98-6AA7-4043-B3C2-98112B6BF091}</BasePolicyID>
+  <Rules>
+    <Rule>
+      <Option>Enabled:Unsigned System Integrity Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:Managed Installer</Option>
+    </Rule>
+    <Rule>
+      <Option>Disabled:Runtime FilePath Rule Protection</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:Inherit Default Policy</Option>
+    </Rule>
+    <Rule>
+      <Option>Enabled:UMCI</Option>
+    </Rule>
+  </Rules>
+  <EKUs />
+  <FileRules>
+    <Allow ID="ID_ALLOW_A_0" FriendlyName="Allow files based on file attributes: windowsdesktop-runtime-10.0.11-win-x64.exe and Microsoft Windows Desktop Runtime 10.0.11 (x64) and Microsoft Windows Desktop Runtime 10.0.11 (x64) and burn" FileName="windowsdesktop-runtime-10.0.11-win-x64.exe" InternalName="burn" FileDescription="Microsoft Windows Desktop Runtime 10.0.11 (x64)" ProductName="Microsoft Windows Desktop Runtime 10.0.11 (x64)" />
+    <Allow ID="ID_ALLOW_A_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow files based on file attributes: netcoresearch.exe and netcoresearch and WiX Toolset and netcoresearch" FileName="netcoresearch.exe" InternalName="netcoresearch" FileDescription="netcoresearch" ProductName="WiX Toolset" />
+    <Allow ID="ID_ALLOW_A_1_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow files based on file attributes: netcoresearch.exe and netcoresearch and WiX Toolset and netcoresearch" FileName="netcoresearch.exe" InternalName="netcoresearch" FileDescription="netcoresearch" ProductName="WiX Toolset" />
+    <FileAttrib ID="ID_FILEATTRIB_A_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Microsoft® Windows® Operating System" />
+    <FileAttrib ID="ID_FILEATTRIB_A_2_1_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Firefox" />
+    <FileAttrib ID="ID_FILEATTRIB_A_3_1_3_3_2_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Microsoft Power BI Report Builder" />
+    <FileAttrib ID="ID_FILEATTRIB_A_2_1_3_2_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Microsoft FSLogix Apps" />
+    <FileAttrib ID="ID_FILEATTRIB_A_3_1_1_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Printer Installer" />
+    <FileAttrib ID="ID_FILEATTRIB_A_0_1_4_4_4_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Google Chrome" />
+    <FileAttrib ID="ID_FILEATTRIB_A_1_1_2_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="GoogleUpdater (x86)" />
+    <FileAttrib ID="ID_FILEATTRIB_A_9_1_3_2_2_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Google Chrome Installer" />
+    <FileAttrib ID="ID_FILEATTRIB_A_0_1_4_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Adobe Genuine Software Integrity Service" />
+    <FileAttrib ID="ID_FILEATTRIB_A_8_1_5_4_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Adobe Genuine Software Service" />
+    <FileAttrib ID="ID_FILEATTRIB_A_10_1_6_5_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="GC Invoker Utility" />
+    <FileAttrib ID="ID_FILEATTRIB_A_5_1_7_6_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="Nessus" />
+    <FileAttrib ID="ID_FILEATTRIB_A_0_1_5_5_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" ProductName="The OpenSSL Toolkit" />
+    <FileAttrib ID="ID_FILEATTRIB_A_0_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" FileName="VC_redist.x64.exe" />
+    <FileAttrib ID="ID_FILEATTRIB_A_0_1_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" FileName="psexec.c" ProductName="Sysinternals PsExec" MinimumFileVersion="2.43.0.0" />
+    <FileAttrib ID="ID_FILEATTRIB_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" FileName="Microsoft.Outlook.StdioListeningNativeApp.exe" />
+    <FileAttrib ID="ID_FILEATTRIB_A_1_1_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="" FileName="VC_redist.x86.exe" ProductName="Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.42.34433" MinimumFileVersion="14.42.34433.0" />
+    <Allow ID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\WindowsAzure\*" FilePath="%OSDRIVE%\WindowsAzure\*" />
+    <Allow ID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\FEDLOG" FilePath="%OSDRIVE%\ProgramData\FEDLOG" />
+    <Allow ID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %WINDIR%\Temp\Microsoft.RDInfra.RDAgent.Installer-x64.msi" FilePath="%WINDIR%\Temp\Microsoft.RDInfra.RDAgent.Installer-x64.msi" />
+    <Allow ID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %WINDIR%\PPP_TEMP\*" FilePath="%WINDIR%\PPP_TEMP\*" />
+    <Allow ID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\Packages\Plugins\*" FilePath="%OSDRIVE%\Packages\Plugins\*" />
+    <Allow ID="ID_ALLOW_PATH_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %WINDIR%\SysWOW64\ArmyAVDdsc\*" FilePath="%WINDIR%\SysWOW64\ArmyAVDdsc\*" />
+    <Allow ID="ID_ALLOW_A_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\DataCollection\*" FilePath="%OSDRIVE%\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\DataCollection\*" />
+    <Allow ID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\Package Cache\*" FilePath="%OSDRIVE%\ProgramData\Package Cache\*" />
+    <Allow ID="ID_ALLOW_A_8_2_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%WINDIR%\SysWOW64\ArmyAPI\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%WINDIR%\SysWOW64\ArmyAPI\*" />
+    <Allow ID="ID_ALLOW_A_9_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%WINDIR%\SysWOW64\Armydsc\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%WINDIR%\SysWOW64\Armydsc\*" />
+    <Allow ID="ID_ALLOW_A_A_2_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%WINDIR%\SysWOW64\ArmyIMELOG\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%WINDIR%\SysWOW64\ArmyIMELOG\*" />
+    <Allow ID="ID_ALLOW_A_B_3_2_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%WINDIR%\SysWOW64\ArmyJEA\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%WINDIR%\SysWOW64\ArmyJEA\*" />
+    <Allow ID="ID_ALLOW_A_C_4_3_2_2_2_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%SYSTEM32%\Intune Management\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%SYSTEM32%\Intune Management\*" />
+    <Allow ID="ID_ALLOW_A_D_5_4_3_3_3_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%OSDRIVE%\Program Files\WindowsPowerShell\Modules\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%OSDRIVE%\Program Files\WindowsPowerShell\Modules\*" />
+    <Allow ID="ID_ALLOW_A_E_6_5_4_4_4_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%OSDRIVE%\Program Files (x86)\WindowsPowerShell\Modules\* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%OSDRIVE%\Program Files (x86)\WindowsPowerShell\Modules\*" />
+    <Allow ID="ID_ALLOW_A_3_1_6_5_5_5_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%WINDIR%\assembly\NativeImages_* FileRule" MinimumFileVersion="0.0.0.0" FilePath="%WINDIR%\assembly\NativeImages_*" />
+    <Allow ID="ID_ALLOW_A_4_1_1_6_6_6_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="%WINDIR%\Installer\MSI????.tmp FileRule" MinimumFileVersion="0.0.0.0" FilePath="%WINDIR%\Installer\MSI????.tmp" />
+    <Allow ID="ID_ALLOW_A_1_1_3_2_2_2_2_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="*.dll FileRule" MinimumFileVersion="0.0.0.0" FilePath="*.dll" />
+    <Allow ID="ID_ALLOW_C_0_1_1_1_1_4_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\STIG Viewer 3\app-3.3.0\STIG Viewer 3.exe; Correlation Id: 15081b7b-b383-0002-0a6d-cf4ed1aada01" FilePath="C:\Program Files (x86)\STIG Viewer 3\app-3.3.0\STIG Viewer 3.exe" />
+    <Allow ID="ID_ALLOW_C_1_1_2_2_2_5_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\STIG Viewer 3\app-3.3.0\*; Correlation Id: 15081b7b-b383-0002-0a6d-cf4ed1aada01" FilePath="C:\Program Files (x86)\STIG Viewer 3\app-3.3.0\*" />
+    <Allow ID="ID_ALLOW_C_0_1_7_7_7_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\STIG Viewer 3\STIG Viewer 3.exe; Correlation Id: 15081b7b-b383-000e-a09c-01bf4facda01" FilePath="C:\Program Files (x86)\STIG Viewer 3\STIG Viewer 3.exe" />
+    <Allow ID="ID_ALLOW_C_1_1_8_8_8_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\STIG Viewer 3\*; Correlation Id: 15081b7b-b383-000e-a09c-01bf4facda01" FilePath="C:\Program Files (x86)\STIG Viewer 3\*" />
+    <Allow ID="ID_ALLOW_C_2_1_9_9_9_8_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\7-Zip\7zFM.exe; Correlation Id: 15081b7b-b383-0006-dfc6-00bf4facda01" FilePath="C:\Program Files\7-Zip\7zFM.exe" />
+    <Allow ID="ID_ALLOW_C_3_1_10_10_10_9_9_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\7-Zip\*; Correlation Id: 15081b7b-b383-0006-dfc6-00bf4facda01" FilePath="C:\Program Files\7-Zip\*" />
+    <Allow ID="ID_ALLOW_C_0_1_3_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\Tenable\Nessus Agent\*; Correlation Id: {5e31ad26-8075-000a-5946-eddbc4d3da01}" FilePath="C:\Program Files\Tenable\Nessus Agent\*" />
+    <Allow ID="ID_ALLOW_C_1_1_4_4_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\stunnel\*; Correlation Id: {5e31ad26-8075-000c-d23b-9abf5ad4da01}" FilePath="C:\Program Files (x86)\stunnel\*" />
+    <Allow ID="ID_ALLOW_C_2_1_5_5_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\JSP\ClassificationBanner\*; Correlation Id: {5e31ad26-8075-0005-be50-9abf5ad4da01}" FilePath="C:\Program Files (x86)\JSP\ClassificationBanner\*" />
+    <Allow ID="ID_ALLOW_C_3_1_6_6_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\Printer Properties Pro\Printer Installer Client\bin\idp\PrinterLogicIdpAuthentication.exe; Correlation Id: {5e31ad26-8075-0001-1342-9abf5ad4da01}" FilePath="C:\Program Files (x86)\Printer Properties Pro\Printer Installer Client\bin\idp\PrinterLogicIdpAuthentication.exe" />
+    <Allow ID="ID_ALLOW_C_4_1_7_7_7_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files (x86)\Printer Properties Pro\Printer Installer Client\bin\idp\*; Correlation Id: {5e31ad26-8075-0001-1342-9abf5ad4da01}" FilePath="C:\Program Files (x86)\Printer Properties Pro\Printer Installer Client\bin\idp\*" />
+    <Allow ID="ID_ALLOW_B_0_1_13_13_10_10_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow wsl.exe by file attributes; Correlation Id: {5e31ad26-8075-000a-9cf7-ba9f61d4da01}" FileName="wsl.exe" InternalName="wsl.exe" FileDescription="Windows Subsystem for Linux" ProductName="Microsoft® Windows® Operating System" />
+    <Allow ID="ID_ALLOW_C_7_1_14_14_11_11_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\Yubico\YubiKey Manager\ykman-gui.exe; Correlation Id: {5e31ad26-8075-000c-f137-bb9f61d4da01}" FilePath="C:\Program Files\Yubico\YubiKey Manager\ykman-gui.exe" />
+    <Allow ID="ID_ALLOW_C_8_1_15_15_12_12_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\Yubico\YubiKey Manager\*; Correlation Id: {5e31ad26-8075-000c-f137-bb9f61d4da01}" FilePath="C:\Program Files\Yubico\YubiKey Manager\*" />
+    <Allow ID="ID_ALLOW_B_1_1_16_16_13_13_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow WebClnt.dll by file attributes; Correlation Id: {5e31ad26-8075-000a-45de-ba9f61d4da01}" FileName="davsvc.dll" InternalName="davsvc.dll" FileDescription="Web DAV Service DLL" ProductName="Microsoft® Windows® Operating System" />
+    <Allow ID="ID_ALLOW_C_9_1_17_17_14_14_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\Notepad++\notepad++.exe; Correlation Id: {5e31ad26-8075-000c-4de2-ba9f61d4da01}" FilePath="C:\Program Files\Notepad++\notepad++.exe" />
+    <Allow ID="ID_ALLOW_C_10_1_18_18_15_15_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\Notepad++\*; Correlation Id: {5e31ad26-8075-000c-4de2-ba9f61d4da01}" FilePath="C:\Program Files\Notepad++\*" />
+    <Allow ID="ID_ALLOW_C_11_1_19_19_16_16_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\DAX Studio\DaxStudio.exe; Correlation Id: {5e31ad26-8075-000e-a2be-ba9f61d4da01}" FilePath="C:\Program Files\DAX Studio\DaxStudio.exe" />
+    <Allow ID="ID_ALLOW_C_12_1_20_20_17_17_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\DAX Studio\*; Correlation Id: {5e31ad26-8075-000e-a2be-ba9f61d4da01}" FilePath="C:\Program Files\DAX Studio\*" />
+    <Allow ID="ID_ALLOW_PATH_0_0_1_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\Program Files\*" FilePath="%OSDRIVE%\Program Files\*" />
+    <Allow ID="ID_ALLOW_PATH_1_0_1_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\Program Files (x86)\*" FilePath="%OSDRIVE%\Program Files (x86)\*" />
+    <Allow ID="ID_ALLOW_PATH_2_0_1_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %SYSTEM32%\*" FilePath="%SYSTEM32%\*" />
+    <Allow ID="ID_ALLOW_B_0_1_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow PowerAutomate.exe by file attributes; Correlation Id: 69821a77-4ac0-0000-7979-802cc13adb01" FileName="Setup.Microsoft.PowerAutomate.exe" />
+    <Allow ID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\ProgramData\Package Cache\{155C8054-1007-4FF9-A79A-035B30F8B9E8}v2.49.00177.24289\Microsoft.Flow.UIflow.msi; Correlation Id: e7f9f887-cd87-0003-7898-2f2dc13adb01" FilePath="C:\ProgramData\Package Cache\{155C8054-1007-4FF9-A79A-035B30F8B9E8}v2.49.00177.24289\Microsoft.Flow.UIflow.msi" />
+    <Allow ID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\WindowsPowerShell\Modules\JEA\RoleCapabilities\*; Correlation Id: 87a756d4-c43c-0003-2e3d-d810804adb01" FilePath="C:\Program Files\WindowsPowerShell\Modules\JEA\RoleCapabilities\*" />
+    <Allow ID="ID_ALLOW_B_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow OCE.EXE by file attributes; Correlation Id: 87a756d4-c43c-0001-0c65-d410804adb01" FileName="OCE.EXE" InternalName="OCE.EXE" />
+    <Allow ID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandHandlerWindows\2.0.9\Downloads\*; Correlation Id: 36616482-2808-0000-69aa-8c6fea4cdb01" FilePath="C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandHandlerWindows\2.0.9\Downloads\*" />
+    <Allow ID="ID_ALLOW_E_0_SHA1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="InstallNotepad++.ps1 SHA1 hash allow rule; Correlation Id: 36616482-2808-0003-8ea1-8c6fea4cdb01" Hash="E3B76EF3BC959AB2D2C608C06657523B49B23033" />
+    <Allow ID="ID_ALLOW_E_1_SHA256_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="InstallNotepad++.ps1 SHA256 hash allow rule; Correlation Id: 36616482-2808-0003-8ea1-8c6fea4cdb01" Hash="E448EA618A26205EABA13703C46549BC3B65425F5F255695C1902429D5DAA811" />
+    <Allow ID="ID_ALLOW_E_2_SHA1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="InstallPowerAutomate.ps1 SHA1 hash allow rule; Correlation Id: 36616482-2808-0000-28ac-8c6fea4cdb01" Hash="94AC38A537E2AD7EF83F61075E4CC5EF5A878903" />
+    <Allow ID="ID_ALLOW_E_3_SHA256_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="InstallPowerAutomate.ps1 SHA256 hash allow rule; Correlation Id: 36616482-2808-0000-28ac-8c6fea4cdb01" Hash="D0347992BA3097D41FC28E8FB21FC57176CD4375CBB7163750DB8035EE91A2BC" />
+    <Allow ID="ID_ALLOW_E_4_SHA1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="User_Actions_bf94d4ca-9747-4510-8462-aabccac06340.pssc SHA1 hash allow rule; Correlation Id: 36616482-2808-0001-8d76-23ab594ddb01" Hash="F3567BD152F7654E31D713FDD2A12E6DE5038D8E" />
+    <Allow ID="ID_ALLOW_E_5_SHA256_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="User_Actions_bf94d4ca-9747-4510-8462-aabccac06340.pssc SHA256 hash allow rule; Correlation Id: 36616482-2808-0001-8d76-23ab594ddb01" Hash="3ECDDF6F4B1E604EE60F7B2F2C888EF4F27CDD157C75CE43A434E438C18654B0" />
+    <Allow ID="ID_ALLOW_C_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Program Files\WindowsPowerShell\Modules\JEA\RoleCapabilities\User_Actions.psrc; Correlation Id: 36616482-2808-0001-8f76-23ab594ddb01" FilePath="C:\Program Files\WindowsPowerShell\Modules\JEA\RoleCapabilities\User_Actions.psrc" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow MSI304.tmp by file attributes; Correlation Id: 36616482-2808-0000-05dc-8c6fea4cdb01" FileName="wixca.dll" InternalName="wixca" FileDescription="WiX Custom Actions" ProductName="Windows Installer XML Toolset" />
+    <Allow ID="ID_ALLOW_PATH_0_1_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %OSDRIVE%\ProgramData\Tenable\Nessus Agent\*" FilePath="%OSDRIVE%\ProgramData\Tenable\Nessus Agent\*" />
+    <Allow ID="ID_ALLOW_PATH_1_1_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %WINDIR%\tenable_mw_scan_*.exe" FilePath="%WINDIR%\tenable_mw_scan_*.exe" />
+    <Allow ID="ID_ALLOW_PATH_2_1_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %WINDIR%\temp\nessus_*.bat" FilePath="%WINDIR%\temp\nessus_*.bat" />
+    <Allow ID="ID_ALLOW_PATH_3_1_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow by path: %WINDIR%\Tenable\Nessus Agent\*" FilePath="%WINDIR%\Tenable\Nessus Agent\*" />
+    <Allow ID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow path: C:\Windows\tenable_ovaldi_2ef350e0435440418f7d33232f74f260.exe; Correlation Id: 8a1f475b-2a77-0002-dca9-48e8cf9cdb01" FilePath="C:\Windows\tenable_ovaldi_2ef350e0435440418f7d33232f74f260.exe" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0_0_0" FriendlyName="Allow MSI5E7.tmp by file attributes; Correlation Id: 9719216b-bb2d-0001-54c2-3377f5cfdb01" FileName="iKernel.dll" InternalName="Kernel" FileDescription="InstallShield (R) Setup Engine" ProductName="InstallShield" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0_0" FriendlyName="Allow MSI27A.tmp by file attributes; Correlation Id: ef44779e-6270-000a-a037-8c70148adc01" FileName="utilca.dll" InternalName="utilca" FileDescription="WiX Toolset Util CustomAction" ProductName="WiX Toolset" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0" FriendlyName="Allow MSIEF.tmp by file attributes; Correlation Id: 3ec46182-01d9-0001-2357-c7bf2b92dc01" FileName="netfxca.dll" InternalName="netfxca" FileDescription="WiX NetFX Custom Actions" ProductName="Windows Installer XML Toolset" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0" FriendlyName="Allow MSI54CC.tmp by file attributes; Correlation Id: 92d5470d-395b-0002-482f-13e3aad1dc01" FileName="DPCA.DLL" InternalName="CustomActions" FileDescription="Microsoft (R) Visual Studio UrlConvert custom action" ProductName="Microsoft® Visual Studio®" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0_0" FriendlyName="Allow wixprqba.exe by file attributes; Correlation Id: 138ff326-f993-0002-627e-0850f8e2dc01" FileName="wixprqba.exe" InternalName="wixprqba" FileDescription="WiX Prerequisite Bootstrapper Application" ProductName="WiX Toolset" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0_0" FriendlyName="Allow MSI6A3.tmp by file attributes; Correlation Id: c74bc9b8-5292-0001-800c-07b592e3dc01" FileName="AICustAct.dll" InternalName="AICustAct.dll" FileDescription="Various custom actions" ProductName="Advanced Installer" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0_0" FriendlyName="Allow MSI35E.tmp by file attributes; Correlation Id: 36423342-7589-0000-01bd-e8aa18f9dc01" FileName="ResourceCleaner.dll" InternalName="ResourceCleaner.dll" FileDescription="Custom action that augments RemoveFile table from MSI" ProductName="Advanced Installer" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0_0" FriendlyName="Allow Microsoft.Flow.RPA.InstallerUI.exe by file attributes; Correlation Id: c2071c00-6c91-0002-b7a7-fc4473fedc01" FileName="Microsoft.Flow.RPA.InstallerUI.exe" InternalName="Microsoft.Flow.RPA.InstallerUI.exe" FileDescription="Microsoft.Flow.RPA.InstallerUI" ProductName="Microsoft Flow Robotic Process Automation" />
+    <Allow ID="ID_ALLOW_B_1_1_0_0_0" FriendlyName="Allow MSI6D8.tmp by file attributes; Correlation Id: c40292c8-7e10-0009-ac9e-974573fedc01" FileName="SoftwareDetector.dll" InternalName="SoftwareDetector.dll" FileDescription="Custom action that search items needed by predefined launch conditions." ProductName="Advanced Installer" />
+    <Allow ID="ID_ALLOW_B_0_1_0_0" FriendlyName="Allow wixstdba.exe by file attributes; Correlation Id: 0e995b01-cb1c-0000-2cac-d603d10fdd01" FileName="wixstdba.exe" InternalName="wixstdba" FileDescription="WiX Standard Bootstrapper Application" ProductName="WiX Toolset" />
+    <Allow ID="ID_ALLOW_B_0_1" FriendlyName="Allow wixstdba.exe by file attributes; Correlation Id: {80da6d7e-b4ff-0000-d036-a24a6836dd01}" FileName="wixstdba.exe" />
+  </FileRules>
+  <Signers>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_20_0_0">
+      <CertRoot Type="TBS" Value="016F6D97EF55E74110BF8D40F247EFA23010F192DD83A0D8BEAB59326C6F2B8C" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_18_0_0">
+      <CertRoot Type="TBS" Value="C412E362A561D9BAA79CD08ABCAEF8150C423C31FB8FED9D115B9CE97660FCDD" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_16_0_0">
+      <CertRoot Type="TBS" Value="2177863E7C6913228061C409FB9E7421BADEB8CCB3D4ACC60314770141F137DA" />
+    </Signer>
+    <Signer Name="FACKRELL.CRAIG.ESPEN.1158765558" ID="ID_SIGNER_S_14_0_0">
+      <CertRoot Type="TBS" Value="DFCBDEFBF1547690BF0E44A95DE8A5D352B477E3E079CE8F9A133AF340562A9A" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_12_0_0">
+      <CertRoot Type="TBS" Value="B5CF205CFB6A821E5F5E035941626734734813427F2F5EA08C9BE193F4AEB9E0" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_10_0_0">
+      <CertRoot Type="TBS" Value="BD000916ED21A4DC10DDCB731AC21EB784616AF29E0DF65CBCEE9B1B7F6D7C1B" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_8_0_0">
+      <CertRoot Type="TBS" Value="ED75996134F23C573EA6481BAD92898BF1BAE7D41B442D0A5C92B982617D7BFA" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_6_0_0">
+      <CertRoot Type="TBS" Value="7B77AF8D62FCE127BBF68A90067AD27EF7B9953E98621DA023022D09CA313343" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_4_0_0">
+      <CertRoot Type="TBS" Value="829C955EAE149B2BFECE13D8DB962705885240AE25DE979B7A62D235960F86D8" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_2_0_0">
+      <CertRoot Type="TBS" Value="5801848364A0E60893471EB8CB13EFD9B30391EE5A666E0D14AD7BC08892752A" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_0_0_0">
+      <CertRoot Type="TBS" Value="829C955EAE149B2BFECE13D8DB962705885240AE25DE979B7A62D235960F86D8" />
+    </Signer>
+    <Signer Name="Army EITaaS Issuing" ID="ID_SIGNER_S_0_0_0_0">
+      <CertRoot Type="TBS" Value="207093C8BF8E4023C183A7ED8207A7E761A7F58F2E0BFA6995D0C88F15EE7658" />
+      <CertPublisher Value="Army Code Signing" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_19_0_0">
+      <CertRoot Type="TBS" Value="016F6D97EF55E74110BF8D40F247EFA23010F192DD83A0D8BEAB59326C6F2B8C" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_17_0_0">
+      <CertRoot Type="TBS" Value="C412E362A561D9BAA79CD08ABCAEF8150C423C31FB8FED9D115B9CE97660FCDD" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_15_0_0">
+      <CertRoot Type="TBS" Value="2177863E7C6913228061C409FB9E7421BADEB8CCB3D4ACC60314770141F137DA" />
+    </Signer>
+    <Signer Name="FACKRELL.CRAIG.ESPEN.1158765558" ID="ID_SIGNER_S_13_0_0">
+      <CertRoot Type="TBS" Value="DFCBDEFBF1547690BF0E44A95DE8A5D352B477E3E079CE8F9A133AF340562A9A" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_11_0_0">
+      <CertRoot Type="TBS" Value="B5CF205CFB6A821E5F5E035941626734734813427F2F5EA08C9BE193F4AEB9E0" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_9_0_0">
+      <CertRoot Type="TBS" Value="BD000916ED21A4DC10DDCB731AC21EB784616AF29E0DF65CBCEE9B1B7F6D7C1B" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_7_0_0">
+      <CertRoot Type="TBS" Value="ED75996134F23C573EA6481BAD92898BF1BAE7D41B442D0A5C92B982617D7BFA" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_5_0_0">
+      <CertRoot Type="TBS" Value="7B77AF8D62FCE127BBF68A90067AD27EF7B9953E98621DA023022D09CA313343" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_3_0_0">
+      <CertRoot Type="TBS" Value="829C955EAE149B2BFECE13D8DB962705885240AE25DE979B7A62D235960F86D8" />
+    </Signer>
+    <Signer Name="CS.NETC-GCC-ES.001" ID="ID_SIGNER_S_1_0_0">
+      <CertRoot Type="TBS" Value="5801848364A0E60893471EB8CB13EFD9B30391EE5A666E0D14AD7BC08892752A" />
+    </Signer>
+    <Signer Name="DOD SW CA-60" ID="ID_SIGNER_S_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="FEEB5EF444C90C6AEA77F44D7817B886628B04794B3757CA127622F55D0F01EB" />
+      <CertPublisher Value="CS.DISA-ID31.08-0028" />
+    </Signer>
+    <Signer Name="Allow CN = Oracle America, Inc. issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_0_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Oracle America, Inc." />
+    </Signer>
+    <Signer Name="Allow CN = Adobe Inc. issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_1_1_1_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Adobe Inc." />
+    </Signer>
+    <Signer Name="Allow CN = Adobe Systems, Incorporated issued by Symantec Class 3 Extended Validation Code Signing CA - G2" ID="ID_SIGNER_A_2_1_2_1_2_2_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="B3C925B4048C3F7C444D248A2B101186B57CBA39596EB5DCE0E17A4EE4B32F19" />
+      <CertPublisher Value="Adobe Systems, Incorporated" />
+    </Signer>
+    <Signer Name="DigiCert SHA2 Assured ID Code Signing CA" ID="ID_SIGNER_S_1_2_2_1_1_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="E767799478F64A34B3F53FF3BB9057FE1768F4AB178041B0DCC0FF1E210CBA65" />
+      <CertPublisher Value="Tenable Inc." />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Windows issued by Microsoft Windows Production PCA 2011" ID="ID_SIGNER_A_1_1_1_1_1_1_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="7EEA6C24F02AF3ED4038C4E74491F687804FF0B4E49C8FDD7C5799E5CB096172" />
+      <CertPublisher Value="Microsoft Windows" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = Mozilla Corporation issued by DigiCert SHA2 Assured ID Code Signing CA" ID="ID_SIGNER_A_2_1_2_2_1_1_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="60A465234130E42D01E1285D314256DD7FD709C4127EB9AE7CE3387DA1D4CD0A" />
+      <CertPublisher Value="Mozilla Corporation" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_2_1_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_3_1_3_3_2_2_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="8729D1F8F15AA4E8BD025EF07BD9DD01AAB70D16C5E6103B8C28F23DD4173230" />
+      <CertPublisher Value="Microsoft Corporation" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_3_1_3_3_2_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = TYCHON, LLC issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_1_1_2_2_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="6577EA2653799FF396389869348D0AD35E5C7171926A1B4732B196BE99150B28" />
+      <CertPublisher Value="TYCHON, LLC" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_3_1_3_3_3_3_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="27E10AAE53A88E3DF24B3D9B11479D188ABEC83CB482BF7F5BE521B537A2E868" />
+      <CertPublisher Value="Microsoft Corporation" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_2_1_3_2_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = PrinterLogic issued by Sectigo Public Code Signing CA R36" ID="ID_SIGNER_A_4_1_4_4_4_4_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="F7E1876AAEFD64311E2058236353A95B4072C2A01080CD9090F01DF31BE3042A9BA52B7287300389CFA00EB7C6D82722" />
+      <CertPublisher Value="PrinterLogic" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_3_1_1_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_5_1_5_5_5_5_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="27E10AAE53A88E3DF24B3D9B11479D188ABEC83CB482BF7F5BE521B537A2E868" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_6_1_6_6_6_6_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="8729D1F8F15AA4E8BD025EF07BD9DD01AAB70D16C5E6103B8C28F23DD4173230" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_7_1_7_7_7_7_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="FBFA42FFA53ED96430FB0FD3D0C253B75439142D7A118F30D312A4B32A577AB7" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_8_1_8_8_8_8_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="57C7D92D24A49787AA1EB5D923C7717519B0D8D30852834E445471350A183CD4" />
+      <CertPublisher Value="Microsoft Corporation" />
+    </Signer>
+    <Signer Name="Allow CN = Google LLC issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_0_1_4_4_3_3_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="326FC9485196D970CC9ECE0DAD860515BEC6C20422C991ED1C68A60612FB3E64" />
+      <CertPublisher Value="Google LLC" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_0_1_4_4_4_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_1_1_2_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_9_1_3_2_2_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = Adobe Inc. issued by DigiCert EV Code Signing CA (SHA2)" ID="ID_SIGNER_A_0_1_9_9_9_9_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="4B480044DC1E5189B37A55BF1ADFD1A9B146A4D0EFE9276261E4B25C9B6EF222" />
+      <CertPublisher Value="Adobe Inc." />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_0_1_4_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_8_1_5_4_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_10_1_6_5_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = TENABLE, INC. issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_10_1_10_10_10_10_9_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="EC788B0F3C349FE15F738056EFA5FFA7F88C12D67DB8C4420CA8E0B62C37D794" />
+      <CertPublisher Value="TENABLE, INC." />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_5_1_7_6_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_0_1_5_5_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = .NET issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_0_1_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value=".NET" />
+    </Signer>
+    <Signer Name="Allow CN = SAP SE issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_0_2_11_11_10_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="SAP SE" />
+    </Signer>
+    <Signer Name="Allow CN = Jan 1, 2001 12:00:00 AM issued by Jan 1, 1959 12:00:00 AM" ID="ID_SIGNER_A_1_2_12_12_11_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="AC3F62FE928B800EC362F94591F38890ADE7536C4A771EF93B53B4514B0F83CB" />
+      <CertPublisher Value="Jan 1, 2001 12:00:00 AM" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Windows issued by Jan 1, 2011 12:00:00 AM" ID="ID_SIGNER_A_0_1_4_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="4E80BE107C860DE896384B3EFF50504DC2D76AC7151DF3102A4450637A032146" />
+      <CertPublisher Value="Microsoft Windows" />
+    </Signer>
+    <Signer Name="Allow CN = Adobe Inc. issued by DigiCert EV Code Signing CA (SHA2)" ID="ID_SIGNER_A_2_1_5_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="EEC58131DC11CD7F512501B15FDBC6074C603B68CA91F7162D5A042054EDB0CF" />
+      <CertPublisher Value="Adobe Inc." />
+    </Signer>
+    <Signer Name="Allow CN = Solid Documents Limited issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_2_1_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Solid Documents Limited" />
+    </Signer>
+    <Signer Name="Allow CN = PrinterLogic issued by Sectigo Public Code Signing CA R36" ID="ID_SIGNER_A_3_1_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="0EEB0F83C55CCAAF275CEC9CAAED00280B6DD9BD8E37BD8A191A5CF77A0E2D1298EDB019E2A1E67E3F7BD4B1C7616DC0" />
+      <CertPublisher Value="PrinterLogic" />
+    </Signer>
+    <Signer Name="Allow CN = Xerox Corporation issued by Sectigo Public Code Signing CA R36" ID="ID_SIGNER_A_4_1_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="0EEB0F83C55CCAAF275CEC9CAAED00280B6DD9BD8E37BD8A191A5CF77A0E2D1298EDB019E2A1E67E3F7BD4B1C7616DC0" />
+      <CertPublisher Value="Xerox Corporation" />
+    </Signer>
+    <Signer Name="Allow CN = CS.USAMEDCOM-RHID-FTDTL.001 issued by DOD ID CA-65" ID="ID_SIGNER_A_0_1_13_12_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="E6452065507C894FB8FEFABAA8FAD753E634B5EE44E4D32D6246B9A172889281" />
+      <CertPublisher Value="CS.USAMEDCOM-RHID-FTDTL.001" />
+    </Signer>
+    <Signer Name="Allow CN = Notepad++ issued by DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1" ID="ID_SIGNER_A_0_1_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="65B1D4076A89AE273F57E6EEEDECB3EAE129B4168F76FA7671914CDF461D542255C59D9B85B916AE0CA6FC0FCF7A8E64" />
+      <CertPublisher Value="Notepad++" />
+    </Signer>
+    <Signer Name="Allow CN = PrinterLogic issued by Microsoft ID Verified CS AOC CA 02" ID="ID_SIGNER_A_2_1_13_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="5B93F3566691AA49A964F2D25EC0353CFF3ADB47032631626793E763DF56D32D99F83600835E9732FE9F2D915EBDED11" />
+      <CertPublisher Value="PrinterLogic" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_3_1_1_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = PrinterLogic issued by Microsoft ID Verified CS EOC CA 01" ID="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="1DD606341CB8DF29FF19A1F50117B58CC2EEBA93482CC56A08D0BCF1B97509761A2D96651EBE13F2C978AC555C6C56D5" />
+      <CertPublisher Value="PrinterLogic" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_3_1_1_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Windows issued by Microsoft Windows Production PCA 2011" ID="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="4E80BE107C860DE896384B3EFF50504DC2D76AC7151DF3102A4450637A032146" />
+      <CertPublisher Value="Microsoft Windows" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+    <Signer Name="Allow CN = PrinterLogic issued by Microsoft ID Verified CS AOC CA 01" ID="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="11C5626B033EF08CA1228598AD20EE125315929846F0AC4800F98A4FFF7829D093288B86A5D7784D58C25CE5F7FBC1D5" />
+      <CertPublisher Value="PrinterLogic" />
+    </Signer>
+    <Signer Name="Allow CN = Microsoft Corporation issued by Microsoft Code Signing PCA 2011" ID="ID_SIGNER_A_1_1_8_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0">
+      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
+      <CertPublisher Value="Microsoft Corporation" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_0_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_0_1_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+      <FileAttribRef RuleID="ID_FILEATTRIB_A_1_1_0_0_0_0_0_0_0_0_0_0_0" />
+    </Signer>
+  </Signers>
+  <SigningScenarios>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_DRIVERS_1" FriendlyName="Auto generated policy on 08-31-2026" Value="131">
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_20_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_18_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_16_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_14_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_12_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_10_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_8_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_6_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_4_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_2_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0_0_0_0" />
+        </AllowedSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1_0_0_0_0_0_0_0_0_0_0" />
+        </FileRulesRef>
+      </ProductSigners>
+    </SigningScenario>
+    <SigningScenario ID="ID_SIGNINGSCENARIO_WINDOWS" FriendlyName="Auto generated policy on 08-31-2026" Value="12">
+      <ProductSigners>
+        <AllowedSigners>
+          <AllowedSigner SignerId="ID_SIGNER_S_19_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_17_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_15_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_13_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_11_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_9_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_7_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_5_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_3_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_1_1_1_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_2_1_2_1_2_2_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_S_1_2_2_1_1_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_1_1_1_1_1_1_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_2_1_2_2_1_1_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_3_1_3_3_2_2_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_1_1_2_2_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_3_1_3_3_3_3_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_4_1_4_4_4_4_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_5_1_5_5_5_5_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_6_1_6_6_6_6_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_7_1_7_7_7_7_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_8_1_8_8_8_8_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_4_4_3_3_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_9_9_9_9_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_10_1_10_10_10_10_9_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_2_11_11_10_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_1_2_12_12_11_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_4_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_2_1_5_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_2_1_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_3_1_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_4_1_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_13_12_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_2_1_13_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <AllowedSigner SignerId="ID_SIGNER_A_1_1_8_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+        </AllowedSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_A_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_8_2_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_9_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_A_2_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_B_3_2_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_C_4_3_2_2_2_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_D_5_4_3_3_3_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_E_6_5_4_4_4_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_3_1_6_5_5_5_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_4_1_1_6_6_6_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_A_1_1_3_2_2_2_2_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_1_1_1_4_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_1_1_2_2_2_5_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_7_7_7_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_1_1_8_8_8_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_2_1_9_9_9_8_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_3_1_10_10_10_9_9_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_3_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_1_1_4_4_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_2_1_5_5_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_3_1_6_6_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_4_1_7_7_7_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_13_13_10_10_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_7_1_14_14_11_11_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_8_1_15_15_12_12_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_1_1_16_16_13_13_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_9_1_17_17_14_14_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_10_1_18_18_15_15_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_11_1_19_19_16_16_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_12_1_20_20_17_17_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_0_1_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_1_0_1_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_2_0_1_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_E_0_SHA1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_E_1_SHA256_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_E_2_SHA1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_E_3_SHA256_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_E_4_SHA1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_E_5_SHA256_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_0_1_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_1_1_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_2_1_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_PATH_3_1_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_C_0_1_0_0_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_1_1_0_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1_0_0" />
+          <FileRuleRef RuleID="ID_ALLOW_B_0_1" />
+        </FileRulesRef>
+      </ProductSigners>
+    </SigningScenario>
+  </SigningScenarios>
+  <UpdatePolicySigners />
+  <CiSigners>
+    <CiSigner SignerId="ID_SIGNER_S_19_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_17_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_15_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_13_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_11_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_9_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_7_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_5_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_3_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_1_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_1_1_1_1_1_1_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_2_1_2_1_2_2_1_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_S_1_2_2_1_1_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_1_1_1_1_1_1_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_2_1_2_2_1_1_2_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_3_1_3_3_2_2_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_1_1_2_2_2_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_3_1_3_3_3_3_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_4_1_4_4_4_4_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_5_1_5_5_5_5_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_6_1_6_6_6_6_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_7_1_7_7_7_7_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_8_1_8_8_8_8_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_4_4_3_3_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_9_9_9_9_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_10_1_10_10_10_10_9_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_3_3_3_3_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_2_11_11_10_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_1_2_12_12_11_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_4_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_2_1_5_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_2_1_4_4_4_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_3_1_5_5_5_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_4_1_6_6_6_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_13_12_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_7_7_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_2_1_13_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_0_1_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+    <CiSigner SignerId="ID_SIGNER_A_1_1_8_8_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0" />
+  </CiSigners>
+  <HvciOptions>0</HvciOptions>
+  <Settings>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
+      <Value>
+        <String>AVDAdditional_20260831_001 </String>
+      </Value>
+    </Setting>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
+      <Value>
+        <String>20260831_001_Additional</String>
+      </Value>
+    </Setting>
+  </Settings>
+</SiPolicy>

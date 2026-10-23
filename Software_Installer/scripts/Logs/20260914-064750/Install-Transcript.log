@@ -1,0 +1,44 @@
+**********************
+PowerShell transcript start
+Start time: 20260914064750
+Username: NORTHAMERICA\pawills
+RunAs User: NORTHAMERICA\pawills
+Configuration Name: 
+Machine: LAPTOP-2LFNEU2C (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\pawills\AppData\Local\Programs\Microsoft VS Code\645f29cc31\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 8280
+PSVersion: 7.6.6
+PSEdition: Core
+GitCommitId: 7.6.6
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[2026-09-14 06:47:50] Installation run started. Logs: D:\Mimic_Files\Software\scripts\Logs\20260914-064750
+[2026-09-14 06:47:50] [1/4] Starting Adobe Acrobat Professional
+[2026-09-14 06:47:50] [1/4] Adobe Acrobat Professional: WhatIf (0s) Installation was not started.
+[2026-09-14 06:47:50] [2/4] Starting DISA DEPTH
+[2026-09-14 06:47:50] [2/4] DISA DEPTH: WhatIf (0s) Installation was not started.
+[2026-09-14 06:47:50] [3/4] Starting DTP Lite
+[2026-09-14 06:47:50] [3/4] DTP Lite: WhatIf (0s) Installation was not started.
+[2026-09-14 06:47:50] [4/4] Starting IADS4
+[2026-09-14 06:47:50] [4/4] IADS4: WhatIf (0s) Installation was not started.
+
+Installation Summary
+
+Number Software                   Result ExitCode DurationSeconds
+------ --------                   ------ -------- ---------------
+     1 Adobe Acrobat Professional WhatIf        0            0.00
+     2 DISA DEPTH                 WhatIf        0            0.00
+     3 DTP Lite                   WhatIf        0            0.00
+     4 IADS4                      WhatIf        0            0.00
+
+Selected: 4  Succeeded: 0  Failed: 0  WhatIf: 4  Reboot required: 0
+Summary log: D:\Mimic_Files\Software\scripts\Logs\20260914-064750\Install-Summary.csv
+**********************
+PowerShell transcript end
+End time: 20260914064750
+**********************
