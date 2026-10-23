@@ -1,0 +1,86 @@
+**********************
+PowerShell transcript start
+Start time: 20260911133224
+Username: NORTHAMERICA\pawills
+RunAs User: NORTHAMERICA\pawills
+Configuration Name: 
+Machine: LAPTOP-2LFNEU2C (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\pawills\AppData\Local\Programs\Microsoft VS Code\645f29cc31\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 31532
+PSVersion: 7.6.6
+PSEdition: Core
+GitCommitId: 7.6.6
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[2026-09-11 13:32:24] Installation run started. Logs: D:\Mimic_Files\Software\scripts\Logs\20260911-133224
+[2026-09-11 13:32:24] [1/18] Starting 7-Zip
+[2026-09-11 13:32:24] [1/18] 7-Zip: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [2/18] Starting Google Chrome
+[2026-09-11 13:32:24] [2/18] Google Chrome: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [3/18] Starting DAX Studio
+[2026-09-11 13:32:24] [3/18] DAX Studio: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [4/18] Starting Mozilla Firefox
+[2026-09-11 13:32:24] [4/18] Mozilla Firefox: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [5/18] Starting Foundry SQL ODBC Driver
+[2026-09-11 13:32:24] [5/18] Foundry SQL ODBC Driver: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [6/18] Starting GCSS-Army Integrated Installer
+[2026-09-11 13:32:24] [6/18] GCSS-Army Integrated Installer: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [7/18] Starting InstallRoot
+[2026-09-11 13:32:24] [7/18] InstallRoot: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [8/18] Starting Remote Desktop WebRTC Redirector
+[2026-09-11 13:32:24] [8/18] Remote Desktop WebRTC Redirector: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [9/18] Starting NetBanner
+[2026-09-11 13:32:24] [9/18] NetBanner: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [10/18] Starting Power BI Desktop
+[2026-09-11 13:32:24] [10/18] Power BI Desktop: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [11/18] Starting Power BI Report Builder
+[2026-09-11 13:32:24] [11/18] Power BI Report Builder: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [12/18] Starting Printer Installer Client
+[2026-09-11 13:32:24] [12/18] Printer Installer Client: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [13/18] Starting S/MIME for Outlook Web
+[2026-09-11 13:32:24] [13/18] S/MIME for Outlook Web: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [14/18] Starting YubiKey Manager
+[2026-09-11 13:32:24] [14/18] YubiKey Manager: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [15/18] Starting FSLogix Apps
+[2026-09-11 13:32:24] [15/18] FSLogix Apps: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [16/18] Starting FSLogix Rule Editor
+[2026-09-11 13:32:24] [16/18] FSLogix Rule Editor: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [17/18] Starting Purebred Registration
+[2026-09-11 13:32:24] [17/18] Purebred Registration: WhatIf (0s) Installation was not started.
+[2026-09-11 13:32:24] [18/18] Starting Tychon
+[2026-09-11 13:32:24] [18/18] Tychon: WhatIf (0s) Installation was not started.
+
+Installation Summary
+
+Number Software                         Result ExitCode DurationSeconds
+------ --------                         ------ -------- ---------------
+     1 7-Zip                            WhatIf        0            0.00
+     2 Google Chrome                    WhatIf        0            0.00
+     3 DAX Studio                       WhatIf        0            0.00
+     4 Mozilla Firefox                  WhatIf        0            0.00
+     5 Foundry SQL ODBC Driver          WhatIf        0            0.00
+     6 GCSS-Army Integrated Installer   WhatIf        0            0.00
+     7 InstallRoot                      WhatIf        0            0.00
+     8 Remote Desktop WebRTC Redirector WhatIf        0            0.00
+     9 NetBanner                        WhatIf        0            0.00
+    10 Power BI Desktop                 WhatIf        0            0.00
+    11 Power BI Report Builder          WhatIf        0            0.00
+    12 Printer Installer Client         WhatIf        0            0.00
+    13 S/MIME for Outlook Web           WhatIf        0            0.00
+    14 YubiKey Manager                  WhatIf        0            0.00
+    15 FSLogix Apps                     WhatIf        0            0.00
+    16 FSLogix Rule Editor              WhatIf        0            0.00
+    17 Purebred Registration            WhatIf        0            0.00
+    18 Tychon                           WhatIf        0            0.00
+
+Selected: 18  Succeeded: 0  Failed: 0  WhatIf: 18  Reboot required: 0
+Summary log: D:\Mimic_Files\Software\scripts\Logs\20260911-133224\Install-Summary.csv
+**********************
+PowerShell transcript end
+End time: 20260911133225
+**********************

@@ -1,0 +1,122 @@
+**********************
+PowerShell transcript start
+Start time: 20260921121931
+Username: NORTHAMERICA\pawills
+RunAs User: NORTHAMERICA\pawills
+Configuration Name: 
+Machine: LAPTOP-2LFNEU2C (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\pawills\AppData\Local\Programs\Microsoft VS Code\7debcd0e2a\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 13876
+PSVersion: 7.6.6
+PSEdition: Core
+GitCommitId: 7.6.6
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[2026-09-21 12:19:31] Installation run started. Logs: C:\Repo\Mimic_Files\Software\scripts\Logs\20260921-121931
+[2026-09-21 12:19:31] [1/30] Starting 7-Zip
+[2026-09-21 12:19:31] [1/30] 7-Zip: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [2/30] Starting AWSWickrGov
+[2026-09-21 12:19:31] [2/30] AWSWickrGov: Failed (0s) Package file not found: C:\Repo\Mimic_Files\Software\AWSWickrGov
+[2026-09-21 12:19:31] [3/30] Starting Google Chrome
+[2026-09-21 12:19:31] [3/30] Google Chrome: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [4/30] Starting DAX Studio
+[2026-09-21 12:19:31] [4/30] DAX Studio: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [5/30] Starting Mozilla Firefox
+[2026-09-21 12:19:31] [5/30] Mozilla Firefox: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [6/30] Starting Foundry SQL ODBC Driver
+[2026-09-21 12:19:31] [6/30] Foundry SQL ODBC Driver: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [7/30] Starting GCSS-Army Integrated Installer
+[2026-09-21 12:19:31] [7/30] GCSS-Army Integrated Installer: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [8/30] Starting InstallRoot
+[2026-09-21 12:19:31] [8/30] InstallRoot: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [9/30] Starting Remote Desktop WebRTC Redirector
+[2026-09-21 12:19:31] [9/30] Remote Desktop WebRTC Redirector: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [10/30] Starting NetBanner
+[2026-09-21 12:19:31] [10/30] NetBanner: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [11/30] Starting Power BI Desktop
+[2026-09-21 12:19:31] [11/30] Power BI Desktop: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [12/30] Starting Power BI Report Builder
+[2026-09-21 12:19:31] [12/30] Power BI Report Builder: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [13/30] Starting Printer Installer Client
+[2026-09-21 12:19:31] [13/30] Printer Installer Client: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [14/30] Starting S/MIME for Outlook Web
+[2026-09-21 12:19:31] [14/30] S/MIME for Outlook Web: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [15/30] Starting YubiKey Manager
+[2026-09-21 12:19:31] [15/30] YubiKey Manager: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [16/30] Starting Microsoft 365 Apps
+[2026-09-21 12:19:31] [16/30] Microsoft 365 Apps: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [17/30] Starting Microsoft Teams
+[2026-09-21 12:19:31] [17/30] Microsoft Teams: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [18/30] Starting Microsoft Teams Meeting Add-in
+[2026-09-21 12:19:31] [18/30] Microsoft Teams Meeting Add-in: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [19/30] Starting Notepad++
+[2026-09-21 12:19:31] [19/30] Notepad++: Failed (0s) Package file not found: C:\Repo\Mimic_Files\Software\npp.8.9.8.Installer.x64.exe
+[2026-09-21 12:19:31] [20/30] Starting OCE Tool
+[2026-09-21 12:19:31] [20/30] OCE Tool: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [21/30] Starting STIG Viewer 3
+[2026-09-21 12:19:31] [21/30] STIG Viewer 3: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [22/30] Starting Army Wallpaper
+[2026-09-21 12:19:31] [22/30] Army Wallpaper: Failed (0s) Package file not found: C:\Repo\Mimic_Files\Software\Army.png
+[2026-09-21 12:19:31] [23/30] Starting FSLogix Apps
+[2026-09-21 12:19:31] [23/30] FSLogix Apps: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [24/30] Starting FSLogix Rule Editor
+[2026-09-21 12:19:31] [24/30] FSLogix Rule Editor: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [25/30] Starting Purebred Registration
+[2026-09-21 12:19:31] [25/30] Purebred Registration: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [26/30] Starting Tychon
+[2026-09-21 12:19:31] [26/30] Tychon: Failed (0s) Package file not found: C:\Repo\Mimic_Files\Software\Tychon_AVD\Tychon.bat
+[2026-09-21 12:19:31] [27/30] Starting Adobe Acrobat Professional
+[2026-09-21 12:19:31] [27/30] Adobe Acrobat Professional: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [28/30] Starting DISA DEPTH
+[2026-09-21 12:19:31] [28/30] DISA DEPTH: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [29/30] Starting DTP Lite
+[2026-09-21 12:19:31] [29/30] DTP Lite: WhatIf (0s) Installation was not started.
+[2026-09-21 12:19:31] [30/30] Starting IADS4
+[2026-09-21 12:19:31] [30/30] IADS4: WhatIf (0s) Installation was not started.
+
+Installation Summary
+
+Number Software                         Result ExitCode DurationSeconds
+------ --------                         ------ -------- ---------------
+     1 7-Zip                            WhatIf        0            0.00
+     2 AWSWickrGov                      Failed                     0.00
+     3 Google Chrome                    WhatIf        0            0.00
+     4 DAX Studio                       WhatIf        0            0.00
+     5 Mozilla Firefox                  WhatIf        0            0.00
+     6 Foundry SQL ODBC Driver          WhatIf        0            0.00
+     7 GCSS-Army Integrated Installer   WhatIf        0            0.00
+     8 InstallRoot                      WhatIf        0            0.00
+     9 Remote Desktop WebRTC Redirector WhatIf        0            0.00
+    10 NetBanner                        WhatIf        0            0.00
+    11 Power BI Desktop                 WhatIf        0            0.00
+    12 Power BI Report Builder          WhatIf        0            0.00
+    13 Printer Installer Client         WhatIf        0            0.00
+    14 S/MIME for Outlook Web           WhatIf        0            0.00
+    15 YubiKey Manager                  WhatIf        0            0.00
+    16 Microsoft 365 Apps               WhatIf        0            0.00
+    17 Microsoft Teams                  WhatIf        0            0.00
+    18 Microsoft Teams Meeting Add-in   WhatIf        0            0.00
+    19 Notepad++                        Failed                     0.00
+    20 OCE Tool                         WhatIf        0            0.00
+    21 STIG Viewer 3                    WhatIf        0            0.00
+    22 Army Wallpaper                   Failed                     0.00
+    23 FSLogix Apps                     WhatIf        0            0.00
+    24 FSLogix Rule Editor              WhatIf        0            0.00
+    25 Purebred Registration            WhatIf        0            0.00
+    26 Tychon                           Failed                     0.00
+    27 Adobe Acrobat Professional       WhatIf        0            0.00
+    28 DISA DEPTH                       WhatIf        0            0.00
+    29 DTP Lite                         WhatIf        0            0.00
+    30 IADS4                            WhatIf        0            0.00
+
+Selected: 30  Succeeded: 0  Failed: 4  WhatIf: 26  Reboot required: 0
+Summary log: C:\Repo\Mimic_Files\Software\scripts\Logs\20260921-121931\Install-Summary.csv
+**********************
+PowerShell transcript end
+End time: 20260921121931
+**********************

@@ -1,0 +1,98 @@
+**********************
+PowerShell transcript start
+Start time: 20260914193601
+Username: NORTHAMERICA\pawills
+RunAs User: NORTHAMERICA\pawills
+Configuration Name: 
+Machine: LAPTOP-2LFNEU2C (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -noexit -command try { . "c:\Users\pawills\AppData\Local\Programs\Microsoft VS Code\645f29cc31\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 34624
+PSVersion: 7.6.6
+PSEdition: Core
+GitCommitId: 7.6.6
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+[2026-09-14 19:36:01] Installation run started. Logs: E:\Mimic_Files\Software\scripts\Logs\20260914-193601
+[2026-09-14 19:36:01] [1/22] Starting 7-Zip
+[2026-09-14 19:36:01] [1/22] 7-Zip: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [2/22] Starting Google Chrome
+[2026-09-14 19:36:01] [2/22] Google Chrome: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [3/22] Starting DAX Studio
+[2026-09-14 19:36:01] [3/22] DAX Studio: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [4/22] Starting Mozilla Firefox
+[2026-09-14 19:36:01] [4/22] Mozilla Firefox: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [5/22] Starting Foundry SQL ODBC Driver
+[2026-09-14 19:36:01] [5/22] Foundry SQL ODBC Driver: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [6/22] Starting GCSS-Army Integrated Installer
+[2026-09-14 19:36:01] [6/22] GCSS-Army Integrated Installer: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [7/22] Starting InstallRoot
+[2026-09-14 19:36:01] [7/22] InstallRoot: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [8/22] Starting Remote Desktop WebRTC Redirector
+[2026-09-14 19:36:01] [8/22] Remote Desktop WebRTC Redirector: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [9/22] Starting NetBanner
+[2026-09-14 19:36:01] [9/22] NetBanner: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [10/22] Starting Power BI Desktop
+[2026-09-14 19:36:01] [10/22] Power BI Desktop: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [11/22] Starting Power BI Report Builder
+[2026-09-14 19:36:01] [11/22] Power BI Report Builder: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [12/22] Starting Printer Installer Client
+[2026-09-14 19:36:01] [12/22] Printer Installer Client: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [13/22] Starting S/MIME for Outlook Web
+[2026-09-14 19:36:01] [13/22] S/MIME for Outlook Web: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [14/22] Starting YubiKey Manager
+[2026-09-14 19:36:01] [14/22] YubiKey Manager: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [15/22] Starting FSLogix Apps
+[2026-09-14 19:36:01] [15/22] FSLogix Apps: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [16/22] Starting FSLogix Rule Editor
+[2026-09-14 19:36:01] [16/22] FSLogix Rule Editor: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [17/22] Starting Purebred Registration
+[2026-09-14 19:36:01] [17/22] Purebred Registration: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [18/22] Starting Tychon
+[2026-09-14 19:36:01] [18/22] Tychon: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [19/22] Starting Adobe Acrobat Professional
+[2026-09-14 19:36:01] [19/22] Adobe Acrobat Professional: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [20/22] Starting DISA DEPTH
+[2026-09-14 19:36:01] [20/22] DISA DEPTH: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [21/22] Starting DTP Lite
+[2026-09-14 19:36:01] [21/22] DTP Lite: WhatIf (0s) Installation was not started.
+[2026-09-14 19:36:01] [22/22] Starting IADS4
+[2026-09-14 19:36:01] [22/22] IADS4: WhatIf (0s) Installation was not started.
+
+Installation Summary
+
+Number Software                         Result ExitCode DurationSeconds
+------ --------                         ------ -------- ---------------
+     1 7-Zip                            WhatIf        0            0.00
+     2 Google Chrome                    WhatIf        0            0.00
+     3 DAX Studio                       WhatIf        0            0.00
+     4 Mozilla Firefox                  WhatIf        0            0.00
+     5 Foundry SQL ODBC Driver          WhatIf        0            0.00
+     6 GCSS-Army Integrated Installer   WhatIf        0            0.00
+     7 InstallRoot                      WhatIf        0            0.00
+     8 Remote Desktop WebRTC Redirector WhatIf        0            0.00
+     9 NetBanner                        WhatIf        0            0.00
+    10 Power BI Desktop                 WhatIf        0            0.00
+    11 Power BI Report Builder          WhatIf        0            0.00
+    12 Printer Installer Client         WhatIf        0            0.00
+    13 S/MIME for Outlook Web           WhatIf        0            0.00
+    14 YubiKey Manager                  WhatIf        0            0.00
+    15 FSLogix Apps                     WhatIf        0            0.00
+    16 FSLogix Rule Editor              WhatIf        0            0.00
+    17 Purebred Registration            WhatIf        0            0.00
+    18 Tychon                           WhatIf        0            0.00
+    19 Adobe Acrobat Professional       WhatIf        0            0.00
+    20 DISA DEPTH                       WhatIf        0            0.00
+    21 DTP Lite                         WhatIf        0            0.00
+    22 IADS4                            WhatIf        0            0.00
+
+Selected: 22  Succeeded: 0  Failed: 0  WhatIf: 22  Reboot required: 0
+Summary log: E:\Mimic_Files\Software\scripts\Logs\20260914-193601\Install-Summary.csv
+**********************
+PowerShell transcript end
+End time: 20260914193602
+**********************

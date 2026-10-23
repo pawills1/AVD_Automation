@@ -1,0 +1,23 @@
+{
+  "PurviewExtensionId": "echcggldkblhodogklpincgchnpgcdco",
+  "EdgePurviewExtensionId": "echcggldkblhodogklpincgchnpgcdco",
+  "ChromeBookmarksBaselineFile": "army-bookmarks.json",
+  "EdgeFavoritesBaselineFile": "army-bookmarks.json",
+  "CopilotArtifactName": null,
+  "CopilotAppId": null,
+  "CopilotUrl": null,
+  "ExeInstallerTestFile": null,
+  "MsiInstallerTestFile": null,
+  "RequiredLanguageTags": [],
+  "RequiredLanguages": [
+    { "LanguageTag": "de-DE", "LanguagePacks": ["LpCab"], "LanguageFeatures": [] },
+    { "LanguageTag": "en-US", "LanguagePacks": ["LpCab"], "LanguageFeatures": [] },
+    { "LanguageTag": "fr-FR", "LanguagePacks": ["LpCab"], "LanguageFeatures": [] },
+    { "LanguageTag": "ja-JP", "LanguagePacks": ["LpCab"], "LanguageFeatures": [] },
+    { "LanguageTag": "ko-KR", "LanguagePacks": ["LpCab"], "LanguageFeatures": [] }
+  ],
+  "ApprovedOsBuild": null,
+  "WindowsUpdateHistoryUrl": "https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5",
+  "ExpectedRemoteAppHostPattern": null,
+  "OwaUrl": null
+}

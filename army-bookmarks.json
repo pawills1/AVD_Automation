@@ -1,0 +1,1126 @@
+[
+    {
+        "name":  "DoD Safe Helpline",
+        "url":  "https://safehelpline.org"
+    },
+    {
+        "name":  "Federal Voting Assistance Program",
+        "url":  "https://www.fvap.gov/military-voter"
+    },
+    {
+        "name":  "Interactive Customer Evaluation",
+        "url":  "https://ice.disa.mil/"
+    },
+    {
+        "name":  "iSALUTE",
+        "url":  "https://www.inscom.army.mil/isalute/"
+    },
+    {
+        "name":  "Military OneSource",
+        "url":  "https://www.militaryonesource.mil/"
+    },
+    {
+        "name":  "Line Of Departure Home",
+        "url":  "https://www.lineofdeparture.army.mil/"
+    },
+    {
+        "name":  "LLC Learn",
+        "url":  "https://www.learn.llc.army.mil/"
+    },
+    {
+        "name":  "Army Inspection Program AIP",
+        "url":  "https://aip.army.mil/aip/Pages/Home.aspx"
+    },
+    {
+        "name":  "Army Acquisition Support Center",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/usaasc"
+    },
+    {
+        "name":  "Army Civilian Human Resources Agency",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/CHRA"
+    },
+    {
+        "name":  "ARCYBER",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/arcyber"
+    },
+    {
+        "name":  "SDDC",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/SDDC"
+    },
+    {
+        "name":  "USARCENT",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/usarcent"
+    },
+    {
+        "name":  "USAREUR-AF",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/usareur-af"
+    },
+    {
+        "name":  "USARPAC",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/usarpac"
+    },
+    {
+        "name":  "USASMDC",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/usasmdc"
+    },
+    {
+        "name":  "USARSOUTH",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/arsouth"
+    },
+    {
+        "name":  "I CORPS",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/icorps"
+    },
+    {
+        "name":  "III Armored CORPS",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/IIIAC-HQ"
+    },
+    {
+        "name":  "V CORPS",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/vcorps"
+    },
+    {
+        "name":  "XVIII Airborne CORPS",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/18ABC"
+    },
+    {
+        "name":  "1st Armored Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/IIIAC-1AD"
+    },
+    {
+        "name":  "1st Cavalry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/IIIAC-1CD-HQ"
+    },
+    {
+        "name":  "1st Infantry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/IIIAC-1ID"
+    },
+    {
+        "name":  "2nd Infantry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/USARPAC-2ID"
+    },
+    {
+        "name":  "3d Infantry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/3ID"
+    },
+    {
+        "name":  "4th Infantry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/IIIAC-4ID"
+    },
+    {
+        "name":  "7th Infantry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/7id"
+    },
+    {
+        "name":  "10th Mountain Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/10MTN"
+    },
+    {
+        "name":  "11th Airborne Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/USARPAC-11ad"
+    },
+    {
+        "name":  "25th Infantry Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/USARPAC-25ID"
+    },
+    {
+        "name":  "82nd Airborne Division",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/82ABN"
+    },
+    {
+        "name":  "101st Airborne Division (AA)",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/101ABN"
+    },
+    {
+        "name":  "FORSCOM",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/FORSCOM-HQ"
+    },
+    {
+        "name":  "20th CBRNE Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/20cbrne"
+    },
+    {
+        "name":  "Army Reserve Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/USAR"
+    },
+    {
+        "name":  "First Army",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/firstarmy"
+    },
+    {
+        "name":  "National Training Center",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NTC-HQ"
+    },
+    {
+        "name":  "Army Futures Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/T2COM"
+    },
+    {
+        "name":  "Army Human Resources Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/HRC"
+    },
+    {
+        "name":  "Army Intelligence and Security Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/INSCOM"
+    },
+    {
+        "name":  "Army Materiel Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/HQAMC"
+    },
+    {
+        "name":  "Army Aviation and Missile Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/AMCOM"
+    },
+    {
+        "name":  "Army Communications-Electronics Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/CECOM"
+    },
+    {
+        "name":  "Army Financial Management Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/USAFMCOM"
+    },
+    {
+        "name":  "Army Installation Management Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/IMCOM"
+    },
+    {
+        "name":  "Army Security Assistance Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/USASAC"
+    },
+    {
+        "name":  "Army Tank-automotive and Armaments Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TACOM"
+    },
+    {
+        "name":  "Military Surface Deployment and Distribution Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/SDDC"
+    },
+    {
+        "name":  "Army Military District of Washington",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/mdw"
+    },
+    {
+        "name":  "USAREC",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-USAREC-HQ"
+    },
+    {
+        "name":  "Cadet Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-USACC/"
+    },
+    {
+        "name":  "Army Test and Evaluation Command",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/atec"
+    },
+    {
+        "name":  "TRADOC",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TRADOC"
+    },
+    {
+        "name":  "Army Center of Military History",
+        "url":  "https://history.army.mil/index.html"
+    },
+    {
+        "name":  "Aviation Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-ACoE/"
+    },
+    {
+        "name":  "CASCOM Sustainment Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-SCoE"
+    },
+    {
+        "name":  "Center for Initial Military Training",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-CIMT-HQ"
+    },
+    {
+        "name":  "Combined Arms Center",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/tr-cac-hq-CCE"
+    },
+    {
+        "name":  "Cyber Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-CCoE-GA/"
+    },
+    {
+        "name":  "Fires Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-FCoE"
+    },
+    {
+        "name":  "Intelligence Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-ICOE/SitePages/USAICoE.aspx"
+    },
+    {
+        "name":  "Maneuver Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-MCoE"
+    },
+    {
+        "name":  "Maneuver Support Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-MSCOE"
+    },
+    {
+        "name":  "Medical Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-MEDCoE-HQ"
+    },
+    {
+        "name":  "Mission Command Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-CAC-MCCoE"
+    },
+    {
+        "name":  "NCO Leadership Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/TR-NCOLCoE/"
+    },
+    {
+        "name":  "Special Warfare Center and School",
+        "url":  "https://www.army.mil/swcs"
+    },
+    {
+        "name":  "Army War College",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/usawc"
+    },
+    {
+        "name":  "U.S. Africa Command",
+        "url":  "https://dod365.sharepoint-mil.us/sites/USAFRICOM"
+    },
+    {
+        "name":  "U.S. Central Command",
+        "url":  "https://dod365.sharepoint-mil.us/sites/CENTCOM-HOME"
+    },
+    {
+        "name":  "U.S. Cyber Command",
+        "url":  "https://intelshare.intelink.gov/sites/uscybercom/default.aspx"
+    },
+    {
+        "name":  "U.S. Northern Command",
+        "url":  "https://dod365.sharepoint-mil.us/sites/NORAD-USNC-Headquarters"
+    },
+    {
+        "name":  "U.S. Strategic Command",
+        "url":  "https://dod365.sharepoint-mil.us/sites/STRATCOM-Public"
+    },
+    {
+        "name":  "U.S. Transportation Command",
+        "url":  "https://dod365.sharepoint-mil.us/sites/TRANSCOM-Home"
+    },
+    {
+        "name":  "Military Postal Service Agency",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/mpsa"
+    },
+    {
+        "name":  "Army National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/arng"
+    },
+    {
+        "name":  "GKN",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/GKN"
+    },
+    {
+        "name":  "Alaska National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGAK"
+    },
+    {
+        "name":  "Alabama National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGAL"
+    },
+    {
+        "name":  "Arizona National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGAZ"
+    },
+    {
+        "name":  "Arkansas National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGAR/"
+    },
+    {
+        "name":  "California Military Department",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGCA"
+    },
+    {
+        "name":  "Coloarado National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGCO"
+    },
+    {
+        "name":  "Connecticut National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGCT"
+    },
+    {
+        "name":  "Delaware National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGDE"
+    },
+    {
+        "name":  "District of Columbia National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGDC"
+    },
+    {
+        "name":  "Florida National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGFL"
+    },
+    {
+        "name":  "Georgia National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGGA"
+    },
+    {
+        "name":  "Guam National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGGU"
+    },
+    {
+        "name":  "Hawaii National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGHI"
+    },
+    {
+        "name":  "Idaho National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGID"
+    },
+    {
+        "name":  "Illinois National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGIL"
+    },
+    {
+        "name":  "Indiana National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGIN"
+    },
+    {
+        "name":  "Iowa National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGIA"
+    },
+    {
+        "name":  "Kansas National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGKS"
+    },
+    {
+        "name":  "Kentucky National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGKY"
+    },
+    {
+        "name":  "Louisiana National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGLA"
+    },
+    {
+        "name":  "Maine National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGME"
+    },
+    {
+        "name":  "Maryland National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMD"
+    },
+    {
+        "name":  "Massachusetts National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMA"
+    },
+    {
+        "name":  "Michigan National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMI"
+    },
+    {
+        "name":  "Minnesota National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMN/"
+    },
+    {
+        "name":  "Mississippi National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMS"
+    },
+    {
+        "name":  "Missouri National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMO"
+    },
+    {
+        "name":  "Montana National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGMT"
+    },
+    {
+        "name":  "Nebraska Army National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNE"
+    },
+    {
+        "name":  "Nevada National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNV"
+    },
+    {
+        "name":  "New Jersey National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNJ"
+    },
+    {
+        "name":  "New Hampshire National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNH"
+    },
+    {
+        "name":  "New Mexico National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNM"
+    },
+    {
+        "name":  "New York National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNY"
+    },
+    {
+        "name":  "North Carolina National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGNC"
+    },
+    {
+        "name":  "North Dakota National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGND"
+    },
+    {
+        "name":  "Ohio National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGOH"
+    },
+    {
+        "name":  "Oklahoma National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGOK"
+    },
+    {
+        "name":  "Oregon National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGOR"
+    },
+    {
+        "name":  "Pennsylvania National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGPA"
+    },
+    {
+        "name":  "Puerto Rico National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGPR"
+    },
+    {
+        "name":  "Rhode Island National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGRI"
+    },
+    {
+        "name":  "South Carolina National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGSC"
+    },
+    {
+        "name":  "South Dakota National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGSD"
+    },
+    {
+        "name":  "Tennessee National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGTN"
+    },
+    {
+        "name":  "Texas National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGTX"
+    },
+    {
+        "name":  "Utah National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGUT"
+    },
+    {
+        "name":  "Vermont National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGVT"
+    },
+    {
+        "name":  "Virgin Islands National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGVI"
+    },
+    {
+        "name":  "Virginia National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGVA"
+    },
+    {
+        "name":  "Washington National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGWA"
+    },
+    {
+        "name":  "West Virginia National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGWV"
+    },
+    {
+        "name":  "Wisconsin National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGWI"
+    },
+    {
+        "name":  "Wyoming National Guard",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NGWY"
+    },
+    {
+        "name":  "United States Military Academy",
+        "url":  "https://westpoint.edu/"
+    },
+    {
+        "name":  "AGM / SYSMAN Portal",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NETCOM-G3-ENTCAP/SitePages/AGMSYSMAN.aspx"
+    },
+    {
+        "name":  "Apple Business Manager",
+        "url":  "https://business.apple.com/"
+    },
+    {
+        "name":  "Army Enterprise Mission Assurance Support Service",
+        "url":  "https://army.emass.apps.mil/"
+    },
+    {
+        "name":  "AUDS FrontDoor",
+        "url":  "https://play.apps.appsplatform.us/play/e/6df516cc-6c32-e3c0-8459-d719b5af0b89/a/143820ca-b19d-4486-96c7-142aa3559c82?tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43"
+    },
+    {
+        "name":  "CHESS",
+        "url":  "https://chess.army.mil/"
+    },
+    {
+        "name":  "Cloud Tracker",
+        "url":  "https://cloudtracker.army.mil/"
+    },
+    {
+        "name":  "Common Access Registration AWS",
+        "url":  "https://car.govcloud.army.mil/"
+    },
+    {
+        "name":  "Common Access Registration AWS Admin",
+        "url":  "https://admin.car.govcloud.army.mil/"
+    },
+    {
+        "name":  "Common Access Registration Azure",
+        "url":  "https://car.cloud.army.mil/"
+    },
+    {
+        "name":  "Common Access Registration Azure Admin",
+        "url":  "https://admin.car.c2.army.mil/"
+    },
+    {
+        "name":  "Common Access Registration Support",
+        "url":  "https://armyeitaas.sharepoint-mil.us/teams/CARSupport/SitePages/Welcome.aspx"
+    },
+    {
+        "name":  "CompTIA Continuing Education",
+        "url":  "https://www.comptia.org/continuing-education/choose/renewing-with-multiple-activities/training-and-higher-education"
+    },
+    {
+        "name":  "DACT",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/NETCOM-G3/SitePages/DACT.aspx"
+    },
+    {
+        "name":  "Delegation Station",
+        "url":  "https://p-va-netcom-delstation-web-app.azurewebsites.us"
+    },
+    {
+        "name":  "DEPO",
+        "url":  "https://depov3.apps.deas.mil"
+    },
+    {
+        "name":  "DISA Storefront",
+        "url":  "https://disa-storefront.disa.mil/dsf/home"
+    },
+    {
+        "name":  "DISA Support",
+        "url":  "https://services.disa.mil/main/"
+    },
+    {
+        "name":  "Gabriel Nimbus",
+        "url":  "https://gabrielnimbus.arcyber.army.mil/"
+    },
+    {
+        "name":  "Information Assurance Vulnerability Management",
+        "url":  "https://iavm.csd.disa.mil/"
+    },
+    {
+        "name":  "Intune Admin Center",
+        "url":  "https://intune.microsoft.us/"
+    },
+    {
+        "name":  "Mobile Iron Blue Server",
+        "url":  "https://mdm-blue-admin.esd.disa.mil/mifs/login.jsp"
+    },
+    {
+        "name":  "Mobile Iron Brown Server",
+        "url":  "https://mdm-brown-admin.esd.disa.mil/mifs/login.jsp"
+    },
+    {
+        "name":  "Mobile Iron Green Server",
+        "url":  "https://vsp-admin.esd.disa.mil/admin"
+    },
+    {
+        "name":  "Mobile Iron Purple Server",
+        "url":  "https://mdm-purple-admin.esd.disa.mil/mifs/login.jsp"
+    },
+    {
+        "name":  "A365 Group Management Tool",
+        "url":  "https://go.mil/a365groupmanagementtool"
+    },
+    {
+        "name":  "A365 Portal",
+        "url":  "https://www.ohome.apps.mil"
+    },
+    {
+        "name":  "AGWS SharePoint",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/agws"
+    },
+    {
+        "name":  "Army Enterprise AVD SharePoint",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/AVD"
+    },
+    {
+        "name":  "Army Enterprise Service Desk",
+        "url":  "https://www.aesmp.army.mil/"
+    },
+    {
+        "name":  "Army Hub",
+        "url":  "https://armyeitaas.sharepoint-mil.us/"
+    },
+    {
+        "name":  "Army ICAM",
+        "url":  "https://icamportal.us.army.mil"
+    },
+    {
+        "name":  "ATCTS",
+        "url":  "https://atcts.army.mil/"
+    },
+    {
+        "name":  "CAMO GPT",
+        "url":  "https://www.omni.army.mil/camogpt/"
+    },
+    {
+        "name":  "ChatSurfer",
+        "url":  "https://chatsurfer.nro.mil/"
+    },
+    {
+        "name":  "Cross Domain Web Transfer Portal",
+        "url":  "https://dots.dodiis.mil/"
+    },
+    {
+        "name":  "Cross Tenant Access Package",
+        "url":  "https://www.milsuite.mil/book/docs/DOC-1212009"
+    },
+    {
+        "name":  "Digital University",
+        "url":  "https://digitalu.af.mil/"
+    },
+    {
+        "name":  "DoD E-ICAM (GFUD)",
+        "url":  "https://portal.apps.deas.mil/"
+    },
+    {
+        "name":  "DoD Global Directory Service",
+        "url":  "https://dod411.gds.disa.mil/"
+    },
+    {
+        "name":  "DoD PKI Certificate Recovery",
+        "url":  "https://ara-5.csd.disa.mil/"
+    },
+    {
+        "name":  "DoD SAFE",
+        "url":  "https://safe.apps.mil/"
+    },
+    {
+        "name":  "draw.io",
+        "url":  "https://drawio.create.army.mil/"
+    },
+    {
+        "name":  "GEARS 6.0",
+        "url":  "https://gears.army.mil/dashboard"
+    },
+    {
+        "name":  "GenAI",
+        "url":  "https://genai.mil/"
+    },
+    {
+        "name":  "Hypori SharePoint",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/hypori"
+    },
+    {
+        "name":  "ISAFE File Transfer",
+        "url":  "https://isafe.intelink.gov/Transfers/Submit"
+    },
+    {
+        "name":  "milSuite",
+        "url":  "https://www.milsuite.mil/"
+    },
+    {
+        "name":  "NIPR GPT",
+        "url":  "https://niprgpt.mil/"
+    },
+    {
+        "name":  "Power Apps Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/POWERAPPS_COE"
+    },
+    {
+        "name":  "Purebred",
+        "url":  "https://purebred.csd.disa.mil/pb/"
+    },
+    {
+        "name":  "SharePoint Center of Excellence",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/spo_coe"
+    },
+    {
+        "name":  "YubiKey SharePoint",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/YubiKey"
+    },
+    {
+        "name":  "AESIP",
+        "url":  "https://login.aesip.army.mil"
+    },
+    {
+        "name":  "ANG Central Clothing Distribution Center",
+        "url":  "https://www.kyloc.com/arng/"
+    },
+    {
+        "name":  "Army Clothing Record",
+        "url":  "https://ism.army.mil/ism/SelfServiceServlet?nav.nav_id=ssMyClothing#printUnsignedCR"
+    },
+    {
+        "name":  "Army Maintenance Request",
+        "url":  "https://www.armymaintenance.com/"
+    },
+    {
+        "name":  "CASCOM Tele-Maintenance",
+        "url":  "https://cascom.army.mil/asrp/telemaintenance/"
+    },
+    {
+        "name":  "Defense Logistics Agency Applications",
+        "url":  "https://www.dla.mil/Information-Operations/Services/Applications/"
+    },
+    {
+        "name":  "Defense Personal Property System",
+        "url":  "https://dps.move.mil/cust/standard/user"
+    },
+    {
+        "name":  "DLA Portal",
+        "url":  "https://business.dla.mil/"
+    },
+    {
+        "name":  "eFLIPL",
+        "url":  "https://eflipl.army.mil/"
+    },
+    {
+        "name":  "GCSS-Army",
+        "url":  "https://www.gcss-army.army.mil/irj/portal"
+    },
+    {
+        "name":  "GFEBS",
+        "url":  "https://gfebs.army.mil/"
+    },
+    {
+        "name":  "IGC",
+        "url":  "https://www.igc.ustranscom.mil/igc"
+    },
+    {
+        "name":  "Joint Acquisition CBRN Knowledge System",
+        "url":  "https://jacks.jpeocbrnd.army.mil/"
+    },
+    {
+        "name":  "PCSmyPOV",
+        "url":  "https://www.pcsmypov.com/"
+    },
+    {
+        "name":  "Procurement Integrated Enterprise Environment",
+        "url":  "https://piee.eb.mil/"
+    },
+    {
+        "name":  "TACOM-Unique Logistics Support Applications",
+        "url":  "https://tulsa.tacom.army.mil/"
+    },
+    {
+        "name":  "Total Ammunition Management Information System",
+        "url":  "https://tamis.army.mil/"
+    },
+    {
+        "name":  "Transportation Coordinators\u0027 Automated Information for Movements System II",
+        "url":  "https://tcaimsii.army.mil/"
+    },
+    {
+        "name":  "U.S. Bank",
+        "url":  "https://access.usbank.com/cpsApp1/index.jsp"
+    },
+    {
+        "name":  "AVHE",
+        "url":  "https://avhe.health.mil/"
+    },
+    {
+        "name":  "DOEHRS",
+        "url":  "https://doehrs-ih.csd.disa.mil/"
+    },
+    {
+        "name":  "MEDPROS",
+        "url":  "https://medpros.mods.army.mil/portal/"
+    },
+    {
+        "name":  "MHS Genesis",
+        "url":  "https://patientportal.mhsgenesis.health.mil"
+    },
+    {
+        "name":  "MHS Medical Library",
+        "url":  "https://www.health.mil/Military-Health-Topics/MHS-Medical-Library"
+    },
+    {
+        "name":  "Military Training Network",
+        "url":  "https://info.health.mil/edu/MTFDIV/MTN/Pages/Home.aspx"
+    },
+    {
+        "name":  "MODS Portal",
+        "url":  "https://www.mods.army.mil"
+    },
+    {
+        "name":  "Army Publishing Directorate",
+        "url":  "https://armypubs.army.mil/"
+    },
+    {
+        "name":  "Army Safety MIS",
+        "url":  "https://asmis.safety.army.mil/"
+    },
+    {
+        "name":  "CBRN Information System (Live)",
+        "url":  "https://cbrnis.jpmis.milcloud.mil/"
+    },
+    {
+        "name":  "Chat Surfer",
+        "url":  "https://chatsurfer.nro.mil"
+    },
+    {
+        "name":  "CID Portal",
+        "url":  "https://armyeitaas.sharepoint-mil.us/sites/CID-HOME"
+    },
+    {
+        "name":  "eMH",
+        "url":  "https://www.emh.housing.navy.mil/"
+    },
+    {
+        "name":  "EOD Information Management System",
+        "url":  "https://eodims.af.mil/"
+    },
+    {
+        "name":  "FMS Web",
+        "url":  "https://fmsweb.army.mil"
+    },
+    {
+        "name":  "Game Changer",
+        "url":  "https://gamechanger.advana.data.mil/"
+    },
+    {
+        "name":  "Joint EOD Portal",
+        "url":  "https://jeod.disa.mil/"
+    },
+    {
+        "name":  "Joint Hazard Classification System",
+        "url":  "https://mhp.redstone.army.mil/"
+    },
+    {
+        "name":  "Project Management Resource Tools",
+        "url":  "https://pmrt-army.altess.army.mil/"
+    },
+    {
+        "name":  "RFMSS",
+        "url":  "https://rfmss.belvoir.army.mil/"
+    },
+    {
+        "name":  "USAF Maps",
+        "url":  "https://maps.af.mil/"
+    },
+    {
+        "name":  "USAF Weather Web Services",
+        "url":  "https://weather.af.mil/"
+    },
+    {
+        "name":  "Vantage",
+        "url":  "https://vantage.army.mil/"
+    },
+    {
+        "name":  "Army PaYS Program",
+        "url":  "https://armypays.com/"
+    },
+    {
+        "name":  "DoD SkillBridge",
+        "url":  "https://skillbridge.osd.mil/"
+    },
+    {
+        "name":  "HRC Separations \u0026 Retirement",
+        "url":  "https://www.hrc.army.mil/content/Separations%20and%20Retirement%20Services"
+    },
+    {
+        "name":  "Recruit Military",
+        "url":  "https://recruitmilitary.com/"
+    },
+    {
+        "name":  "Transition Assistance Program",
+        "url":  "https://www.armytap.army.mil/"
+    },
+    {
+        "name":  "VA",
+        "url":  "https://www.va.gov/"
+    },
+    {
+        "name":  "Army Benefits Center",
+        "url":  "https://portal.chra.army.mil/abc/"
+    },
+    {
+        "name":  "Army Career Tracker",
+        "url":  "https://actnow.army.mil/"
+    },
+    {
+        "name":  "Army Civilian Career Management Activity",
+        "url":  "https://civilians.army.mil/"
+    },
+    {
+        "name":  "Army Disaster Personnel Accountability and Assessment System",
+        "url":  "https://adpaas.army.mil/"
+    },
+    {
+        "name":  "Army Evaluation Entry System",
+        "url":  "https://evaluations.hrc.army.mil/"
+    },
+    {
+        "name":  "Army Housing Online",
+        "url":  "https://www.housing.army.mil/"
+    },
+    {
+        "name":  "Army JAG Corps Net",
+        "url":  "https://www.jagcnet.army.mil/"
+    },
+    {
+        "name":  "ATAAPS",
+        "url":  "https://ataaps.csd.disa.mil/"
+    },
+    {
+        "name":  "Career Intermission Program",
+        "url":  "https://talent.army.mil/cip/"
+    },
+    {
+        "name":  "Defense Personnel Records Information Retrieval System",
+        "url":  "https://www.dpris.dod.mil/"
+    },
+    {
+        "name":  "DoD Performance MAPS",
+        "url":  "https://www.dcpas.osd.mil/policy/performance/dodperformancemanagementappraisal"
+    },
+    {
+        "name":  "HRC Self Service",
+        "url":  "https://www.hrc.army.mil/content/Self%20Service"
+    },
+    {
+        "name":  "ID Card Online",
+        "url":  "https://idco-pki.dmdc.osd.mil/idco/"
+    },
+    {
+        "name":  "iPERMS",
+        "url":  "https://iperms.hrc.army.mil/login/"
+    },
+    {
+        "name":  "IPPS-A",
+        "url":  "https://my.ippsa.army.mil/"
+    },
+    {
+        "name":  "Joint Qualification System",
+        "url":  "https://dhramission.servicenowservices.mil/jqs"
+    },
+    {
+        "name":  "MyBiz+",
+        "url":  "https://compo.dcpds.cpms.osd.mil/"
+    },
+    {
+        "name":  "MyPay",
+        "url":  "https://mypay.dfas.mil/"
+    },
+    {
+        "name":  "Office of Personnel Management eOPF",
+        "url":  "https://eopf.opm.gov/army/"
+    },
+    {
+        "name":  "Thrift Savings Plan",
+        "url":  "https://www.tsp.gov/"
+    },
+    {
+        "name":  "ALMS",
+        "url":  "https://www.lms.army.mil"
+    },
+    {
+        "name":  "Army Training Information System",
+        "url":  "https://atis.army.mil"
+    },
+    {
+        "name":  "Army University",
+        "url":  "https://armyuniversity.edu/"
+    },
+    {
+        "name":  "ATRRS",
+        "url":  "https://www.atrrs.army.mil/"
+    },
+    {
+        "name":  "ArmyIgnitED",
+        "url":  "https://www.armyignited.army.mil"
+    },
+    {
+        "name":  "Center for Development of Security Excellence",
+        "url":  "https://www.cdse.edu/"
+    },
+    {
+        "name":  "COOL",
+        "url":  "https://www.cool.osd.mil/army/"
+    },
+    {
+        "name":  "Cyber Training",
+        "url":  "https://cs.signal.army.mil"
+    },
+    {
+        "name":  "Defense Acquisition University",
+        "url":  "https://www.dau.edu/"
+    },
+    {
+        "name":  "Defense Language Institute Foreign Language Center",
+        "url":  "https://www.dliflc.edu/"
+    },
+    {
+        "name":  "Digital Job Book",
+        "url":  "https://atn.army.mil/mytraining/"
+    },
+    {
+        "name":  "Digital Training Management System",
+        "url":  "https://dtms.army.mil/"
+    },
+    {
+        "name":  "DoD CUI Program",
+        "url":  "https://www.dodcui.mil/"
+    },
+    {
+        "name":  "FedVTE",
+        "url":  "https://fedvte.usalearning.gov/"
+    },
+    {
+        "name":  "Joint Knowledge Online",
+        "url":  "https://jkodirect.jten.mil"
+    },
+    {
+        "name":  "Joint Training Platform",
+        "url":  "https://jtp.jten.mil/"
+    },
+    {
+        "name":  "LANDWARNET eUniversity",
+        "url":  "https://lwn.army.mil/"
+    },
+    {
+        "name":  "Microsoft Learn",
+        "url":  "https://learn.microsoft.com/en-us/training/"
+    },
+    {
+        "name":  "MWR Academy",
+        "url":  "https://academy.armymwr.com/"
+    },
+    {
+        "name":  "Security Awareness Hub",
+        "url":  "https://securityawareness.usalearning.gov/"
+    },
+    {
+        "name":  "Udemy (DAC only)",
+        "url":  "https://armyciv.udemy.com/"
+    },
+    {
+        "name":  "Aircraft and Personnel Automated Clearance System",
+        "url":  "https://apacs.milcloud.mil/"
+    },
+    {
+        "name":  "American Forces Travel",
+        "url":  "https://www.americanforcestravel.com/"
+    },
+    {
+        "name":  "CitiBank",
+        "url":  "https://home.cards.citidirect.com/CommercialCard/login"
+    },
+    {
+        "name":  "CWT Sato Travel",
+        "url":  "https://www.cwtsatotravel.com/"
+    },
+    {
+        "name":  "Defense Travel System",
+        "url":  "https://www.defensetravel.osd.mil/"
+    },
+    {
+        "name":  "Individual Anti-Terrorism Plan",
+        "url":  "https://iatp.pacom.mil/"
+    },
+    {
+        "name":  "SmartVoucher",
+        "url":  "https://smartvoucher.dfas.mil/"
+    }
+]
