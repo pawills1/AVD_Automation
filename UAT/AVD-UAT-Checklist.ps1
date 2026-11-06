@@ -154,7 +154,8 @@ function Get-ValidationCheckDescription {
         'Azure Virtual Desktop Tasks|AVD-20' = 'Manual only: open About Teams and confirm AVD SlimCore Media Optimized or AVD Media Optimized is displayed.'
         'Azure Virtual Desktop Tasks|AVD-24' = 'Manual only: complete the documented Microsoft Teams activities and confirm Teams functions correctly.'
         'Azure Virtual Desktop Tasks|AVD-40' = 'Manual only: confirm Outlook Cached Exchange Mode is enabled and Download email for the past is set to 3 days.'
-        'Azure Virtual Desktop Tasks|AVD-54' = 'Locate SnippingTool.exe through the current-user WindowsApps aliases/packages or System32, launch it, wait up to 30 seconds, then close the process started by the check.'
+        'Azure Virtual Desktop Tasks|AVD-53' = 'Manual only: as the signed-in UAT user, launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt.'
+        'Azure Virtual Desktop Tasks|AVD-54' = 'Manual only: as the signed-in UAT user, capture a visible region with Snipping Tool, open the snip, and confirm the image is visible rather than black or blank.'
         'Azure Virtual Desktop Tasks|AVD-57' = 'Manual only: complete the IDCO CAC authentication workflow.'
         'Azure Virtual Desktop Tasks|AVD-58' = 'Manual only: visually confirm the Army wallpaper is applied in the signed-in AVD session.'
         'Azure Virtual Desktop Tasks|AVD-59' = 'Read BitLocker ProtectionStatus for C: and D:. Pass only when protection is Off on both drives, regardless of encryption state or percentage.'
@@ -168,6 +169,7 @@ function Get-ValidationCheckDescription {
         'Azure Virtual Desktop Tasks|AVD-72' = 'Require SetDisableUXWUAccess=1, DeferFeatureUpdates=1, and DeferQualityUpdates=1 under HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate. Manually confirm the rendered Windows Update restrictions and organization-policy message.'
         'Azure Virtual Desktop Tasks|AVD-76' = 'Manual only: browse to https://atrrs.army.mil, approve the user prompt, and confirm the site loads correctly.'
         'Azure Virtual Desktop Tasks|AVD-78' = 'Manual only: browse to https://gears.army.mil, approve the user prompt, authenticate, and complete the required upload/download check.'
+        'Azure Virtual Desktop Tasks|AVD-80' = 'Read HKLM:\Software\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots. Require Flags=65537 (REG_DWORD) and PeerUsages (REG_MULTI_SZ) containing exactly 1.3.6.1.5.5.7.3.2, 1.3.6.1.5.5.7.3.4, and 1.3.6.1.4.1.311.10.3.4.'
         'Azure Virtual Desktop Tasks|AVD-82' = 'Read HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\DisabledComponents (require DWORD 255/0xFF) and require every ms_tcpip6 adapter binding Enabled value to be False.'
     }
     if ($descriptions.ContainsKey($key)) { return $descriptions[$key] }
@@ -314,24 +316,31 @@ function Get-FieryUpdaterResult {
     return New-Result 'Partial Pass' "$scopeNote No value name or command matched Fiery, FPDU, or FDPU. Manually log out and back in, then confirm that no Fiery printer driver updater popup appears." 'Automated autorun scan passed; manual post-logon popup confirmation required'
 }
 
-function Get-DodEcmaCertificateResult {
-    if ($isSystem) { return New-Result 'Manual' 'Current-user certificate stores cannot be assessed for the UAT user from SYSTEM.' 'Manual task: verify certificates in the UAT user context' }
-
-    $certificates = @(Get-ChildItem Cert:\CurrentUser\CA, Cert:\CurrentUser\Root -ErrorAction SilentlyContinue)
-    $dodCertificates = @($certificates | Where-Object { $_.Issuer -match '(?i)DOD' })
-    $ecmaCertificates = @($certificates | Where-Object { $_.Issuer -match '(?i)ECMA' })
-    if ($dodCertificates.Count -eq 0 -or $ecmaCertificates.Count -eq 0) {
-        return New-Result 'Fail' "Required certificate family is missing. DoD certificates found: $($dodCertificates.Count); ECMA certificates found: $($ecmaCertificates.Count)."
+function Get-ProtectedRootsResult {
+    $path = 'HKLM:\Software\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots'
+    try {
+        $flags = Get-ItemPropertyValue -LiteralPath $path -Name 'Flags' -ErrorAction Stop
+        $peerUsages = Get-ItemPropertyValue -LiteralPath $path -Name 'PeerUsages' -ErrorAction Stop
+    }
+    catch {
+        return New-Result 'Fail' "Protected Roots policy could not be read at ${path}: $($_.Exception.Message)"
     }
 
-    $now = Get-Date
-    $invalidCertificates = @($dodCertificates + $ecmaCertificates | Where-Object { $_.NotBefore -gt $now -or $_.NotAfter -lt $now } | Sort-Object Thumbprint -Unique)
-    if ($invalidCertificates.Count -gt 0) {
-        $invalidEvidence = @($invalidCertificates | ForEach-Object { "$($_.Thumbprint) [$($_.NotBefore.ToString('s')) to $($_.NotAfter.ToString('s'))]" })
-        return New-Result 'Fail' "Found $($invalidCertificates.Count) DoD/ECMA certificate(s) outside their validity window: $($invalidEvidence -join '; ')."
+    $expectedUsages = @('1.3.6.1.5.5.7.3.2', '1.3.6.1.5.5.7.3.4', '1.3.6.1.4.1.311.10.3.4')
+    $evidence = "$path :: Flags=$flags; PeerUsages=$($peerUsages -join ', ')."
+    if ($flags -isnot [int] -or $flags -ne 65537) {
+        return New-Result 'Fail' "$evidence Expected Flags=65537 (REG_DWORD)."
+    }
+    if ($peerUsages -isnot [string[]] -or $peerUsages.Count -ne $expectedUsages.Count) {
+        return New-Result 'Fail' "$evidence Expected PeerUsages (REG_MULTI_SZ) with exactly: $($expectedUsages -join ', ')."
+    }
+    foreach ($usage in $expectedUsages) {
+        if ($peerUsages -notcontains $usage) {
+            return New-Result 'Fail' "$evidence Required PeerUsages entry is missing: $usage."
+        }
     }
 
-    return New-Result 'Partial Pass' "Found $($dodCertificates.Count) DoD and $($ecmaCertificates.Count) ECMA certificate(s) in the CurrentUser Intermediate Certification Authorities and Trusted Root Certification Authorities stores; all are currently valid. An approved thumbprint list was not supplied." 'Automated family and validity checks passed; approved-list completeness remains manual'
+    return New-Result 'Pass' "$evidence Protected Roots policy matches the required configuration for blocking user imports into the Root store."
 }
 
 function Get-RemoteAppHostResult {
@@ -428,12 +437,6 @@ function Get-SnippingToolPath {
     )
     $packagedAliases = @(Get-ChildItem -Path (Join-Path $env:LOCALAPPDATA 'Microsoft\WindowsApps\Microsoft.ScreenSketch_*\SnippingTool.exe') -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)
     return @($candidates + $packagedAliases | Where-Object { $_ -and (Test-Path -LiteralPath $_ -PathType Leaf) } | Select-Object -Unique -First 1)
-}
-
-function Get-SnippingToolResult {
-    $snippingToolPath = Get-SnippingToolPath | Select-Object -First 1
-    if (-not $snippingToolPath) { return New-Result 'Fail' 'Snipping Tool was not found in the current-user WindowsApps aliases/packages or System32.' }
-    return Get-ApplicationStartupResult $snippingToolPath 'SnippingTool' 'Snipping Tool' 'Manually run both snip tests and confirm each opens in Snipping Tool without prompting for a default application; if prompted, verify the MS-SCREENCLIP association.'
 }
 
 function Get-DtpLiteResult {
@@ -1735,8 +1738,8 @@ function Get-AutomatedResult {
         'AVD-50' { return New-Result 'Manual' 'Open SelfHelp from the desktop and manually exercise each required action, confirming that every action completes successfully without an error or blocked UI.' 'Manual functional check required; the checklist does not define machine-verifiable actions or outcomes' }
         'AVD-51' { return New-Result 'Manual' 'The check requires creating a uniquely named test favorite or bookmark, running SelfHelp backup, removing the entry, running SelfHelp restore, and confirming the same entry returns.' 'Manual task: complete the documented SelfHelp browser backup and restore workflow' }
         'AVD-52' { return New-Result 'Manual' 'Use SelfHelp to enter OPSEC mode and confirm the classification banner closes and the Army logo is obscured. Exit OPSEC mode and confirm the banner and Army 4K logo return; if the wallpaper does not restore on the same host, repeat the final verification on the other host in the pool.' 'Guided visual transaction required; rendered desktop state cannot be proven from configuration alone' }
-        'AVD-53' { return Get-SnippingToolResult }
-        'AVD-54' { return New-Result 'Manual' 'Use Snipping Tool to capture a visible region containing varied colors or text, open the resulting snip, and confirm the captured image is visible rather than black or blank.' 'Manual visual capture check required; application startup does not prove captured pixel rendering' }
+        'AVD-53' { return New-Result 'Manual' 'Snipping Tool requires the signed-in UAT user; SYSTEM startup cannot validate current-user application aliases or snip behavior. Launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt; if prompted, verify the MS-SCREENCLIP association.' 'Manual task: validate Snipping Tool and both documented snip tests in the signed-in UAT user session' }
+        'AVD-54' { return New-Result 'Manual' 'As the signed-in UAT user, use Snipping Tool to capture a visible region containing varied colors or text, open the resulting snip, and confirm the captured image is visible rather than black or blank.' 'Manual task: visually validate the captured image in the signed-in UAT user session; SYSTEM startup cannot prove captured pixel rendering' }
         'AVD-55' { return Get-ApplicationStartupResult 'C:\Program Files (x86)\STIG Viewer 3\STIG Viewer 3.exe' 'STIG Viewer 3' 'STIG Viewer' 'Confirm that the main window is responsive and no error dialog is visible.' }
         'AVD-56' { return Get-YubiKeyDetectionResult }
         'AVD-57' { return New-Result 'Manual' 'IDCO CAC validation requires an interactive browser session, CAC selection, PIN entry, and authenticated page confirmation.' 'Manual task: complete the documented IDCO CAC workflow' }
@@ -1768,7 +1771,7 @@ function Get-AutomatedResult {
         'AVD-77' { return New-Result 'Manual' 'GEARS requires an interactive browser prompt, user approval, authentication, and file transfer validation.' 'Manual task: open https://gears.army.mil, approve the prompt, and complete the upload/download check' }
         'AVD-78' { return Get-BastionRdpResult }
         'AVD-79' { return Get-FieryUpdaterResult }
-        'AVD-80' { return Get-DodEcmaCertificateResult }
+        'AVD-80' { return Get-ProtectedRootsResult }
         'AVD-81' {
             $disabledComponentsPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'
             try { $disabledComponents = Get-ItemPropertyValue -Path $disabledComponentsPath -Name 'DisabledComponents' -ErrorAction Stop }
@@ -1861,8 +1864,8 @@ Write-Output "Pass: $($passing.Count) | Partial Pass: $($partial.Count) | Fail: 
 # SIG # Begin signature block
 # MIIHMAYJKoZIhvcNAQcCoIIHITCCBx0CAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCDkeW9mDh/ycjiM
-# OFnD0kOZnZW40Uhs7sJ+819F2mcaIKCCBBwwggQYMIICgKADAgECAhARPahbg4yR
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCBbJfWFcnWjGy9T
+# Vw5cj1IvbfPupdT8lhwWZzPiIgkre6CCBBwwggQYMIICgKADAgECAhARPahbg4yR
 # u0x0RWe84V06MA0GCSqGSIb3DQEBCwUAMCQxIjAgBgNVBAMMGUFWRCBVQVQgVGVz
 # dCBDb2RlIFNpZ25pbmcwHhcNMjYwOTIzMTk0MjUxWhcNMzEwOTIzMTk1MjUwWjAk
 # MSIwIAYDVQQDDBlBVkQgVUFUIFRlc3QgQ29kZSBTaWduaW5nMIIBojANBgkqhkiG
@@ -1888,14 +1891,14 @@ Write-Output "Pass: $($passing.Count) | Partial Pass: $($partial.Count) | Fail: 
 # QVZEIFVBVCBUZXN0IENvZGUgU2lnbmluZwIQET2oW4OMkbtMdEVnvOFdOjANBglg
 # hkgBZQMEAgEFAKCBhDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3
 # DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEV
-# MC8GCSqGSIb3DQEJBDEiBCC0pSJRD3GnS/Eqrh/kwXh4yocJ458xVgAiRX5+agfF
-# 4TANBgkqhkiG9w0BAQEFAASCAYBPjAK3aUlSdLgJB6oh/IFDnqmY0AAlvvitjQkr
-# QTqd108N8w2Y03fdxA/RwmFE3r7oclNLyd4149UPOhk/UUFRDspImwLkMDFC86Fr
-# BVuW37Qn1vk1dMPl7yVSfC0IigHDkQU2+vf+Zrk5JuADg5q38jrO31oRHKjLCWzR
-# 2ZcP2TvblVQvIBd+K+cRAarvqa6NcG8W3992Pyox9txHqcs/mT+fhnKwNRO92T+6
-# A7Gmi/NfvzRvR9gpoYzriBCDTBNcd8sevTjRwB+HtLtuOKgFwiSJk41fxxt2v6DA
-# pQXxaZEfjB9B6hnH227q+jwj/cnhHCW02Qi4XO5akcOc+/83Q5w3C0/33IdZ6WGp
-# jYZHHB66zu2+Vodp8+XZmfzgVED7lgO1CymdCv5A/HP0qFBKjCi6fH8lVpMan7Wl
-# 3XnwHOQWtWtPTOn0RojuK9pwgAlaC01pvAqAiAejEteEGR75PO7QnZDq16SE+0OJ
-# +WNvBDtQlKHL91M/d//Qzd4xsfo=
+# MC8GCSqGSIb3DQEJBDEiBCB/s4QTI3lCl6DmSrnl/5UYpKkze9g1N6oiW3eG6k8Y
+# mzANBgkqhkiG9w0BAQEFAASCAYCo2hAIA26jIf/VYlqULWQN2V6RyPstG92Q12X8
+# FYGISZfI3MIUT20C/W0qFh8puRfcfvhmz0VhQRZsaSbHpQu6Lg1iBBgERIOz4oIX
+# PeE4beIl8iqLS/fFzeBxdNpJmzSZlLuWcpKXU4v21vtNZhvs4908iwn/0eTEACNA
+# k0XB6IB1pRZdbsLQss3In0UzJSTdlUPIctfngptIed7/KQSNrkvMrsp2C7l4rRIk
+# GK17VRGMxMZ4WT6nN4LA6GKzMRnH5YNoJBlVeFd8U7dEyvLzsmA/dINTZ2mF1vb7
+# NA/lsaQBiFAJrIG+bIJXvQ/aazutimoL2ZMl6/Vilth+EKHS8HpCZRAnYGvxukdC
+# EmWCDxyLnJ5GIzuTiizBlO6P1jBl/Tb21mugeJ9ciYyHwsKbMcDpXt/1prHxW3Y9
+# YqPALWOiqelhCwxoVUOg8QkrdJ63xI6WHseayfc8BuX/+sMBJuHJVXsoRR3HcNpj
+# qn3+gUdkj0c6APdgv6fp66UGybE=
 # SIG # End signature block

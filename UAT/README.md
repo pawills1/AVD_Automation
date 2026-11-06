@@ -31,12 +31,19 @@ manual launcher prompts for their final results:
 | Azure Virtual Desktop Tasks | AVD-20 | About Teams displays AVD SlimCore Media Optimized or AVD Media Optimized. |
 | Azure Virtual Desktop Tasks | AVD-24 | Complete the documented Teams activities and confirm Teams functions correctly. |
 | Azure Virtual Desktop Tasks | AVD-40 | Outlook Cached Exchange Mode is checked and the download period is 3 days. |
+| Azure Virtual Desktop Tasks | AVD-53 | As the signed-in UAT user, launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt. |
+| Azure Virtual Desktop Tasks | AVD-54 | As the signed-in UAT user, capture and open a snip and confirm the image is visible rather than black or blank. |
 | Azure Virtual Desktop Tasks | AVD-57 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
 | Azure Virtual Desktop Tasks | AVD-58 | Visually confirm the Army wallpaper is applied. |
 | Azure Virtual Desktop Tasks | AVD-60 | As the standard UAT user without elevation, try to create a folder in C:\ and confirm access is denied. |
 | Azure Virtual Desktop Tasks | AVD-61 | As the standard UAT user without elevation, try to create a folder in D:\ and confirm access is denied. |
 | Azure Virtual Desktop Tasks | AVD-68 | Confirm OneDrive is accessible and syncing. |
 | Remote Apps Tasks | AVD-15 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
+
+AVD-53 and AVD-54 never search current-user application aliases or launch Snipping
+Tool during automated collection, including SYSTEM startup with no user logged in.
+Both are recorded as `Manual` and presented by the manual launcher for review in
+the signed-in UAT user's session.
 
 AVD-60 and AVD-61 never attempt automated writes. Review them in the signed-in
 standard UAT user's session, not as SYSTEM or an elevated administrator. A missing
@@ -60,18 +67,66 @@ BitLocker protection or encrypt/decrypt any drive.
 
 HTML rows and workbook Result cells use green for `Pass`, yellow for `Partial Pass` and `Manual`, and red for `Fail`.
 
+Azure Virtual Desktop Tasks **AVD-80 (Protected Roots Verification)** reads
+`HKLM:\Software\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots`
+in both SYSTEM and user runs. It requires `Flags=65537` as `REG_DWORD` and
+`PeerUsages` as `REG_MULTI_SZ` with exactly these entries (order does not matter):
+`1.3.6.1.5.5.7.3.2`, `1.3.6.1.5.5.7.3.4`, and `1.3.6.1.4.1.311.10.3.4`.
+Missing or unreadable policy values, incorrect types, or mismatched values fail
+with diagnostic evidence. The check is read-only; it does not attempt certificate
+imports. It replaces the former DoD/ECMA CurrentUser certificate inventory check.
+
 ## Mandatory prerequisite gate
 
 Both the automated and manual launchers invoke `AVD-UAT-Prerequisite-Check.ps1` before any checklist workbook is read, any UAT check runs, or any manual prompt is displayed. The gate runs fresh in the launcher's current execution context; a prior result is never reused.
 
 The checker is compatible with PowerShell Constrained Language Mode. It uses native `dsregcmd.exe` and `schtasks.exe`, registry and service cmdlets, hashtables, operators, and file cmdlets. It does not require custom object creation, non-core static method invocation, `PSObject` reflection, `Add-Type`, `New-Object`, or the ScheduledTasks PowerShell module.
 
-All four requirements must pass:
+All six requirements must pass:
 
 1. `dsregcmd.exe /status` reports `AzureAdJoined : YES`.
 2. An `MS DM Server` enrollment exists under `HKLM:\SOFTWARE\Microsoft\Enrollments`, and its matching `\Microsoft\Windows\EnterpriseMgmt\<enrollment ID>\` namespace contains scheduled tasks.
 3. Service `IntuneManagementExtension` exists and is `Running`.
 4. FSLogix service `frxsvc` exists and is `Running`.
+5. Microsoft Dependency Agent service `MicrosoftDependencyAgent` exists and is `Running`. This is a prerequisite-only check, not a UAT checklist row.
+6. **Host Pool Status:** `SessionHostPool` under `HKLM:\SOFTWARE\Microsoft\RDMonitoringAgent` matches the entire expected pool name derived from the device name.
+
+Host Pool Status runs automatically in both launchers; no separate test script,
+Azure sign-in, or Azure query is needed. The device naming format is
+`AVD<region><ring><two-digit group><slice><host-pool digit><three-digit host sequence>`.
+Regions are AZ, VA, TX, or DE; rings are INT, PLT, BRD, or TST; slices are A or B.
+The first digit after the slice selects the host-pool number (1-9); the remaining
+three digits identify the host and are not part of the pool name.
+AZ and TX devices require AZ host pools; VA and DE devices require VA host pools.
+For example:
+
+| Device | Required SessionHostPool |
+| --- | --- |
+| `AVDAZINT01A1001` | `P-ARMY-AVD-AZ-INT01A-1` |
+| `AVDTXPLT02B2001` | `P-ARMY-AVD-AZ-PLT02B-2` |
+| `AVDDEBRD03A1001` | `P-ARMY-AVD-VA-BRD03A-1` |
+
+Comparison is case-insensitive but requires the complete name: added prefixes,
+suffixes, or whitespace do not pass. Missing, blank, unreadable, non-string, or
+unrecognized values and unrecognized device names fail and block UAT. The
+prerequisite HTML report and log include the device name, actual pool, expected
+pool, and mismatch reason (region, ring, group, slice, and/or host-pool number).
+This adds a prerequisite only; it does not add a checklist workbook row or change
+retry behavior.
+
+The `tests\Test-HostPoolPrerequisite.ps1` development test validates mappings with
+simulated registry data. It is not needed on session hosts and is not included in
+the live-test ZIP. To run it from the source folder:
+
+```powershell
+powershell.exe -NoProfile -File .\tests\Test-HostPoolPrerequisite.ps1
+```
+
+For isolated gate/report and launcher-blocking tests in PowerShell 5.1 and 7,
+including Constrained Language Mode, run
+`powershell.exe -NoProfile -File .\tests\Test-PrerequisiteGate.ps1`.
+These development tests simulate host dependencies without changing the live
+registry or machine configuration.
 
 Every gate execution creates an HTML report and troubleshooting log. Automated runs place them in the new `Automated_Results_<timestamp>` folder. Manual runs place them under `%TEMP%\ArmyAVD\UAT-Prerequisites`.
 
