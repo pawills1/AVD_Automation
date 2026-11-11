@@ -150,27 +150,27 @@ function Get-ValidationCheckDescription {
         'Remote Apps Tasks|AVD-12' = 'Read HKLM/HKCU:\SOFTWARE\Policies\Microsoft\Edge\InPrivateModeAvailability and require DWORD 1.'
         'Remote Apps Tasks|AVD-14' = 'Read HKLM/HKCU:\SOFTWARE\Policies\Microsoft\Edge\ComposeInlineEnabled and require DWORD 0.'
         'Remote Apps Tasks|AVD-15' = 'Manual only: complete the IDCO CAC authentication workflow.'
-        'Azure Virtual Desktop Tasks|AVD-09' = 'Manual only: launch DTP Lite and complete its required popup/user interaction.'
-        'Azure Virtual Desktop Tasks|AVD-20' = 'Manual only: open About Teams and confirm AVD SlimCore Media Optimized or AVD Media Optimized is displayed.'
-        'Azure Virtual Desktop Tasks|AVD-24' = 'Manual only: complete the documented Microsoft Teams activities and confirm Teams functions correctly.'
-        'Azure Virtual Desktop Tasks|AVD-40' = 'Manual only: confirm Outlook Cached Exchange Mode is enabled and Download email for the past is set to 3 days.'
-        'Azure Virtual Desktop Tasks|AVD-53' = 'Manual only: as the signed-in UAT user, launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt.'
-        'Azure Virtual Desktop Tasks|AVD-54' = 'Manual only: as the signed-in UAT user, capture a visible region with Snipping Tool, open the snip, and confirm the image is visible rather than black or blank.'
-        'Azure Virtual Desktop Tasks|AVD-57' = 'Manual only: complete the IDCO CAC authentication workflow.'
-        'Azure Virtual Desktop Tasks|AVD-58' = 'Manual only: visually confirm the Army wallpaper is applied in the signed-in AVD session.'
-        'Azure Virtual Desktop Tasks|AVD-59' = 'Read BitLocker ProtectionStatus for C: and D:. Pass only when protection is Off on both drives, regardless of encryption state or percentage.'
-        'Azure Virtual Desktop Tasks|AVD-60' = 'Manual only: as the signed-in standard UAT user, not SYSTEM or an elevated administrator, try to create a folder in C:\ and confirm access is denied.'
-        'Azure Virtual Desktop Tasks|AVD-61' = 'Manual only: as the signed-in standard UAT user, not SYSTEM or an elevated administrator, try to create a folder in D:\ and confirm access is denied.'
-        'Azure Virtual Desktop Tasks|AVD-62' = 'Require P:\ to be mounted, then attempt to create a uniquely named temporary file in its root as the UAT user; pass only when Windows returns access denied.'
+        'Azure Virtual Desktop Tasks|AVD-05' = 'Manual only: in Adobe Acrobat, open or create a PDF, select All Tools > Protect a PDF > Microsoft Sensitivity Label, sign in if needed, apply an available label, then save, close, and reopen the protected PDF without errors.'
+        'Azure Virtual Desktop Tasks|AVD-10' = 'Manual only: launch DTP Lite and complete its required popup/user interaction.'
+        'Azure Virtual Desktop Tasks|AVD-21' = 'Manual only: open About Teams and confirm AVD SlimCore Media Optimized or AVD Media Optimized is displayed.'
+        'Azure Virtual Desktop Tasks|AVD-25' = 'Manual only: complete the documented Microsoft Teams activities and confirm Teams functions correctly.'
+        'Azure Virtual Desktop Tasks|AVD-41' = 'Manual only: confirm Outlook Cached Exchange Mode is enabled and Download email for the past is set to 3 days.'
+        'Azure Virtual Desktop Tasks|AVD-54' = 'Manual only: as the signed-in UAT user, launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt.'
+        'Azure Virtual Desktop Tasks|AVD-55' = 'Manual only: as the signed-in UAT user, capture a visible region with Snipping Tool, open the snip, and confirm the image is visible rather than black or blank.'
+        'Azure Virtual Desktop Tasks|AVD-58' = 'Manual only: complete the IDCO CAC authentication workflow.'
+        'Azure Virtual Desktop Tasks|AVD-59' = 'Manual only: visually confirm the Army wallpaper is applied in the signed-in AVD session.'
+        'Azure Virtual Desktop Tasks|AVD-60' = 'Read BitLocker ProtectionStatus for C: and D:. Pass only when protection is Off on both drives, regardless of encryption state or percentage.'
+        'Azure Virtual Desktop Tasks|AVD-61' = 'Manual only: as the signed-in standard UAT user, not SYSTEM or an elevated administrator, try to create a folder in C:\ and confirm access is denied.'
+        'Azure Virtual Desktop Tasks|AVD-62' = 'Manual only: as the signed-in standard UAT user, not SYSTEM or an elevated administrator, try to create a folder in D:\ and confirm access is denied.'
         'Azure Virtual Desktop Tasks|AVD-64' = 'Launch File Explorer, Calculator, Notepad, Snipping Tool, Photos, and Paint one at a time; allow up to 30 seconds per app and close only newly started processes.'
-        'Azure Virtual Desktop Tasks|AVD-66' = 'Read installed language inventory and require LpCab for every configured language. LXP packages and language features are not required.'
-        'Azure Virtual Desktop Tasks|AVD-68' = 'Manual only: confirm OneDrive is accessible and syncing in the signed-in AVD session.'
-        'Azure Virtual Desktop Tasks|AVD-70' = 'Read the local CurrentBuild and UBR, retrieve the official Microsoft update history, and require the local build to be greater than the latest build from the previous calendar month on the same build branch.'
-        'Azure Virtual Desktop Tasks|AVD-72' = 'Require SetDisableUXWUAccess=1, DeferFeatureUpdates=1, and DeferQualityUpdates=1 under HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate. Manually confirm the rendered Windows Update restrictions and organization-policy message.'
+        'Azure Virtual Desktop Tasks|AVD-67' = 'Read installed language inventory and require LpCab for every configured language. LXP packages and language features are not required.'
+        'Azure Virtual Desktop Tasks|AVD-69' = 'Manual only: confirm OneDrive is accessible and syncing in the signed-in AVD session.'
+        'Azure Virtual Desktop Tasks|AVD-71' = 'Read the local CurrentBuild and UBR, retrieve the official Microsoft update history, and require the local build to be greater than the latest build from the previous calendar month on the same build branch.'
+        'Azure Virtual Desktop Tasks|AVD-73' = 'Require SetDisableUXWUAccess=1, DeferFeatureUpdates=1, and DeferQualityUpdates=1 under HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate. Manually confirm the rendered Windows Update restrictions and organization-policy message.'
         'Azure Virtual Desktop Tasks|AVD-76' = 'Manual only: browse to https://atrrs.army.mil, approve the user prompt, and confirm the site loads correctly.'
         'Azure Virtual Desktop Tasks|AVD-78' = 'Manual only: browse to https://gears.army.mil, approve the user prompt, authenticate, and complete the required upload/download check.'
-        'Azure Virtual Desktop Tasks|AVD-80' = 'Read HKLM:\Software\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots. Require Flags=65537 (REG_DWORD) and PeerUsages (REG_MULTI_SZ) containing exactly 1.3.6.1.5.5.7.3.2, 1.3.6.1.5.5.7.3.4, and 1.3.6.1.4.1.311.10.3.4.'
-        'Azure Virtual Desktop Tasks|AVD-82' = 'Read HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\DisabledComponents (require DWORD 255/0xFF) and require every ms_tcpip6 adapter binding Enabled value to be False.'
+        'Azure Virtual Desktop Tasks|AVD-80' = 'Manual only: use certmgr to verify the required DoD root and intermediate certificates and ECMA-WCF-TRUST certificate exist and are not expired.'
+        'Azure Virtual Desktop Tasks|AVD-81' = 'Read HKLM:\Software\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots. Require Flags=65537 (REG_DWORD) and PeerUsages (REG_MULTI_SZ) containing exactly 1.3.6.1.5.5.7.3.2, 1.3.6.1.5.5.7.3.4, and 1.3.6.1.4.1.311.10.3.4.'
     }
     if ($descriptions.ContainsKey($key)) { return $descriptions[$key] }
     return $Review
@@ -1642,10 +1642,11 @@ function Get-AutomatedResult {
         'AVD-02' { return Get-SevenZipResult }
         'AVD-03' { return Get-ApplicationStartupResult 'C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe' 'Acrobat' 'Adobe Acrobat' 'Confirm that no licensing prompt is visible.' }
         'AVD-04' { return Get-ApplicationStartupResult 'C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe' 'Acrobat' 'Adobe Acrobat' 'Complete the checklist activities and confirm they produce no errors.' }
-        'AVD-05' { return Get-ApplicationStartupResult 'C:\Program Files\Amazon Web Services, Wickr\AWS WickrGov\AWSWickrGov.exe' 'AWSWickrGov' 'AWS WickrGov' 'Confirm that the sign-in prompt is visible.' }
-        'AVD-06' { return New-Result 'Manual' 'Rendered banner text and background color require visual inspection in an interactive user session.' 'Manual task: verify the displayed banner text and background color' }
-        'AVD-07' { return Get-ApplicationStartupResult 'C:\Program Files\DAX Studio\DaxStudio.exe' 'DaxStudio' 'DAX Studio' 'Confirm that no error dialog is visible.' }
-        'AVD-08' {
+        'AVD-05' { return New-Result 'Manual' 'Adobe Acrobat sensitivity-label protection requires the signed-in UAT user to open or create a PDF, select All Tools > Protect a PDF > Microsoft Sensitivity Label, sign in if credentials are not cached, apply an available label, then save, close, and reopen the protected PDF without errors.' 'Manual task: complete the documented Adobe Acrobat sensitivity-label workflow' }
+        'AVD-06' { return Get-ApplicationStartupResult 'C:\Program Files\Amazon Web Services, Wickr\AWS WickrGov\AWSWickrGov.exe' 'AWSWickrGov' 'AWS WickrGov' 'Confirm that the sign-in prompt is visible.' }
+        'AVD-07' { return New-Result 'Manual' 'Rendered banner text and background color require visual inspection in an interactive user session.' 'Manual task: verify the displayed banner text and background color' }
+        'AVD-08' { return Get-ApplicationStartupResult 'C:\Program Files\DAX Studio\DaxStudio.exe' 'DaxStudio' 'DAX Studio' 'Confirm that no error dialog is visible.' }
+        'AVD-09' {
             $expected = @('DEPTH_Bios', 'DEPTH_Cpu', 'DEPTH_ListeningProcess', 'DEPTH_LocalUser', 'DEPTH_LocalUserGroups', 'DEPTH_Memory', 'DEPTH_Network', 'DEPTH_OperatingSystem', 'DEPTH_Patches', 'DEPTH_PhysicalDisk', 'DEPTH_Proxy', 'DEPTH_RouteTable', 'DEPTH_Scaninfo', 'DEPTH_SecurityProducts', 'DEPTH_System', 'DEPTH_Tpminfo', 'DEPTH_Usb', 'DEPTH_WindowsOptionalFeatures')
             $uninstallPaths = @(
                 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
@@ -1664,13 +1665,13 @@ function Get-AutomatedResult {
             if ($found.Count -gt 0) { return New-Result 'Partial Pass' "Found $($found.Count) of $($expected.Count) expected DEPTH entries; the approved minimum is 15. Missing: $($missing -join ', ')." 'Automated evidence is below the approved threshold' }
             return New-Result 'Fail' "None of the $($expected.Count) expected DEPTH entries were found."
         }
-        'AVD-09' { return Get-DtpLiteResult }
-        'AVD-10' { return Get-FoundryOdbcResult }
-        'AVD-11' { return New-Result 'Manual' 'The check requires an interactive Chrome session, Menlo redirect observation, user sign-in, and final YouTube URL verification.' 'Manual task: complete the documented Chrome redirect and sign-in workflow' }
-        'AVD-12' { return Get-ChromePurviewResult }
-        'AVD-13' { return Get-ChromeUpdatePolicyResult }
-        'AVD-14' { return Get-ChromeManagedBookmarksResult }
-        'AVD-15' {
+        'AVD-10' { return Get-DtpLiteResult }
+        'AVD-11' { return Get-FoundryOdbcResult }
+        'AVD-12' { return New-Result 'Manual' 'The check requires an interactive Chrome session, Menlo redirect observation, user sign-in, and final YouTube URL verification.' 'Manual task: complete the documented Chrome redirect and sign-in workflow' }
+        'AVD-13' { return Get-ChromePurviewResult }
+        'AVD-14' { return Get-ChromeUpdatePolicyResult }
+        'AVD-15' { return Get-ChromeManagedBookmarksResult }
+        'AVD-16' {
             foreach ($policyPath in @('HKLM:\SOFTWARE\Policies\Google\Chrome', 'HKCU:\SOFTWARE\Policies\Google\Chrome')) {
                 try {
                     $setting = Get-ItemPropertyValue -Path $policyPath -Name 'AIModeSettings' -ErrorAction Stop
@@ -1681,7 +1682,7 @@ function Get-AutomatedResult {
             }
             return New-Result 'Fail' 'Chrome AIModeSettings managed policy was not found; expected DWORD 1 under the machine or user Chrome policy key.'
         }
-        'AVD-16' {
+        'AVD-17' {
             $expected = @{ HistorySearchSettings = 2; CreateThemesSettings = 2; DevToolsGenAISettings = 2; AutoFillPredictionSettings = 2; GenAILocalFoundationalModelSettings = 1; HelpMeWriteSettings = 2; TabCompareSettings = 2 }
             $bad = @()
             $policyPaths = @('HKLM:\SOFTWARE\Policies\Google\Chrome', 'HKCU:\SOFTWARE\Policies\Google\Chrome')
@@ -1702,88 +1703,76 @@ function Get-AutomatedResult {
             if ($bad.Count -eq 0) { return New-Result 'Pass' 'All expected Chrome policy values match.' }
             return New-Result 'Fail' "Missing or mismatched Chrome policies: $($bad -join '; ')."
         }
-        'AVD-17' { return Get-CopilotArtifactsResult }
-        'AVD-18' { return Get-OfficeStartupResult }
-        'AVD-19' { return Get-OfficeUpdatePolicyResult }
-        'AVD-20' { return New-Result 'Manual' 'Teams media optimization requires inspection of About Teams in the signed-in AVD session.' 'Manual task: confirm About Teams displays AVD SlimCore Media Optimized or AVD Media Optimized' }
-        'AVD-21' { return Get-TeamsStartupResult }
-        'AVD-22' { return New-Result 'Manual' 'The check requires an authenticated Teams session, selection of an existing chat, Pop out chat, and visual confirmation that the separate chat window rendered correctly.' 'Manual task: complete the documented Teams pop-out chat workflow' }
-        'AVD-23' { return New-Result 'Manual' 'The check requires an authenticated Teams session, inspection of microphone and speaker selectors, and confirmation of recording and playback.' 'Manual task: complete the documented Teams audio-device workflow' }
-        'AVD-24' { return New-Result 'Manual' 'Microsoft Teams functionality requires an authenticated interactive user workflow; preceding check results do not prove this expectation.' 'Manual task: complete the documented Teams activities and confirm Teams functions correctly' }
-        'AVD-25' { return New-Result 'Manual' 'The check requires an interactive Firefox session, Menlo redirect observation, operator CAC or sign-in, and final YouTube URL verification.' 'Manual task: complete the documented Firefox redirect and sign-in workflow' }
-        'AVD-26' { return Get-FirefoxProxyPolicyResult }
-        'AVD-27' { return Get-FirefoxUpdatePolicyResult }
-        'AVD-28' { return Get-EdgePurviewResult }
-        'AVD-29' { return New-Result 'Manual' 'The check requires two managed Edge cycles: observe the Menlo redirect, complete CAC authentication, verify the final YouTube URL, close and relaunch Edge, then repeat the challenge and redirect.' 'Manual task: complete both documented Edge redirect cycles' }
-        'AVD-30' { return Get-EdgeDeveloperToolsResult }
-        'AVD-31' { return Get-EdgeDownloadLocationResult }
-        'AVD-32' { return Get-EdgeManagedFavoritesResult }
-        'AVD-33' { return Get-EdgeHomePageResult }
-        'AVD-34' { return Get-EdgeInPrivateResult }
-        'AVD-35' { return New-Result 'Manual' 'The check requires authentication to OWA, a test recipient and subject, sending an encrypted message, receipt confirmation, and successful decryption.' 'Manual task: complete the documented OWA encrypted-message workflow' }
-        'AVD-36' { return Get-EdgeWritingAssistanceResult }
-        'AVD-37' { return Get-ApplicationStartupResult 'C:\Program Files\Notepad++\notepad++.exe' 'notepad++' 'Notepad++' 'Confirm that the editor window is responsive and no blocking dialog is visible.' }
-        'AVD-38' { return Get-ApplicationStartupResult 'C:\ocetool\oce.exe' 'oce' 'OCE Tool' 'Confirm that the application window is responsive and no blocking dialog is visible.' }
-        'AVD-39' { return Get-OceShortcutResult }
-        'AVD-40' { return New-Result 'Manual' 'Outlook Cached Exchange Mode and the download period require inspection in the signed-in user profile.' 'Manual task: confirm Use Cached Exchange Mode to download email to an Outlook data file is checked and Download email for the past is set to 3 days' }
-        'AVD-41' { return Get-ApplicationStartupResult 'C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE' 'OUTLOOK' 'Classic Outlook' 'Confirm the profile connects and complete the required mailbox activities without errors.' }
-        'AVD-42' { return Get-PowerAutomateUpdateResult }
-        'AVD-43' { return Get-ApplicationStartupResult 'C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe' 'PBIDesktop' 'Power BI Desktop' 'Confirm that the report canvas is responsive and no sign-in, update, or error dialog is blocking the application.' }
-        'AVD-44' { return Get-ApplicationStartupResult 'C:\Program Files\Power BI Report Builder\PowerBIReportBuilder.exe' 'PowerBIReportBuilder' 'Power BI Report Builder' 'Confirm that the report-design window is responsive and no blocking dialog is visible.' }
-        'AVD-45' { return Get-PowerShellSevenResult }
-        'AVD-46' { return Get-GraphIntunePolicyResult }
-        'AVD-47' { return New-Result 'Manual' 'The check requires an approved test printer, pre-install queue inventory, PrinterLogic authentication, separate installation attempts in managed Edge and Chrome, and post-install queue and driver verification.' 'Manual task: complete the documented PrinterLogic workflow in both browsers' }
-        'AVD-48' { return New-Result 'Manual' 'The check requires launch of Purebred, before-and-after CurrentUser certificate inventory, operator-controlled registration, and comparison against approved issuer, EKU, and subject criteria.' 'Manual task: complete Purebred registration and verify the resulting certificate' }
-        'AVD-49' { return Get-ApplicationStartupResult 'C:\Program Files\SAP\FrontEnd\SAPGUI\SAPlogon.exe' 'saplogon' 'SAP Logon' 'Confirm that the SAP Logon window is responsive and no configuration or error dialog is blocking the application.' }
-        'AVD-50' { return New-Result 'Manual' 'Open SelfHelp from the desktop and manually exercise each required action, confirming that every action completes successfully without an error or blocked UI.' 'Manual functional check required; the checklist does not define machine-verifiable actions or outcomes' }
-        'AVD-51' { return New-Result 'Manual' 'The check requires creating a uniquely named test favorite or bookmark, running SelfHelp backup, removing the entry, running SelfHelp restore, and confirming the same entry returns.' 'Manual task: complete the documented SelfHelp browser backup and restore workflow' }
-        'AVD-52' { return New-Result 'Manual' 'Use SelfHelp to enter OPSEC mode and confirm the classification banner closes and the Army logo is obscured. Exit OPSEC mode and confirm the banner and Army 4K logo return; if the wallpaper does not restore on the same host, repeat the final verification on the other host in the pool.' 'Guided visual transaction required; rendered desktop state cannot be proven from configuration alone' }
-        'AVD-53' { return New-Result 'Manual' 'Snipping Tool requires the signed-in UAT user; SYSTEM startup cannot validate current-user application aliases or snip behavior. Launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt; if prompted, verify the MS-SCREENCLIP association.' 'Manual task: validate Snipping Tool and both documented snip tests in the signed-in UAT user session' }
-        'AVD-54' { return New-Result 'Manual' 'As the signed-in UAT user, use Snipping Tool to capture a visible region containing varied colors or text, open the resulting snip, and confirm the captured image is visible rather than black or blank.' 'Manual task: visually validate the captured image in the signed-in UAT user session; SYSTEM startup cannot prove captured pixel rendering' }
-        'AVD-55' { return Get-ApplicationStartupResult 'C:\Program Files (x86)\STIG Viewer 3\STIG Viewer 3.exe' 'STIG Viewer 3' 'STIG Viewer' 'Confirm that the main window is responsive and no error dialog is visible.' }
-        'AVD-56' { return Get-YubiKeyDetectionResult }
-        'AVD-57' { return New-Result 'Manual' 'IDCO CAC validation requires an interactive browser session, CAC selection, PIN entry, and authenticated page confirmation.' 'Manual task: complete the documented IDCO CAC workflow' }
-        'AVD-58' { return New-Result 'Manual' 'The rendered Army wallpaper requires visual inspection in the signed-in AVD session; configuration alone does not prove it is applied.' 'Manual task: visually confirm the Army wallpaper is applied' }
-        'AVD-59' { return Get-BitLockerProtectionResult }
-        'AVD-60' { return New-Result 'Manual' 'C:\ drive permissions must be tested as the signed-in standard UAT user; SYSTEM or elevated administrator write access does not prove standard-user restrictions.' 'Manual task: without elevation, try to create a folder in C:\ and confirm access is denied' }
-        'AVD-61' { return New-Result 'Manual' 'D:\ drive permissions must be tested as the signed-in standard UAT user; SYSTEM or elevated administrator write access does not prove standard-user restrictions.' 'Manual task: without elevation, try to create a folder in D:\ and confirm access is denied' }
-        'AVD-62' { return Get-MicrosoftStoreBlockResult }
-        'AVD-63' { return Get-WindowsAppsStartupResult }
-        'AVD-64' { return Get-InstallerBlockResult }
-        'AVD-65' { return Get-ClipchampBlockResult }
-        'AVD-66' { return Get-InstalledLanguageResult }
-        'AVD-67' { return Get-PuttyDownloadBlockResult }
-        'AVD-68' { return New-Result 'Manual' 'OneDrive accessibility and active syncing require verification in the signed-in AVD session.' 'Manual task: confirm OneDrive is accessible and syncing' }
-        'AVD-69' { return New-Result 'Manual' 'Choose a OneDrive file, select Always keep on this device, and confirm its icon becomes a solid green check. Log out of the AVD session, wait about 30 seconds, log back in, and confirm the same file changes to a blue cloud within one minute. If status icons or the context-menu action are missing, open the file and repeat the logoff/logon transition before recording the result.' 'Guided two-session manual check required; the runner cannot span logoff and relogon' }
-        'AVD-70' { return Get-OsBuildResult }
-        'AVD-71' {
+        'AVD-18' { return Get-CopilotArtifactsResult }
+        'AVD-19' { return Get-OfficeStartupResult }
+        'AVD-20' { return Get-OfficeUpdatePolicyResult }
+        'AVD-21' { return New-Result 'Manual' 'Teams media optimization requires inspection of About Teams in the signed-in AVD session.' 'Manual task: confirm About Teams displays AVD SlimCore Media Optimized or AVD Media Optimized' }
+        'AVD-22' { return Get-TeamsStartupResult }
+        'AVD-23' { return New-Result 'Manual' 'The check requires an authenticated Teams session, selection of an existing chat, Pop out chat, and visual confirmation that the separate chat window rendered correctly.' 'Manual task: complete the documented Teams pop-out chat workflow' }
+        'AVD-24' { return New-Result 'Manual' 'The check requires an authenticated Teams session, inspection of microphone and speaker selectors, and confirmation of recording and playback.' 'Manual task: complete the documented Teams audio-device workflow' }
+        'AVD-25' { return New-Result 'Manual' 'Microsoft Teams functionality requires an authenticated interactive user workflow; preceding check results do not prove this expectation.' 'Manual task: complete the documented Teams activities and confirm Teams functions correctly' }
+        'AVD-26' { return New-Result 'Manual' 'The check requires an interactive Firefox session, Menlo redirect observation, operator CAC or sign-in, and final YouTube URL verification.' 'Manual task: complete the documented Firefox redirect and sign-in workflow' }
+        'AVD-27' { return Get-FirefoxProxyPolicyResult }
+        'AVD-28' { return Get-FirefoxUpdatePolicyResult }
+        'AVD-29' { return Get-EdgePurviewResult }
+        'AVD-30' { return New-Result 'Manual' 'The check requires two managed Edge cycles: observe the Menlo redirect, complete CAC authentication, verify the final YouTube URL, close and relaunch Edge, then repeat the challenge and redirect.' 'Manual task: complete both documented Edge redirect cycles' }
+        'AVD-31' { return Get-EdgeDeveloperToolsResult }
+        'AVD-32' { return Get-EdgeDownloadLocationResult }
+        'AVD-33' { return Get-EdgeManagedFavoritesResult }
+        'AVD-34' { return Get-EdgeHomePageResult }
+        'AVD-35' { return Get-EdgeInPrivateResult }
+        'AVD-36' { return New-Result 'Manual' 'The check requires authentication to OWA, a test recipient and subject, sending an encrypted message, receipt confirmation, and successful decryption.' 'Manual task: complete the documented OWA encrypted-message workflow' }
+        'AVD-37' { return Get-EdgeWritingAssistanceResult }
+        'AVD-38' { return Get-ApplicationStartupResult 'C:\Program Files\Notepad++\notepad++.exe' 'notepad++' 'Notepad++' 'Confirm that the editor window is responsive and no blocking dialog is visible.' }
+        'AVD-39' { return Get-ApplicationStartupResult 'C:\ocetool\oce.exe' 'oce' 'OCE Tool' 'Confirm that the application window is responsive and no blocking dialog is visible.' }
+        'AVD-40' { return Get-OceShortcutResult }
+        'AVD-41' { return New-Result 'Manual' 'Outlook Cached Exchange Mode and the download period require inspection in the signed-in user profile.' 'Manual task: confirm Use Cached Exchange Mode to download email to an Outlook data file is checked and Download email for the past is set to 3 days' }
+        'AVD-42' { return Get-ApplicationStartupResult 'C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE' 'OUTLOOK' 'Classic Outlook' 'Confirm the profile connects and complete the required mailbox activities without errors.' }
+        'AVD-43' { return Get-PowerAutomateUpdateResult }
+        'AVD-44' { return Get-ApplicationStartupResult 'C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe' 'PBIDesktop' 'Power BI Desktop' 'Confirm that the report canvas is responsive and no sign-in, update, or error dialog is blocking the application.' }
+        'AVD-45' { return Get-ApplicationStartupResult 'C:\Program Files\Power BI Report Builder\PowerBIReportBuilder.exe' 'PowerBIReportBuilder' 'Power BI Report Builder' 'Confirm that the report-design window is responsive and no blocking dialog is visible.' }
+        'AVD-46' { return Get-PowerShellSevenResult }
+        'AVD-47' { return Get-GraphIntunePolicyResult }
+        'AVD-48' { return New-Result 'Manual' 'The check requires an approved test printer, pre-install queue inventory, PrinterLogic authentication, separate installation attempts in managed Edge and Chrome, and post-install queue and driver verification.' 'Manual task: complete the documented PrinterLogic workflow in both browsers' }
+        'AVD-49' { return New-Result 'Manual' 'The check requires launch of Purebred, before-and-after CurrentUser certificate inventory, operator-controlled registration, and comparison against approved issuer, EKU, and subject criteria.' 'Manual task: complete Purebred registration and verify the resulting certificate' }
+        'AVD-50' { return Get-ApplicationStartupResult 'C:\Program Files\SAP\FrontEnd\SAPGUI\SAPlogon.exe' 'saplogon' 'SAP Logon' 'Confirm that the SAP Logon window is responsive and no configuration or error dialog is blocking the application.' }
+        'AVD-51' { return New-Result 'Manual' 'Open SelfHelp from the desktop and manually exercise each required action, confirming that every action completes successfully without an error or blocked UI.' 'Manual functional check required; the checklist does not define machine-verifiable actions or outcomes' }
+        'AVD-52' { return New-Result 'Manual' 'The check requires creating a uniquely named test favorite or bookmark, running SelfHelp backup, removing the entry, running SelfHelp restore, and confirming the same entry returns.' 'Manual task: complete the documented SelfHelp browser backup and restore workflow' }
+        'AVD-53' { return New-Result 'Manual' 'Use SelfHelp to enter OPSEC mode and confirm the classification banner closes and the Army logo is obscured. Exit OPSEC mode and confirm the banner and Army 4K logo return; if the wallpaper does not restore on the same host, repeat the final verification on the other host in the pool.' 'Guided visual transaction required; rendered desktop state cannot be proven from configuration alone' }
+        'AVD-54' { return New-Result 'Manual' 'Snipping Tool requires the signed-in UAT user; SYSTEM startup cannot validate current-user application aliases or snip behavior. Launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt; if prompted, verify the MS-SCREENCLIP association.' 'Manual task: validate Snipping Tool and both documented snip tests in the signed-in UAT user session' }
+        'AVD-55' { return New-Result 'Manual' 'As the signed-in UAT user, use Snipping Tool to capture a visible region containing varied colors or text, open the resulting snip, and confirm the captured image is visible rather than black or blank.' 'Manual task: visually validate the captured image in the signed-in UAT user session; SYSTEM startup cannot prove captured pixel rendering' }
+        'AVD-56' { return Get-ApplicationStartupResult 'C:\Program Files (x86)\STIG Viewer 3\STIG Viewer 3.exe' 'STIG Viewer 3' 'STIG Viewer' 'Confirm that the main window is responsive and no error dialog is visible.' }
+        'AVD-57' { return Get-YubiKeyDetectionResult }
+        'AVD-58' { return New-Result 'Manual' 'IDCO CAC validation requires an interactive browser session, CAC selection, PIN entry, and authenticated page confirmation.' 'Manual task: complete the documented IDCO CAC workflow' }
+        'AVD-59' { return New-Result 'Manual' 'The rendered Army wallpaper requires visual inspection in the signed-in AVD session; configuration alone does not prove it is applied.' 'Manual task: visually confirm the Army wallpaper is applied' }
+        'AVD-60' { return Get-BitLockerProtectionResult }
+        'AVD-61' { return New-Result 'Manual' 'C:\ drive permissions must be tested as the signed-in standard UAT user; SYSTEM or elevated administrator write access does not prove standard-user restrictions.' 'Manual task: without elevation, try to create a folder in C:\ and confirm access is denied' }
+        'AVD-62' { return New-Result 'Manual' 'D:\ drive permissions must be tested as the signed-in standard UAT user; SYSTEM or elevated administrator write access does not prove standard-user restrictions.' 'Manual task: without elevation, try to create a folder in D:\ and confirm access is denied' }
+        'AVD-63' { return Get-MicrosoftStoreBlockResult }
+        'AVD-64' { return Get-WindowsAppsStartupResult }
+        'AVD-65' { return Get-InstallerBlockResult }
+        'AVD-66' { return Get-ClipchampBlockResult }
+        'AVD-67' { return Get-InstalledLanguageResult }
+        'AVD-68' { return Get-PuttyDownloadBlockResult }
+        'AVD-69' { return New-Result 'Manual' 'OneDrive accessibility and active syncing require verification in the signed-in AVD session.' 'Manual task: confirm OneDrive is accessible and syncing' }
+        'AVD-70' { return New-Result 'Manual' 'Choose a OneDrive file, select Always keep on this device, and confirm its icon becomes a solid green check. Log out of the AVD session, wait about 30 seconds, log back in, and confirm the same file changes to a blue cloud within one minute. If status icons or the context-menu action are missing, open the file and repeat the logoff/logon transition before recording the result.' 'Guided two-session manual check required; the runner cannot span logoff and relogon' }
+        'AVD-71' { return Get-OsBuildResult }
+        'AVD-72' {
             if (-not (Test-CommandAvailable 'Get-LocalUser')) { return New-Result 'Manual' 'The Guest account cannot be inspected because Get-LocalUser is unavailable.' 'Manual task: verify the Guest account name' }
             $guestAccount = Get-LocalUser | Where-Object { $_.SID.Value -match '-501$' } | Select-Object -First 1
             if ($null -ne $guestAccount -and $guestAccount.Name -eq 'xGuest') { return New-Result 'Pass' 'The built-in Guest account (SID ending in -501) is named xGuest.' }
             $actualName = if ($null -eq $guestAccount) { 'not found' } else { $guestAccount.Name }
             return New-Result 'Fail' "The built-in Guest account is not named xGuest; actual name: $actualName."
         }
-        'AVD-72' { return Get-WindowsUpdateUiPolicyResult }
-        'AVD-73' { return Get-WindowsUpdateAdvancedOptionsResult }
-        'AVD-74' { return Get-WebConnectivityResult 'prdweb.afmiscloud.army.mil' 'https://prdweb.afmiscloud.army.mil/AFMISWEBNG/AFMISWeb/AFMISWebForms/LoginForm.aspx' 'the AFMIS login URL' }
-        'AVD-75' { return New-Result 'Manual' 'ATRRS requires an interactive browser prompt and user approval before the site can be validated.' 'Manual task: open https://atrrs.army.mil, approve the prompt, and validate the site' }
-        'AVD-76' { return Get-FmswebResult }
-        'AVD-77' { return New-Result 'Manual' 'GEARS requires an interactive browser prompt, user approval, authentication, and file transfer validation.' 'Manual task: open https://gears.army.mil, approve the prompt, and complete the upload/download check' }
-        'AVD-78' { return Get-BastionRdpResult }
-        'AVD-79' { return Get-FieryUpdaterResult }
-        'AVD-80' { return Get-ProtectedRootsResult }
-        'AVD-81' {
-            $disabledComponentsPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'
-            try { $disabledComponents = Get-ItemPropertyValue -Path $disabledComponentsPath -Name 'DisabledComponents' -ErrorAction Stop }
-            catch { return New-Result 'Fail' "IPv6 registry setting was not found: $disabledComponentsPath\DisabledComponents; expected DWORD 255 (0xFF)." }
-            try { $bindings = @(Get-NetAdapterBinding -ComponentID ms_tcpip6 -ErrorAction Stop) }
-            catch { return New-Result 'Manual' "NetAdapter binding inventory cannot be collected: $($_.Exception.Message)" 'Manual task: verify IPv6 bindings' }
-            if ($bindings.Count -eq 0) { return New-Result 'Manual' 'Get-NetAdapterBinding returned no IPv6 bindings, so the disabled state cannot be proven.' 'Manual task: verify IPv6 bindings' }
-            $enabled = @($bindings | Where-Object { $_.Enabled })
-            if ([int64]$disabledComponents -ne 255) { return New-Result 'Fail' "IPv6 DisabledComponents is $disabledComponents at $disabledComponentsPath; expected 255 (0xFF). Adapter binding Enabled values: $($bindings.Enabled -join ', ')." }
-            if ($enabled.Count -eq 0) { return New-Result 'Pass' "IPv6 DisabledComponents=255 (0xFF), and IPv6 binding Enabled=False on all $($bindings.Count) returned adapters." }
-            return New-Result 'Fail' "IPv6 DisabledComponents=255 (0xFF), but IPv6 binding Enabled=True on: $($enabled.Name -join ', ')."
-        }
+        'AVD-73' { return Get-WindowsUpdateUiPolicyResult }
+        'AVD-74' { return Get-WindowsUpdateAdvancedOptionsResult }
+        'AVD-75' { return Get-WebConnectivityResult 'prdweb.afmiscloud.army.mil' 'https://prdweb.afmiscloud.army.mil/AFMISWEBNG/AFMISWeb/AFMISWebForms/LoginForm.aspx' 'the AFMIS login URL' }
+        'AVD-76' { return New-Result 'Manual' 'ATRRS requires an interactive browser prompt and user approval before the site can be validated.' 'Manual task: open https://atrrs.army.mil, approve the prompt, and validate the site' }
+        'AVD-77' { return Get-FmswebResult }
+        'AVD-78' { return New-Result 'Manual' 'GEARS requires an interactive browser prompt, user approval, authentication, and file transfer validation.' 'Manual task: open https://gears.army.mil, approve the prompt, and complete the upload/download check' }
+        'AVD-79' { return Get-BastionRdpResult }
+        'AVD-80' { return New-Result 'Manual' 'Certificate verification requires the signed-in UAT user to open certmgr and confirm the required DoD root and intermediate certificates and ECMA-WCF-TRUST certificate exist and are not expired.' 'Manual task: verify the documented DoD and ECMA certificate inventory and expiration dates' }
+        'AVD-81' { return Get-ProtectedRootsResult }
         default { return $null }
     }
 }

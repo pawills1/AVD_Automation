@@ -31,7 +31,7 @@ function Start-Process { Stop-UnexpectedProbe }
 $passed = 0
 foreach ($isSystem in @($true, $false)) {
     foreach ($RunInteractiveChecks in @($false, $true)) {
-        foreach ($id in @('AVD-53', 'AVD-54')) {
+        foreach ($id in @('AVD-54', 'AVD-55')) {
             $result = Get-AutomatedResult -Sheet 'Azure Virtual Desktop Tasks' -Id $id
             if ($result.Result -ne 'Manual') { throw "$id returned '$($result.Result)' instead of Manual." }
             if ($result.Notes -notlike '*signed-in UAT user*' -or $result.Review -notlike 'Manual task:*') {
@@ -43,7 +43,7 @@ foreach ($isSystem in @($true, $false)) {
             }
             $passed++
         }
-        foreach ($id in @('AVD-20', 'AVD-24', 'AVD-40', 'AVD-57', 'AVD-58', 'AVD-60', 'AVD-61', 'AVD-68')) {
+        foreach ($id in @('AVD-05', 'AVD-21', 'AVD-25', 'AVD-41', 'AVD-58', 'AVD-59', 'AVD-61', 'AVD-62', 'AVD-69', 'AVD-80')) {
             if ((Get-AutomatedResult -Sheet 'Azure Virtual Desktop Tasks' -Id $id).Result -ne 'Manual') {
                 throw "Existing manual-only row $id changed behavior."
             }
@@ -51,7 +51,7 @@ foreach ($isSystem in @($true, $false)) {
         }
     }
 }
-foreach ($id in @('AVD-53', 'AVD-54')) {
+foreach ($id in @('AVD-54', 'AVD-55')) {
     if ($null -ne (Get-AutomatedResult -Sheet 'Remote Apps Tasks' -Id $id)) { throw "Unexpected Remote Apps mapping for $id." }
 }
 if ($script:probeCalls -ne 0) { throw "Attempted $script:probeCalls forbidden application probes." }

@@ -22,30 +22,40 @@ Application startup probes wait no more than 10 seconds. The engine records exis
 
 Checklist IDs are scoped by worksheet because the workbook reuses IDs across the Azure Virtual Desktop and Remote Apps sheets. Automated prerequisite evidence receives `Partial Pass` when the documented test also requires authentication, an upload/download, user observation, or comparison with an approved inventory.
 
+The current template adds the manual Adobe Acrobat sensitivity-label workflow at
+Azure Virtual Desktop **AVD-05**. AWS WickrGov is **AVD-06**, and subsequent checks
+use their shifted worksheet IDs. Remote Apps numbering is unchanged. The final
+rows are **AVD-80 (Certificate Verification)**, reviewed manually, and
+**AVD-81 (Protected Roots Verification)**, checked automatically. This template
+has no Fiery updater or IPv6 row. Use the matching updated template and engine
+together; rerun automated collection rather than reusing evidence with older IDs.
+
 The following checks are manual-only in every execution context. The automated
 run records `Manual` without running their automated probes or roll-ups, and the
 manual launcher prompts for their final results:
 
 | Worksheet | ID | Manual verification |
 | --- | --- | --- |
-| Azure Virtual Desktop Tasks | AVD-20 | About Teams displays AVD SlimCore Media Optimized or AVD Media Optimized. |
-| Azure Virtual Desktop Tasks | AVD-24 | Complete the documented Teams activities and confirm Teams functions correctly. |
-| Azure Virtual Desktop Tasks | AVD-40 | Outlook Cached Exchange Mode is checked and the download period is 3 days. |
-| Azure Virtual Desktop Tasks | AVD-53 | As the signed-in UAT user, launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt. |
-| Azure Virtual Desktop Tasks | AVD-54 | As the signed-in UAT user, capture and open a snip and confirm the image is visible rather than black or blank. |
-| Azure Virtual Desktop Tasks | AVD-57 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
-| Azure Virtual Desktop Tasks | AVD-58 | Visually confirm the Army wallpaper is applied. |
-| Azure Virtual Desktop Tasks | AVD-60 | As the standard UAT user without elevation, try to create a folder in C:\ and confirm access is denied. |
-| Azure Virtual Desktop Tasks | AVD-61 | As the standard UAT user without elevation, try to create a folder in D:\ and confirm access is denied. |
-| Azure Virtual Desktop Tasks | AVD-68 | Confirm OneDrive is accessible and syncing. |
+| Azure Virtual Desktop Tasks | AVD-05 | In Adobe Acrobat, apply a Microsoft Sensitivity Label to a PDF, then save, close, and reopen it without errors. |
+| Azure Virtual Desktop Tasks | AVD-21 | About Teams displays AVD SlimCore Media Optimized or AVD Media Optimized. |
+| Azure Virtual Desktop Tasks | AVD-25 | Complete the documented Teams activities and confirm Teams functions correctly. |
+| Azure Virtual Desktop Tasks | AVD-41 | Outlook Cached Exchange Mode is checked and the download period is 3 days. |
+| Azure Virtual Desktop Tasks | AVD-54 | As the signed-in UAT user, launch Snipping Tool, perform both documented snip tests, and confirm each snip opens in Snipping Tool without a default-application prompt. |
+| Azure Virtual Desktop Tasks | AVD-55 | As the signed-in UAT user, capture and open a snip and confirm the image is visible rather than black or blank. |
+| Azure Virtual Desktop Tasks | AVD-58 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
+| Azure Virtual Desktop Tasks | AVD-59 | Visually confirm the Army wallpaper is applied. |
+| Azure Virtual Desktop Tasks | AVD-61 | As the standard UAT user without elevation, try to create a folder in C:\ and confirm access is denied. |
+| Azure Virtual Desktop Tasks | AVD-62 | As the standard UAT user without elevation, try to create a folder in D:\ and confirm access is denied. |
+| Azure Virtual Desktop Tasks | AVD-69 | Confirm OneDrive is accessible and syncing. |
+| Azure Virtual Desktop Tasks | AVD-80 | Verify the required DoD and ECMA certificates exist and are not expired. |
 | Remote Apps Tasks | AVD-15 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
 
-AVD-53 and AVD-54 never search current-user application aliases or launch Snipping
+AVD-54 and AVD-55 never search current-user application aliases or launch Snipping
 Tool during automated collection, including SYSTEM startup with no user logged in.
 Both are recorded as `Manual` and presented by the manual launcher for review in
 the signed-in UAT user's session.
 
-AVD-60 and AVD-61 never attempt automated writes. Review them in the signed-in
+AVD-61 and AVD-62 never attempt automated writes. Review them in the signed-in
 standard UAT user's session, not as SYSTEM or an elevated administrator. A missing
 drive or another error is not evidence of access denied; only the expected
 permission denial satisfies these checks.
@@ -57,7 +67,7 @@ Each result follows a strict evidence rule:
 - `Fail`: automation ran and found negative evidence, such as missing software, missing configuration, or an unsuccessful operation.
 - `Manual`: no reliable automated action can prove any part of the expected result in the current execution context.
 
-Azure Virtual Desktop Tasks **AVD-59 (Drive Encryption)** is included in automated
+Azure Virtual Desktop Tasks **AVD-60 (Drive Encryption)** is included in automated
 runs and checks BitLocker `ProtectionStatus` on both `C:` and `D:`. It passes
 when protection is `Off` on both drives, even if either drive is still encrypted.
 Protection `On` on either drive fails the check. Missing drives, unavailable
@@ -67,14 +77,14 @@ BitLocker protection or encrypt/decrypt any drive.
 
 HTML rows and workbook Result cells use green for `Pass`, yellow for `Partial Pass` and `Manual`, and red for `Fail`.
 
-Azure Virtual Desktop Tasks **AVD-80 (Protected Roots Verification)** reads
+Azure Virtual Desktop Tasks **AVD-81 (Protected Roots Verification)** reads
 `HKLM:\Software\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots`
 in both SYSTEM and user runs. It requires `Flags=65537` as `REG_DWORD` and
 `PeerUsages` as `REG_MULTI_SZ` with exactly these entries (order does not matter):
 `1.3.6.1.5.5.7.3.2`, `1.3.6.1.5.5.7.3.4`, and `1.3.6.1.4.1.311.10.3.4`.
 Missing or unreadable policy values, incorrect types, or mismatched values fail
 with diagnostic evidence. The check is read-only; it does not attempt certificate
-imports. It replaces the former DoD/ECMA CurrentUser certificate inventory check.
+imports. It is separate from the manual DoD/ECMA certificate inventory at AVD-80.
 
 ## Mandatory prerequisite gate
 
@@ -169,12 +179,12 @@ It does not search OneDrive Documents or the current working directory.
 | Parameter | Purpose |
 | --- | --- |
 | `-PurviewExtensionId` | Required Chrome Purview extension ID. |
-| `-EdgePurviewExtensionId` | Retained for configuration compatibility; AVD-28 now detects Purview, MIP, or DLP Windows services. |
-| `-ChromeBookmarksBaselineFile` | Retained for configuration compatibility; AVD-14 verifies that managed Chrome policy exposes Army Bookmarks. |
-| `-EdgeFavoritesBaselineFile` | Retained for configuration compatibility; Remote Apps AVD-10 and Azure Virtual Desktop AVD-32 verify that managed Edge policy exposes Army Bookmarks. |
+| `-EdgePurviewExtensionId` | Retained for configuration compatibility; AVD-29 now detects Purview, MIP, or DLP Windows services. |
+| `-ChromeBookmarksBaselineFile` | Retained for configuration compatibility; AVD-15 verifies that managed Chrome policy exposes Army Bookmarks. |
+| `-EdgeFavoritesBaselineFile` | Retained for configuration compatibility; Remote Apps AVD-10 and Azure Virtual Desktop AVD-33 verify that managed Edge policy exposes Army Bookmarks. |
 | `-CopilotArtifactName`, `-CopilotAppId`, `-CopilotUrl` | Approved Copilot desktop, Start menu, and favorites artifacts. |
 | `-ExeInstallerTestFile`, `-MsiInstallerTestFile` | Approved benign installers for application-control block tests. |
-| `-RequiredLanguages` | Required language objects identified by `LanguageTag`. AVD-66 requires LpCab for each language; `LanguagePacks` and `LanguageFeatures` fields are retained for compatibility but do not control validation. |
+| `-RequiredLanguages` | Required language objects identified by `LanguageTag`. AVD-67 requires LpCab for each language; `LanguagePacks` and `LanguageFeatures` fields are retained for compatibility but do not control validation. |
 | `-RequiredLanguageTags` | Legacy required BCP-47 language tags used when `RequiredLanguages` is not configured; each also requires LpCab. |
 | `-WindowsUpdateHistoryUrl` | Official Microsoft update-history page used to compare the local build with the latest build from the previous month. |
 | `-ApprovedOsBuild` | Optional fallback minimum build when no update-history URL is configured. |
@@ -186,15 +196,15 @@ Use `avd-uat.config.example.json` as the schema for deployment configuration. `-
 
 ## Finalized live-test behavior
 
-- Azure Virtual Desktop AVD-72 requires `SetDisableUXWUAccess=1`, `DeferFeatureUpdates=1`, and `DeferQualityUpdates=1` under `HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`. It no longer reads or requires `SetDisablePauseUXAccess`. All three matching policies produce `Partial Pass`, retaining manual confirmation that Check for updates and Pause updates are greyed out and the organization-policy message is visible. Missing, unreadable, or mismatched required policies produce `Fail`.
-- Azure Virtual Desktop AVD-66 requires installed **LpCab** packages for every configured language (de-DE, en-US, fr-FR, ja-JP, ko-KR by default). LXP packages and language features are not required. An LXP-only language or a missing required language fails the check.
+- Azure Virtual Desktop AVD-73 requires `SetDisableUXWUAccess=1`, `DeferFeatureUpdates=1`, and `DeferQualityUpdates=1` under `HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`. It no longer reads or requires `SetDisablePauseUXAccess`. All three matching policies produce `Partial Pass`, retaining manual confirmation that Check for updates and Pause updates are greyed out and the organization-policy message is visible. Missing, unreadable, or mismatched required policies produce `Fail`.
+- Azure Virtual Desktop AVD-67 requires installed **LpCab** packages for every configured language (de-DE, en-US, fr-FR, ja-JP, ko-KR by default). LXP packages and language features are not required. An LXP-only language or a missing required language fails the check.
 - AVD-00 defaults to a 40% average CPU limit and an 80% maximum memory-use limit.
-- Azure Virtual Desktop AVD-14 recursively queries `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\managedbookmarks` and passes when any key name, value name, or value data contains `Army Bookmarks`.
-- Azure Virtual Desktop AVD-28 passes when at least one Windows service display name matches Microsoft Purview, MIP, or DLP.
-- Remote Apps AVD-11 and Azure Virtual Desktop AVD-33 read only the HKLM Edge `NewTabPageLocation` policy and require it to contain `https://armyeitaas.sharepoint-mil.us`.
+- Azure Virtual Desktop AVD-15 recursively queries `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\managedbookmarks` and passes when any key name, value name, or value data contains `Army Bookmarks`.
+- Azure Virtual Desktop AVD-29 passes when at least one Windows service display name matches Microsoft Purview, MIP, or DLP.
+- Remote Apps AVD-11 and Azure Virtual Desktop AVD-34 read only the HKLM Edge `NewTabPageLocation` policy and require it to contain `https://armyeitaas.sharepoint-mil.us`.
 - Remote Apps AVD-04 and AVD-05 are manual checks.
-- Remote Apps AVD-09 and Azure Virtual Desktop AVD-31 read only HKLM Edge policy. `PromptForDownloadLocation` must equal `1`, and `DownloadDirectory` must target `C:\Users\${user_name}\OneDrive - US Army\Downloads` (a deployed username and typographic dash are also accepted).
-- Remote Apps AVD-10 and Azure Virtual Desktop AVD-32 recursively query `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\managedfavorites` and pass when any key name, value name, or value data contains `Army Bookmarks`. No managed-policy JSON or object structure is required.
+- Remote Apps AVD-09 and Azure Virtual Desktop AVD-32 read only HKLM Edge policy. `PromptForDownloadLocation` must equal `1`, and `DownloadDirectory` must target `C:\Users\${user_name}\OneDrive - US Army\Downloads` (a deployed username and typographic dash are also accepted).
+- Remote Apps AVD-10 and Azure Virtual Desktop AVD-33 recursively query `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\managedfavorites` and pass when any key name, value name, or value data contains `Army Bookmarks`. No managed-policy JSON or object structure is required.
 
 ## Run once
 
@@ -248,7 +258,7 @@ The script prompts only for `Partial Pass` and `Manual` rows. `Skip` preserves t
 
 The same workflow can be started from `AVD-UAT-Checklist-Manual.exe`. Keep the executable beside the manual script, workbook helper, and matching `AVD Test Plan` workbook.
 
-AVD-15 now validates the enforced Chrome `AIModeSettings=1` policy. AVD-17 runs in the signed-in user context, verifies the Copilot desktop and Start menu shortcuts, repairs either location by copying an existing approved shortcut, or creates `.url` shortcuts when `CopilotUrl` is configured. It reports `Pass` only when a matching Chrome or Edge favorite is also found; otherwise the browser favorite remains in manual review as `Partial Pass`.
+AVD-16 now validates the enforced Chrome `AIModeSettings=1` policy. AVD-18 runs in the signed-in user context, verifies the Copilot desktop and Start menu shortcuts, repairs either location by copying an existing approved shortcut, or creates `.url` shortcuts when `CopilotUrl` is configured. It reports `Pass` only when a matching Chrome or Edge favorite is also found; otherwise the browser favorite remains in manual review as `Partial Pass`.
 
 ## SYSTEM scheduled task
 

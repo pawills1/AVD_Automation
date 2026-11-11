@@ -32,8 +32,8 @@ function Get-ItemPropertyValue {
         default { throw "Unexpected registry value: $Name" }
     }
 }
-function Get-ChildItem { throw 'AVD-80 must not inspect certificate stores.' }
-function Set-ItemProperty { throw 'AVD-80 must not change registry policy.' }
+function Get-ChildItem { throw 'AVD-81 must not inspect certificate stores.' }
+function Set-ItemProperty { throw 'AVD-81 must not change registry policy.' }
 
 $expected = [string[]]@('1.3.6.1.5.5.7.3.2', '1.3.6.1.5.5.7.3.4', '1.3.6.1.4.1.311.10.3.4')
 $cases = @(
@@ -56,19 +56,19 @@ $passed = 0
 foreach ($isSystem in @($true, $false)) {
     foreach ($RunInteractiveChecks in @($false, $true)) {
         foreach ($script:case in $cases) {
-            $result = Get-AutomatedResult -Sheet 'Azure Virtual Desktop Tasks' -Id 'AVD-80'
+            $result = Get-AutomatedResult -Sheet 'Azure Virtual Desktop Tasks' -Id 'AVD-81'
             if ($result.Result -ne $script:case.Result) { throw "$($script:case.Name): expected $($script:case.Result), got $($result.Result): $($result.Notes)" }
             if ($result.Notes -notlike '*ProtectedRoots*') { throw 'Missing registry-path evidence.' }
             if ($script:case.Error -and $result.Notes -notlike "*Simulated missing or unreadable $($script:case.Error)*") { throw 'Missing read-error details.' }
-            if ($result.Review -ne 'Automated') { throw 'AVD-80 unexpectedly requires manual review.' }
+            if ($result.Review -ne 'Automated') { throw 'AVD-81 unexpectedly requires manual review.' }
             $passed++
         }
     }
 }
 $callsBefore = $script:readCalls
-if ($null -ne (Get-AutomatedResult -Sheet 'Remote Apps Tasks' -Id 'AVD-80')) { throw 'Unexpected Remote Apps mapping.' }
-if ($script:readCalls -ne $callsBefore) { throw 'Remote Apps AVD-80 read registry policy.' }
-$description = Get-ValidationCheckDescription 'Azure Virtual Desktop Tasks' 'AVD-80' 'Automated'
+if ($null -ne (Get-AutomatedResult -Sheet 'Remote Apps Tasks' -Id 'AVD-81')) { throw 'Unexpected Remote Apps mapping.' }
+if ($script:readCalls -ne $callsBefore) { throw 'Remote Apps AVD-81 read registry policy.' }
+$description = Get-ValidationCheckDescription 'Azure Virtual Desktop Tasks' 'AVD-81' 'Automated'
 foreach ($text in @('ProtectedRoots', '65537', 'REG_DWORD', 'REG_MULTI_SZ') + $expected) {
     if (-not $description.Contains($text)) { throw "Missing validation description: $text" }
 }
