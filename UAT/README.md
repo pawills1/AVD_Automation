@@ -5,11 +5,12 @@
 | Script | What it does | Reporting | Unattended / CLM |
 | --- | --- | --- | --- |
 | `UAT_helper.ps1` | Opens applications and websites, pauses repeatedly for operator review, and runs several machine checks. | Console only; does not update the checklist. | No. It requires a desktop user and `Read-Host`. |
+| `UATScriptHelper_Oct_2026.ps1` | Historical reference for application paths and operator activities used by the new manual-actions helper. It is not called by either launcher. | Console only; does not update the current checklist. | No. Do not deploy or run it as the current workflow; it performs standalone actions and uses older checklist IDs. |
 | `automate-avd-checks.ps1` | Reviews results already present in Excel and labels completed/pending rows. It does not execute the UAT checks. | Copies and updates XLSX through Excel COM; reports passing rows in HTML. | No. Excel COM is blocked by Constrained Language Mode and requires Office. |
 | `AVD-UAT-Checklist-Automated.ps1` | Unattended entry point that invokes the check engine without exposing interactive checks. | Produces prepopulated HTML, CSV evidence, and a completed XLSX copy. | Yes. Intended for SYSTEM startup execution. |
 | `AVD-UAT-Checklist-Automated.exe` | Executable form of the unattended entry point. | Produces the same outputs as the PowerShell entry point. | Yes. Uses the same startup task trigger. |
-| `AVD-UAT-Checklist-Manual.ps1` | Loads automated evidence and prompts only for `Partial Pass` and `Manual` rows. | Produces separate final HTML, CSV, and XLSX files while preserving automated notes. | No. Run in the UAT user's interactive session. |
-| `AVD-UAT-Checklist-Manual.exe` | Executable form of the interactive manual review entry point. | Produces the same final report set as the manual PowerShell script. | No. Run in the UAT user's interactive session. |
+| `AVD-UAT-Checklist-Manual.ps1` | Loads automated evidence and groups assisted application checks and unresolved rows by application. | Saves resumable progress after every result, then produces separate final HTML, CSV, and XLSX files while preserving automated notes. | CLM supported; not unattended. Run in the UAT user's interactive session. |
+| `AVD-UAT-Checklist-Manual.exe` | Executable form of the interactive manual review entry point. | Produces the same final report set as the manual PowerShell script. | CLM supported; not unattended. Run in the UAT user's interactive session. |
 | `AVD-UAT-Checklist.ps1` | Shared check and report engine used by the automated entry point. | Produces the automated report set. | Do not invoke with interactive options from a scheduled task. |
 
 ## Design
@@ -157,7 +158,7 @@ Do not relax application-control or execution policy to deploy the update.
 Verify the approved release before live testing:
 
 ```powershell
-Get-AuthenticodeSignature .\*.ps1, .\*.exe, .\tools\AvdChecklistTool\AvdChecklistTool.exe |
+Get-AuthenticodeSignature .\*.ps1, .\*.exe, .\tools\*\*.exe |
     Format-Table Path, Status
 ```
 
@@ -169,7 +170,9 @@ Word runbook also documents the updated path and signing requirements.
 
 Some checks require an environment-approved baseline or test input. If an applicable value is omitted, that check reports `Manual` rather than guessing an expected result.
 
-Deploy the complete folder contents to `C:\Program Files\ArmyAVD\UAT`.
+Deploy the matching runtime files to `C:\Program Files\ArmyAVD\UAT`;
+see the deployment file list below. Do not copy development caches or test
+fixtures to session hosts.
 When `-InputFile` is omitted, automation selects the newest `.xlsx` or `.xlsm`
 workbook in that installation directory whose name begins with `AVD Test Plan`.
 It does not search OneDrive Documents or the current working directory.
@@ -254,9 +257,124 @@ Only final manual outputs (XLSX, CSV, and HTML) go to
 `%USERPROFILE%\OneDrive - US Army\Documents`; automation never writes there.
 The automated source files remain unchanged.
 
-The script prompts only for `Partial Pass` and `Manual` rows. `Skip` preserves the automated status. Completed review creates `AVD Checklist Final Results`, `AVD Checklist - Final`, and `AVD UAT Final Report` files without overwriting the automated outputs.
+The manual launcher uses `AVD-UAT-ManualActions.ps1` to integrate application
+launches and guidance from the October UAT helper, mapped to the current
+checklist IDs. It does not execute the original helper wholesale or repeat its
+machine probes. The automated scripts, executable, and shared check engine
+are unchanged.
 
-The same workflow can be started from `AVD-UAT-Checklist-Manual.exe`. Keep the executable beside the manual script, workbook helper, and matching `AVD Test Plan` workbook.
+All mapped application checks (including those with automated Pass/Fail
+evidence) and all remaining `Partial Pass` / `Manual` rows receive operator
+review. Related checks run together in one application session. For example,
+Outlook's Office startup/update checks, cached mode, and mailbox activities
+are grouped, and Snipping Tool checks share a session with its Windows-app
+subcheck. The Azure Virtual Desktop and Remote Apps worksheets remain separate
+test environments. Remote Apps are opened by the operator through the published
+Remote App connection; the helper never silently substitutes local applications.
+Execution order changes, not workbook row order or IDs.
+
+Assisted Paint and Snipping Tool launches prefer their packaged executables in
+`C:\Program Files\WindowsApps`. The launcher checks the signed-in user's
+registered Microsoft.Paint/Microsoft.ScreenSketch packages first (newest version
+first), then searches matching package folders, and falls back to the System32
+executable only when no packaged executable is found. Discovery errors are
+displayed as warnings; a failed packaged launch requires operator intervention
+rather than silently launching a different version.
+The package lookup includes `SnippingTool\SnippingTool.exe` and
+`PaintApp\mspaint.exe`, as well as the older root-level Snipping Tool and
+`Paint\mspaint.exe`/root-level Paint layouts. This applies to AVD-54, AVD-55,
+and their AVD-64 application subchecks. The manual EXE loads this lookup from
+`AVD-UAT-ManualActions.ps1` at runtime; deploy the updated helper beside the EXE.
+Paint targets `Microsoft.Paint`, not the separate `Microsoft.MSPaint` Paint 3D
+package. Photos explicitly targets `Microsoft.Windows.Photos\Photos.exe` within
+its versioned WindowsApps package folder, not OneDrive Photos or Photos Legacy.
+As with Paint, the newest registered package is preferred over unregistered
+package folders; staged files alone do not identify the user's active version.
+If Windows Photos cannot be found, assisted launch reports an error instead of
+using an ambiguous Photos protocol or Start-menu entry. These checks select
+installed apps; they do not install updates or assert the latest Store release.
+
+For each check, select Pass, Fail, Manual/unresolved, or Skip. Every non-skipped
+result requires a comment; Fail also offers an issue reference. The result and
+comment are saved before the next check is displayed. Keep the application
+open between related checks. After its group, close only your test windows
+yourself and select **C** to confirm and advance. **The manual workflow never
+closes windows, terminates processes, tracks PIDs, or waits for background
+processes to exit.** It does not close Excel, the report writer, Explorer, or
+OneDrive sync. Any close/reopen, restart, or logoff explicitly required inside
+a checklist test remains your responsibility, not an automatic cleanup action.
+
+Progress is written as JSON using a temporary-file-and-replace operation under
+`%LOCALAPPDATA%\ArmyAVD\UAT\Manual`, outside OneDrive. Each write closes the file.
+The checkpoint is tied to the automated source workbook/CSV hashes, reviewer,
+and computer. Run the same command again to resume automatically; completed
+observations are not repeated. If interrupted with test windows open, confirm
+their closure before continuing. Select **Q** at a result or closure prompt to
+save and exit; applications remain open for you to handle.
+
+The manual workflow supports Constrained Language Mode (CLM) without changing
+language mode, execution policy, or application-control policy. Its PowerShell
+code uses hashtables, arrays, and CLM-compatible cmdlets rather than custom-object
+construction, .NET collections, or restricted file/path methods. The native
+`tools\AvdManualFileTool\AvdManualFileTool.exe` performs SHA-256 hashing and atomic
+checkpoint replacement, just as the existing workbook utility handles XLSX I/O.
+It does not host PowerShell or execute script. Hash format and checkpoint version
+are unchanged, so existing checkpoints remain compatible. `Get-FileHash` is not
+required in the PowerShell script or compiled launcher.
+
+Deploy the rebuilt manual EXE, updated manual script and actions helper, and
+the new file utility together. All changed scripts and binaries, including the
+new utility, must be signed and allowed by the deployment's WDAC/AppLocker policy.
+The local rebuilt files are unsigned pending approved release signing; do not
+deploy them under AllSigned until signed. Refresh release hashes/packages after
+signing. Older ZIP files do not contain these changes.
+
+Development builds (run in an approved Full Language build environment, not on
+the CLM-only session host; commands below start in the `UAT` folder). The tests
+require Windows PowerShell 5.1, PowerShell 7, and the workbook/file helper
+executables. Their compiled-host cases also require the `ps2exe` module:
+
+```powershell
+& "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\csc.exe" /nologo /target:exe /platform:anycpu /optimize+ /out:tools\AvdManualFileTool\AvdManualFileTool.exe tools\AvdManualFileTool\Program.cs
+Invoke-ps2exe -inputFile .\AVD-UAT-Checklist-Manual.ps1 -outputFile .\AVD-UAT-Checklist-Manual.exe -x64 -STA -title 'AVD UAT Manual Checklist' -product 'AVD UAT' -version '1.0.0.0'
+powershell.exe -NoProfile -File .\tests\Test-ManualAssistedChecks.ps1
+powershell.exe -NoProfile -File .\tests\Test-ManualConstrainedChecks.ps1
+```
+
+The CLM test runs the real manual code in constrained PowerShell 5.1 and 7 and
+a compiled-host fixture. It covers packaged app selection, grouping, atomic
+checkpoint saves, interrupted/completed resume, evidence mismatch rejection,
+skip mode, and CSV/XLSX/HTML output. Host prerequisites, prompts, and GUI launches
+are simulated; live app visibility and organizational policy approval still
+require validation on the target AVD host.
+Use `-SkipCompiled` on either test only when intentionally omitting its
+compiled-host cases; a passing run with that switch does not validate the EXE.
+
+```powershell
+# Choose a separate checkpoint to start a new review of the same automated run.
+.\AVD-UAT-Checklist-Manual.ps1 -CheckpointPath "$env:LOCALAPPDATA\ArmyAVD\UAT\Manual\new-review.json"
+
+# Keep grouping, saving, and reporting, but launch all applications yourself.
+.\AVD-UAT-Checklist-Manual.ps1 -NoAssistedLaunch
+```
+
+An application launch error is displayed explicitly and offers operator launch
+or save and exit. A launch request alone never constitutes a passing test.
+For multi-application rows, each application has its own saved observation:
+any failure fails the row, all passes pass it, and mixed skipped/unresolved
+observations leave it Manual. Skipping every subcheck preserves the original
+automated result. Automated notes are retained and manual evidence is appended.
+
+Completed review creates `AVD Checklist Final Results`, `AVD Checklist - Final`,
+and `AVD UAT Final Report` files without overwriting automated outputs. The
+checkpoint is retained after export; rerunning a completed checkpoint regenerates
+its final files without reopening applications. If reporting fails, fix the
+reported error (for example, close a final workbook that is locked in Excel)
+and rerun to retry reporting from saved results.
+`-SkipUnresolved` bypasses all prompts, launches and checkpoints, and creates a
+final report set containing unchanged automated evidence.
+
+The same workflow can be started from `AVD-UAT-Checklist-Manual.exe`. Keep the executable beside the matching manual-actions helper, paths helper, and prerequisite checker, with both the workbook utility and manual file utility in their matching `tools` subfolders.
 
 AVD-16 now validates the enforced Chrome `AIModeSettings=1` policy. AVD-18 runs in the signed-in user context, verifies the Copilot desktop and Start menu shortcuts, repairs either location by copying an existing approved shortcut, or creates `.url` shortcuts when `CopilotUrl` is configured. It reports `Pass` only when a matching Chrome or Edge favorite is also found; otherwise the browser favorite remains in manual review as `Partial Pass`.
 
@@ -308,3 +426,36 @@ task name to apply the five-minute startup delay and replace stale arguments
 that point at Documents or an old output directory. Editing the installer alone
 does not change an already registered task. Automated artifacts remain under the installation root; only final
 manual outputs go to the UAT user's OneDrive Documents.
+
+## Release contents and pre-commit review
+
+The matching runtime set consists of the automated and manual PS1/EXE launchers,
+`AVD-UAT-Checklist.ps1`, `AVD-UAT-ManualActions.ps1`,
+`AVD-UAT-Prerequisite-Check.ps1`, `AVD-UAT-Paths.ps1`,
+`Install-AVDUATScheduledTask.ps1`, the approved configuration/bookmark data,
+the current workbook template, and both `tools\AvdChecklistTool\AvdChecklistTool.exe`
+and `tools\AvdManualFileTool\AvdManualFileTool.exe`. Include the current README,
+operator runbook, and SHA-256 manifest with a release; `Pilot_Run.ps1` is an
+optional operator convenience.
+
+- `AVD-UAT-Manual-CLM-Test-UNSIGNED-20261118-120623.zip` is an unsigned
+  development snapshot. Its embedded documentation/manifest describe that
+  snapshot, not later working-tree edits. Do not use it as an approved release.
+- `AVD-UAT-Live-Test-Final.zip` and `AVD-UAT-Test-20261111-103631.zip` have been
+  removed from the working tree. There is no replacement approved production
+  ZIP in the current change set.
+- `AVD-UAT-Change-Review.docx` is an archived October proposal, not the current
+  operator procedure. Its stopped-Dependency-Agent allowance and retry
+  recommendations are not the implemented prerequisite/retry behavior.
+- `UATScriptHelper_Oct_2026.ps1`, `tests`, and the helper `Program.cs` files are
+  development/reference resources, not launcher dependencies.
+- `Microsoft\Windows\PowerShell\ModuleAnalysisCache` is a generated local
+  PowerShell cache, not project source or a deployment dependency. Exclude it
+  from staging and release packages.
+
+Before creating a deployment package, build the matching executables, run the
+focused regression checks, sign/approve every required runtime script and
+binary, then refresh `SHA256SUMS.txt` from the final files and build a new release
+ZIP. The working-tree manifest records local file integrity only; it is not
+proof of signature trust or production approval. Validate visible applications
+and application-control behavior on the target AVD host before release.
