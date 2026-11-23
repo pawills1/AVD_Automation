@@ -1,245 +1,179 @@
-# AVD UAT automation
+# AVD Automation
 
-## Script comparison
+Automation and supporting resources for Army Azure Virtual Desktop (AVD) Windows 11 environments. This repository brings together image-building infrastructure, application installation and image configuration scripts, exported security policies, and automated/manual user acceptance testing (UAT).
 
-| Script | What it does | Reporting | Unattended / CLM |
-| --- | --- | --- | --- |
-| `UAT_helper.ps1` | Opens applications and websites, pauses repeatedly for operator review, and runs several machine checks. | Console only; does not update the checklist. | No. It requires a desktop user and `Read-Host`. |
-| `automate-avd-checks.ps1` | Reviews results already present in Excel and labels completed/pending rows. It does not execute the UAT checks. | Copies and updates XLSX through Excel COM; reports passing rows in HTML. | No. Excel COM is blocked by Constrained Language Mode and requires Office. |
-| `AVD-UAT-Checklist-Automated.ps1` | Unattended entry point that invokes the check engine without exposing interactive checks. | Produces prepopulated HTML, CSV evidence, and a completed XLSX copy. | Yes. Intended for SYSTEM startup execution. |
-| `AVD-UAT-Checklist-Automated.exe` | Executable form of the unattended entry point. | Produces the same outputs as the PowerShell entry point. | Yes. Uses the same startup task trigger. |
-| `AVD-UAT-Checklist-Manual.ps1` | Loads automated evidence and prompts only for `Partial Pass` and `Manual` rows. | Produces separate final HTML, CSV, and XLSX files while preserving automated notes. | No. Run in the UAT user's interactive session. |
-| `AVD-UAT-Checklist-Manual.exe` | Executable form of the interactive manual review entry point. | Produces the same final report set as the manual PowerShell script. | No. Run in the UAT user's interactive session. |
-| `AVD-UAT-Checklist.ps1` | Shared check and report engine used by the automated entry point. | Produces the automated report set. | Do not invoke with interactive options from a scheduled task. |
+## Repository at a glance
 
-## Design
-
-`AVD-UAT-Checklist-Automated.ps1` calls the shared engine using built-in PowerShell commands for collection and HTML/CSV output. Excel COM and third-party modules are not used for workbook I/O. The small `tools\AvdChecklistTool\AvdChecklistTool.exe` utility reads and updates the XLSX package directly, preserving the source workbook and writing results into a timestamped copy.
-
-Unattended runs do not launch GUI applications, URLs, settings pages, or interactive prompts. Checks that require a visible application or user action are recorded as `Manual`. Detailed timestamped progress, check results, exceptions, and output paths are written only to the automated run folder's `AVD UAT Automated Log - <timestamp>.log`; they are not displayed on screen.
-
-Application startup probes wait no more than 10 seconds. The engine records existing process IDs before launch and stops only processes created by that probe. Guided browser, authentication, Store, installer, and visual checks are not reachable from the unattended entry point.
-
-Checklist IDs are scoped by worksheet because the workbook reuses IDs across the Azure Virtual Desktop and Remote Apps sheets. Automated prerequisite evidence receives `Partial Pass` when the documented test also requires authentication, an upload/download, user observation, or comparison with an approved inventory.
-
-The following checks are manual-only in every execution context. The automated
-run records `Manual` without running their automated probes or roll-ups, and the
-manual launcher prompts for their final results:
-
-| Worksheet | ID | Manual verification |
+| Area | Contents | Start here |
 | --- | --- | --- |
-| Azure Virtual Desktop Tasks | AVD-20 | About Teams displays AVD SlimCore Media Optimized or AVD Media Optimized. |
-| Azure Virtual Desktop Tasks | AVD-24 | Complete the documented Teams activities and confirm Teams functions correctly. |
-| Azure Virtual Desktop Tasks | AVD-40 | Outlook Cached Exchange Mode is checked and the download period is 3 days. |
-| Azure Virtual Desktop Tasks | AVD-57 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
-| Azure Virtual Desktop Tasks | AVD-58 | Visually confirm the Army wallpaper is applied. |
-| Azure Virtual Desktop Tasks | AVD-60 | As the standard UAT user without elevation, try to create a folder in C:\ and confirm access is denied. |
-| Azure Virtual Desktop Tasks | AVD-61 | As the standard UAT user without elevation, try to create a folder in D:\ and confirm access is denied. |
-| Azure Virtual Desktop Tasks | AVD-68 | Confirm OneDrive is accessible and syncing. |
-| Remote Apps Tasks | AVD-15 | Complete the IDCO CAC authentication workflow without errors or blocking actions. |
+| Image engineering | Packer templates, Terraform infrastructure, image distribution workflows, provisioning scripts, and Evaluate-STIG resources. | [Windows 11 image project](AVD_Repo_Files/army-avd-image-win11/) |
+| Security policy exports | Device/user configuration JSON, STIG settings, WDAC/App Control XML, and certificate detection/remediation scripts. | [Policy exports](AVD_Repo_Files/_exports/) |
+| Software deployment | A package installation orchestrator and individual application, certificate, language, optimization, and maintenance scripts. | [Software installer](Software_Installer/Install-Software.ps1) |
+| Acceptance testing | Automated checks, guided manual review, scheduled task installation, configuration, workbook template, reports, and packaged launchers. | [UAT documentation](UAT/README.md) |
 
-AVD-60 and AVD-61 never attempt automated writes. Review them in the signed-in
-standard UAT user's session, not as SYSTEM or an elevated administrator. A missing
-drive or another error is not evidence of access denied; only the expected
-permission denial satisfies these checks.
+## Repository layout
 
-Each result follows a strict evidence rule:
-
-- `Pass`: automation fully proves the documented expected result.
-- `Partial Pass`: automation proves part of the result, but a named manual task remains.
-- `Fail`: automation ran and found negative evidence, such as missing software, missing configuration, or an unsuccessful operation.
-- `Manual`: no reliable automated action can prove any part of the expected result in the current execution context.
-
-Azure Virtual Desktop Tasks **AVD-59 (Drive Encryption)** is included in automated
-runs and checks BitLocker `ProtectionStatus` on both `C:` and `D:`. It passes
-when protection is `Off` on both drives, even if either drive is still encrypted.
-Protection `On` on either drive fails the check. Missing drives, unavailable
-BitLocker cmdlets, unreadable status, or unknown status require manual review
-unless another drive already proves a failure. The check does not change
-BitLocker protection or encrypt/decrypt any drive.
-
-HTML rows and workbook Result cells use green for `Pass`, yellow for `Partial Pass` and `Manual`, and red for `Fail`.
-
-## Mandatory prerequisite gate
-
-Both the automated and manual launchers invoke `AVD-UAT-Prerequisite-Check.ps1` before any checklist workbook is read, any UAT check runs, or any manual prompt is displayed. The gate runs fresh in the launcher's current execution context; a prior result is never reused.
-
-The checker is compatible with PowerShell Constrained Language Mode. It uses native `dsregcmd.exe` and `schtasks.exe`, registry and service cmdlets, hashtables, operators, and file cmdlets. It does not require custom object creation, non-core static method invocation, `PSObject` reflection, `Add-Type`, `New-Object`, or the ScheduledTasks PowerShell module.
-
-All four requirements must pass:
-
-1. `dsregcmd.exe /status` reports `AzureAdJoined : YES`.
-2. An `MS DM Server` enrollment exists under `HKLM:\SOFTWARE\Microsoft\Enrollments`, and its matching `\Microsoft\Windows\EnterpriseMgmt\<enrollment ID>\` namespace contains scheduled tasks.
-3. Service `IntuneManagementExtension` exists and is `Running`.
-4. FSLogix service `frxsvc` exists and is `Running`.
-
-Every gate execution creates an HTML report and troubleshooting log. Automated runs place them in the new `Automated_Results_<timestamp>` folder. Manual runs place them under `%TEMP%\ArmyAVD\UAT-Prerequisites`.
-
-- Exit code `0`: all prerequisites passed; UAT may continue.
-- Exit code `2`: one or more prerequisites failed; UAT did not start.
-- Exit code `3`: the checker was missing or prerequisite evaluation could not complete; UAT did not start.
-
-The checker can also be run by itself:
-
-```powershell
-powershell.exe -NoProfile -NonInteractive `
-  -File .\AVD-UAT-Prerequisite-Check.ps1
+```text
+AVD_Automation/
+|-- README.md
+|-- AVD_Repo_Files/
+|   |-- _exports/                    Security policies and certificate scripts
+|   `-- army-avd-image-win11/         Nested image-build Git project
+|       |-- .github/workflows/       Build, infrastructure, and distribution workflows
+|       |-- packer/                  Image templates and Office configuration
+|       |-- terraform/               Image-based VM and networking resources
+|       |-- terraform-infra/         Resource group and storage infrastructure
+|       |-- boostrap_tf/             Terraform state bootstrap resources
+|       |-- scripts/                 Image provisioning and maintenance scripts
+|       `-- Evaluate-STIG/           Assessment tooling and supporting resources
+|-- Software_Installer/
+|   |-- Install-Software.ps1         Canonical package installation entry point
+|   `-- scripts/                     Individual installers and configuration helpers
+|       `-- Logs/                    Existing installation summaries and transcripts
+`-- UAT/
+    |-- README.md                    Detailed deployment and operator instructions
+    |-- AVD-UAT-Checklist*.ps1        Check engine and automated/manual launchers
+    |-- AVD-UAT-Checklist*.exe        Packaged automated/manual launchers
+    |-- AVD-UAT-Prerequisite-Check.ps1
+    |-- AVD-UAT-Paths.ps1
+    |-- Install-AVDUATScheduledTask.ps1
+    |-- Pilot_Run.ps1
+    |-- avd-uat.config*.json
+    |-- army-bookmarks.json
+    |-- tools/AvdChecklistTool/       Workbook helper executable
+    `-- ...                          Workbook, runbook, certificate, ZIP, and hashes
 ```
 
-The finalized scripts and rebuilt launchers must have valid organizational
-code signatures before deployment under AllSigned, WDAC, or AppLocker.
-Do not relax application-control or execution policy to deploy the update.
-Verify the approved release before live testing:
+## 1. Windows 11 image engineering
+
+The [image-build project](AVD_Repo_Files/army-avd-image-win11/) contains:
+
+- **Packer:** Windows image definitions, shared variables, Microsoft 365 Office configuration, and separate `base`, `general`, `inject`, `rxapps`, `STIGS`, and `updates` directories.
+- **Terraform:** VM deployment from an Azure Compute Gallery image, networking and security resources, plus a separate infrastructure configuration for resource groups and storage.
+- **State bootstrap:** [BOOTSTRAP-TFSTATE.ps1](AVD_Repo_Files/army-avd-image-win11/BOOTSTRAP-TFSTATE.ps1), the [boostrap_tf directory](AVD_Repo_Files/army-avd-image-win11/boostrap_tf/), and backend configuration resources.
+- **GitHub Actions:** Build/test, development infrastructure, sandbox distribution, development distribution, and production base/general/update distribution and replication workflows.
+- **Provisioning scripts:** Application installation, certificate staging, local policy, FSLogix, language packs, Windows updates, branding, AppX maintenance, and desktop optimization.
+- **Evaluate-STIG:** PowerShell and Bash entry points, answer-file management, modules, checklist templates, certificates, prerequisites, XML resources, and bundled reference documentation.
+- **Build metadata:** A `compute_build_number` helper and project-specific licensing.
+
+The included workflows target Azure Government and reference environment-specific subscriptions, galleries, storage, credentials, and external artifacts. Review those dependencies and the selected Packer/Terraform variables before building or deploying. They are not a ready-to-run configuration for an arbitrary Azure tenant.
+
+**Checkout note:** This directory is recorded in the parent repository as a Git link to a separate commit. This checkout contains its files, but there is no root `.gitmodules` mapping. A fresh clone may not populate it automatically; obtain the matching image project from the repository maintainer rather than assuming the parent clone includes all image-build content. Changes inside that project are managed separately from changes in the parent repository.
+
+The [image project README](AVD_Repo_Files/army-avd-image-win11/readme.md) provides background; use the actual HCL templates and workflow definitions for current paths and execution settings.
+
+## 2. Security policies and configuration exports
+
+The [exports directory](AVD_Repo_Files/_exports/) contains JSON policy exports for:
+
+- Microsoft Defender Antivirus, Defender Firewall, firewall rules, and Attack Surface Reduction (ASR).
+- Microsoft Edge and Google Chrome.
+- Microsoft Office 2019/Microsoft 365 and OneDrive.
+- Windows 11 operating system settings.
+- General device and user configuration, including user-scoped Office and Windows settings.
+
+It also includes four XML application-control policy files covering a base policy, additional policy, and AVD product base/supplemental policies, plus [certificate detection](AVD_Repo_Files/_exports/EMDVTLSCACert-Detect.ps1) and [certificate remediation](AVD_Repo_Files/_exports/EMDVTLSCACert-Remediate.ps1) scripts.
+
+Export filenames identify policy scope and, where applicable, STIG revisions or policy versions. Treat these files as configuration snapshots, not proof of current compliance. Review policy settings, assignments, certificate trust decisions, and compatibility with the target environment before import or deployment.
+
+## 3. Software installation and image configuration
+
+### Package orchestrator
+
+[Install-Software.ps1](Software_Installer/Install-Software.ps1) requires Windows PowerShell 5.1 or later and coordinates a defined package catalog with vendor-specific silent installation arguments. It supports:
+
+- Package selection with `-Include` and `-Exclude`.
+- Catalog inspection with `-ListOnly` and simulated execution with `-WhatIf`.
+- Automatic elevation for installation, unless `-NoAutoElevate` is specified.
+- EXE/MSI, Office, PowerShell, batch, portable application, and package-specific deployment handling.
+- Timestamped CSV summaries and installation transcripts under `Software_Installer\Logs`.
+- Recognition of successful installer exit codes `0`, `1641`, and `3010`, including reboot-required outcomes.
+
+From the repository root, inspect the catalog before installing:
 
 ```powershell
-Get-AuthenticodeSignature .\*.ps1, .\*.exe, .\tools\AvdChecklistTool\AvdChecklistTool.exe |
-    Format-Table Path, Status
+.\Software_Installer\Install-Software.ps1 -ListOnly
+.\Software_Installer\Install-Software.ps1 -WhatIf
+.\Software_Installer\Install-Software.ps1 -Include '7-Zip','Mozilla Firefox' -WhatIf
 ```
 
-Every required runtime signature must be `Valid` under the deployment policy.
-Recalculate `SHA256SUMS.txt` and refresh the ZIP after signing. The included
-Word runbook also documents the updated path and signing requirements.
+After staging and approving the required packages, run a selected installation:
 
-## Check configuration
+```powershell
+.\Software_Installer\Install-Software.ps1 -Include '7-Zip','Mozilla Firefox'
+```
 
-Some checks require an environment-approved baseline or test input. If an applicable value is omitted, that check reports `Manual` rather than guessing an expected result.
+**Installer payloads are not a complete part of this repository.** The orchestrator resolves its software root to its own directory when `7z2603-x64.exe` is present there; otherwise, it uses the parent directory. Review the package catalog, paths, licensing requirements, and silent switches, then stage the expected payloads before execution. Some individual scripts also depend on external storage, network access, or supporting tools.
 
-Deploy the complete folder contents to `C:\Program Files\ArmyAVD\UAT`.
-When `-InputFile` is omitted, automation selects the newest `.xlsx` or `.xlsm`
-workbook in that installation directory whose name begins with `AVD Test Plan`.
-It does not search OneDrive Documents or the current working directory.
-`-UatDirectory` selects an alternate installation root for testing.
-`-InputFile` remains an explicit automated template override and accepts wildcards.
+The [entry point under scripts](Software_Installer/scripts/Install-Software.ps1) forwards arguments to the canonical orchestrator; it is not a separate package catalog.
 
-| Parameter | Purpose |
+### Individual scripts
+
+The [scripts directory](Software_Installer/scripts/) also provides standalone helpers in these categories:
+
+| Category | Included coverage |
 | --- | --- |
-| `-PurviewExtensionId` | Required Chrome Purview extension ID. |
-| `-EdgePurviewExtensionId` | Retained for configuration compatibility; AVD-28 now detects Purview, MIP, or DLP Windows services. |
-| `-ChromeBookmarksBaselineFile` | Retained for configuration compatibility; AVD-14 verifies that managed Chrome policy exposes Army Bookmarks. |
-| `-EdgeFavoritesBaselineFile` | Retained for configuration compatibility; Remote Apps AVD-10 and Azure Virtual Desktop AVD-32 verify that managed Edge policy exposes Army Bookmarks. |
-| `-CopilotArtifactName`, `-CopilotAppId`, `-CopilotUrl` | Approved Copilot desktop, Start menu, and favorites artifacts. |
-| `-ExeInstallerTestFile`, `-MsiInstallerTestFile` | Approved benign installers for application-control block tests. |
-| `-RequiredLanguages` | Required language objects identified by `LanguageTag`. AVD-66 requires LpCab for each language; `LanguagePacks` and `LanguageFeatures` fields are retained for compatibility but do not control validation. |
-| `-RequiredLanguageTags` | Legacy required BCP-47 language tags used when `RequiredLanguages` is not configured; each also requires LpCab. |
-| `-WindowsUpdateHistoryUrl` | Official Microsoft update-history page used to compare the local build with the latest build from the previous month. |
-| `-ApprovedOsBuild` | Optional fallback minimum build when no update-history URL is configured. |
-| `-ExpectedRemoteAppHostPattern` | Regex matching approved Remote Apps ring and slice host names. |
-| `-OwaUrl` | Approved absolute HTTPS OWA endpoint for the guided encryption test. |
-| `-RunInteractiveChecks` | Enables guided user-interface and authentication checks; never supplies credentials or secrets. |
+| Browsers and utilities | Chrome, Firefox, 7-Zip, Notepad/Notepad++, VLC, PowerShell 7, Windows App Runtime, Visual C++ redistributables, and WinGet preparation. |
+| Microsoft productivity | Microsoft 365 Apps, Teams and its Outlook add-in, Copilot, Power Automate, Power BI Desktop, Power BI Report Builder, Store updates, and Photos. |
+| AVD and profiles | FSLogix installation and redirections, WebRTC redirection, Remote Desktop installer staging, user logon updates, and virtual desktop optimization. |
+| Army/mission applications | AWS WickrGov, Cisco Jabber, DAX Studio, Foundry ODBC, FedLog, IADS4, DEPTH, DTS Lite, OCE Tool, SAP GUI, and self-help tooling. |
+| Security and management | Certificates and trust-chain staging, Purebred registration, YubiKey, S/MIME, Tychon, PrinterLogic, STIG Viewer, classification banners, LGPO, ADMX, and DSC configuration. |
+| Language and appearance | Language pack installation, including German, French, Japanese, and Korean helpers, themes/wallpapers, image branding, and public desktop icon cleanup. |
+| Image maintenance | Blob downloads and installer pinning, gallery image/version lookups, Windows Update controls, Secure Boot certificate updates, BitLocker decryption, AppX State Repository repair, and cleanup. |
 
-Use `avd-uat.config.example.json` as the schema for deployment configuration. `-ConfigurationFile` accepts that JSON object; explicit command-line check parameters override matching file values. Relative baseline and test-file paths resolve relative to the configuration file. Do not store credentials, PINs, tokens, or other secrets in it.
+Versioned alternatives are retained for some installers and staging helpers. Select the script appropriate to the intended build rather than executing every file. Existing [historical logs](Software_Installer/scripts/Logs/) are prior run artifacts, not current deployment results.
 
-## Finalized live-test behavior
+## 4. User acceptance testing
 
-- Azure Virtual Desktop AVD-72 requires `SetDisableUXWUAccess=1`, `DeferFeatureUpdates=1`, and `DeferQualityUpdates=1` under `HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`. It no longer reads or requires `SetDisablePauseUXAccess`. All three matching policies produce `Partial Pass`, retaining manual confirmation that Check for updates and Pause updates are greyed out and the organization-policy message is visible. Missing, unreadable, or mismatched required policies produce `Fail`.
-- Azure Virtual Desktop AVD-66 requires installed **LpCab** packages for every configured language (de-DE, en-US, fr-FR, ja-JP, ko-KR by default). LXP packages and language features are not required. An LXP-only language or a missing required language fails the check.
-- AVD-00 defaults to a 40% average CPU limit and an 80% maximum memory-use limit.
-- Azure Virtual Desktop AVD-14 recursively queries `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\managedbookmarks` and passes when any key name, value name, or value data contains `Army Bookmarks`.
-- Azure Virtual Desktop AVD-28 passes when at least one Windows service display name matches Microsoft Purview, MIP, or DLP.
-- Remote Apps AVD-11 and Azure Virtual Desktop AVD-33 read only the HKLM Edge `NewTabPageLocation` policy and require it to contain `https://armyeitaas.sharepoint-mil.us`.
-- Remote Apps AVD-04 and AVD-05 are manual checks.
-- Remote Apps AVD-09 and Azure Virtual Desktop AVD-31 read only HKLM Edge policy. `PromptForDownloadLocation` must equal `1`, and `DownloadDirectory` must target `C:\Users\${user_name}\OneDrive - US Army\Downloads` (a deployed username and typographic dash are also accepted).
-- Remote Apps AVD-10 and Azure Virtual Desktop AVD-32 recursively query `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\managedfavorites` and pass when any key name, value name, or value data contains `Army Bookmarks`. No managed-policy JSON or object structure is required.
+The [UAT suite](UAT/) separates unattended machine checks from interactive user verification. See the [UAT README](UAT/README.md) for configuration parameters, detailed check behavior, deployment instructions, output naming, and execution-context limitations.
 
-## Run once
+### Main components
 
-```powershell
-powershell.exe -NoProfile -NonInteractive -File .\AVD-UAT-Checklist-Automated.ps1
-```
+| Component | Purpose |
+| --- | --- |
+| [Automated launcher](UAT/AVD-UAT-Checklist-Automated.ps1) | Runs unattended checks through the shared engine and produces automated evidence. An EXE launcher is also included. |
+| [Manual launcher](UAT/AVD-UAT-Checklist-Manual.ps1) | Opens the latest automated evidence and prompts for remaining manual/partial results in the UAT user's session. An EXE launcher is also included. |
+| [Shared check engine](UAT/AVD-UAT-Checklist.ps1) | Collects evidence and produces HTML, CSV, and completed workbook reports. |
+| [Prerequisite checker](UAT/AVD-UAT-Prerequisite-Check.ps1) | Gates both launchers on Entra join, MDM enrollment/tasks, running Intune Management Extension, and running FSLogix. |
+| [Path helper](UAT/AVD-UAT-Paths.ps1) | Shared UAT path-resolution logic. |
+| [Scheduled task installer](UAT/Install-AVDUATScheduledTask.ps1) | Registers SYSTEM execution using PowerShell or the executable launcher; startup execution waits five minutes after boot. |
+| [Pilot runner](UAT/Pilot_Run.ps1) | Invokes the automated launcher with the included configuration and a short performance sampling interval. |
+| [Configuration example](UAT/avd-uat.config.example.json) and [deployment configuration](UAT/avd-uat.config.json) | Environment-specific check settings and approved artifact paths. |
+| [Army bookmarks](UAT/army-bookmarks.json) | Supporting bookmark baseline data; see the UAT documentation for current managed-policy checks. |
+| [Workbook helper](UAT/tools/AvdChecklistTool/AvdChecklistTool.exe) | Reads and updates XLSX packages without requiring Excel COM or an Office installation for workbook I/O. |
 
-The default automated output is
-`C:\Program Files\ArmyAVD\UAT\Automated_Results_<yyyyMMdd-HHmmss-fff>`.
-The elevated/SYSTEM account must have write access there; manual users need
-read access. Each invocation creates one new folder for the XLSX, CSV, HTML,
-and troubleshooting log. `-OutputDirectory` overrides the results root, not
-the per-run folder. Even an explicit `-LogPath` uses only its filename inside
-that run folder.
+### Supporting release resources
 
-For an alternate installation:
+- [AVD test plan template](UAT/AVD%20Test%20Plan%20Template%20-%20DO%20NOT%20DELETE%20OR%20MOVE.xlsx): source checklist; preserve its filename and placement.
+- [Deployment and operator runbook](UAT/AVD-UAT-Deployment-and-Operator-Runbook.docx): Word-format operating instructions.
+- [Live-test ZIP](UAT/AVD-UAT-Live-Test-Final.zip): packaged deployment bundle.
+- [Code-signing certificate](UAT/AVD-CodeSigning.cer) and [SHA-256 manifest](UAT/SHA256SUMS.txt): release verification resources. Their presence alone does not establish organizational trust or prove that the bundle matches the current scripts.
+
+### Execution and results
+
+The normal deployment root is `C:\Program Files\ArmyAVD\UAT`. Stage the full matching runtime set, including the workbook, helper, configuration, and prerequisite/path scripts, before running the launchers.
+
+For an alternate checkout-based test, from the repository root:
 
 ```powershell
-powershell.exe -NoProfile -NonInteractive -File .\AVD-UAT-Checklist-Automated.ps1 `
-  -UatDirectory 'C:\AVD-UAT-Test' `
-  -ConfigurationFile '.\avd-uat.config.json'
+.\UAT\AVD-UAT-Checklist-Automated.ps1 `
+    -UatDirectory "$PWD\UAT" `
+    -ConfigurationFile "$PWD\UAT\avd-uat.config.json"
 ```
 
-Each run creates:
+This executes real checks and requires the documented prerequisites and permissions; it is not a dry run. Follow the UAT documentation for production deployment and manual completion.
 
-- `AVD UAT Automated Log - <timestamp>.log`: verbose file-only troubleshooting log.
-- `AVD UAT Report - <timestamp>.html`: successful automated checks, checks requiring attention, and remaining manual checks.
-- `AVD Checklist Results - <timestamp>.csv`: machine-readable evidence.
-- `AVD Checklist - Completed - <timestamp>.xlsx`: copied checklist with Result, Issue Reference, Notes, and Automation Review populated.
+- Automated runs create a new `Automated_Results_<timestamp>` directory beneath the installation root by default, containing HTML, CSV, XLSX, and a troubleshooting log, plus prerequisite evidence.
+- Manual review uses the newest automated result set and preserves its source files. Final manual HTML, CSV, and XLSX outputs go to the UAT user's `OneDrive - US Army\Documents`.
+- Results distinguish `Pass`, `Partial Pass`, `Fail`, and `Manual`. Authentication, visual checks, and user workflows still require an interactive standard-user session where documented.
+- SYSTEM runs cannot establish every user-scoped result. Do not treat automated prerequisite evidence as a substitute for completing the manual checklist.
 
-## Manual completion
+## Operational guidance
 
-Run the follow-on workflow in the UAT user's interactive session, not SYSTEM.
-It selects the newest timestamped `Automated_Results_*` folder under
-`C:\Program Files\ArmyAVD\UAT`, and reads the completed XLSX and its matching
-CSV from that same run. It never starts from the template or a Documents
-workbook. An incomplete newest run raises an explicit error rather than
-silently selecting stale evidence.
-
-```powershell
-.\AVD-UAT-Checklist-Manual.ps1
-```
-
-The rebuilt manual EXE uses the same selection rules. Existing explicit
-`-InputFile`/`-AutomatedResultsCsv` values must match the latest run.
-Only final manual outputs (XLSX, CSV, and HTML) go to
-`%USERPROFILE%\OneDrive - US Army\Documents`; automation never writes there.
-The automated source files remain unchanged.
-
-The script prompts only for `Partial Pass` and `Manual` rows. `Skip` preserves the automated status. Completed review creates `AVD Checklist Final Results`, `AVD Checklist - Final`, and `AVD UAT Final Report` files without overwriting the automated outputs.
-
-The same workflow can be started from `AVD-UAT-Checklist-Manual.exe`. Keep the executable beside the manual script, workbook helper, and matching `AVD Test Plan` workbook.
-
-AVD-15 now validates the enforced Chrome `AIModeSettings=1` policy. AVD-17 runs in the signed-in user context, verifies the Copilot desktop and Start menu shortcuts, repairs either location by copying an existing approved shortcut, or creates `.url` shortcuts when `CopilotUrl` is configured. It reports `Pass` only when a matching Chrome or Edge favorite is also found; otherwise the browser favorite remains in manual review as `Partial Pass`.
-
-## SYSTEM scheduled task
-
-Startup tasks wait **5 minutes after boot** before launching UAT, allowing the
-Intune Management Extension (IME) and other services time to initialize. This
-delay applies to both PowerShell and executable task actions; daily triggers
-are unchanged. The prerequisite gate still runs normally and stops UAT if IME
-or another required prerequisite is not ready. A fixed delay is a startup
-buffer, not a guarantee of service readiness.
-
-Run the installer from an elevated PowerShell session:
-
-```powershell
-.\Install-AVDUATScheduledTask.ps1 -ExecutionMode PowerShell
-```
-
-To supply approved check configuration to the SYSTEM run:
-
-```powershell
-.\Install-AVDUATScheduledTask.ps1 `
-  -ConfigurationFile '.\avd-uat.config.json' `
-  -ExecutionMode PowerShell
-```
-
-For startup execution:
-
-```powershell
-.\Install-AVDUATScheduledTask.ps1 -ExecutionMode PowerShell
-```
-
-To register the compiled executable with the same startup trigger:
-
-```powershell
-.\Install-AVDUATScheduledTask.ps1 -ExecutionMode Executable
-```
-
-Preview registration without changing the machine:
-
-```powershell
-.\Install-AVDUATScheduledTask.ps1 -WhatIf
-```
-
-SYSTEM is appropriate for machine policy, registry, installation, DNS, and OS checks. It cannot validate the signed-in user's mapped drives, CurrentUser certificate store, OneDrive profile, GUI behavior, smart-card authentication, media playback, or application workflows. Those rows become `Manual` tasks in the report. Running the same script in the UAT user's context collects the additional user-scoped automated evidence; observation and authentication checks still remain manual.
-
-After replacing an older deployment, rerun the installer with the original
-task name to apply the five-minute startup delay and replace stale arguments
-that point at Documents or an old output directory. Editing the installer alone
-does not change an already registered task. Automated artifacts remain under the installation root; only final
-manual outputs go to the UAT user's OneDrive Documents.
+- Use Windows/PowerShell and the privileges required by the selected script. Azure image builds additionally require Packer, Terraform, appropriate Azure tooling/authentication, and access to configured dependencies.
+- Review all environment-specific paths, URLs, application versions, storage references, policy settings, and deployment configuration before use.
+- Keep credentials, smart-card PINs, tokens, private keys, and other secrets out of scripts, JSON configuration, logs, and source control.
+- Validate signatures and hashes against an approved release. Follow organizational AllSigned, WDAC, and AppLocker requirements; do not bypass controls or automatically trust the bundled certificate.
+- After changing packaged UAT code, rebuild/sign the affected runtime artifacts and refresh the ZIP/hash manifest as described in the [UAT deployment guidance](UAT/README.md).
+- Scripts can install software, change certificate stores or security settings, alter update behavior, decrypt drives, or modify infrastructure. Test selected workflows on a non-production image before broad deployment.
+- Review applicable license files and vendor terms in the nested image project and bundled tooling. Inclusion in this repository does not grant licenses for third-party software or installation payloads.

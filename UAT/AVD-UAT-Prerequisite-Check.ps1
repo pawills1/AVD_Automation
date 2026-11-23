@@ -116,6 +116,63 @@ function Get-RunningServiceResult {
     return New-PrerequisiteResult $PrerequisiteName $true "Service '$ServiceName' is installed and Running." ''
 }
 
+function Get-HostPoolResult {
+    param([string]$DeviceName = $computerName)
+
+    $reasons = @()
+    $expectedPool = '<undetermined>'
+    $actualPool = '<unreadable>'
+    $expected = $null
+    if ($DeviceName -match '\AAVD(?<Region>AZ|VA|TX|DE)(?<Ring>INT|PLT|BRD|TST)(?<Group>[0-9]{2})(?<Slice>A|B)(?<HostPool>[1-9])[0-9]{3}\z') {
+        $poolRegions = @{ AZ = 'AZ'; TX = 'AZ'; VA = 'VA'; DE = 'VA' }
+        $expected = @{
+            Region = $poolRegions[$Matches.Region]
+            Ring = $Matches.Ring.ToUpperInvariant()
+            Group = $Matches.Group
+            Slice = $Matches.Slice.ToUpperInvariant()
+            HostPool = $Matches.HostPool
+        }
+        $expectedPool = 'P-ARMY-AVD-{0}-{1}{2}{3}-{4}' -f $expected.Region, $expected.Ring, $expected.Group, $expected.Slice, $expected.HostPool
+    }
+    else {
+        $reasons += 'Unrecognized device naming; expected AVD<AZ|VA|TX|DE><INT|PLT|BRD|TST><two-digit group><A|B><host-pool digit 1-9><three-digit host sequence>'
+    }
+
+    try {
+        $value = Get-ItemPropertyValue -LiteralPath 'HKLM:\SOFTWARE\Microsoft\RDMonitoringAgent' -Name 'SessionHostPool' -ErrorAction Stop
+        if ($null -eq $value -or ($value -is [string] -and $value -match '\A\s*\z')) {
+            $actualPool = '<blank>'
+            $reasons += 'SessionHostPool is missing or blank'
+        }
+        elseif ($value -isnot [string]) {
+            $actualPool = '<invalid value type>'
+            $reasons += 'Unrecognized SessionHostPool format; expected a string value'
+        }
+        else {
+            $actualPool = $value
+            if ($actualPool -notmatch '\AP-ARMY-AVD-(?<Region>AZ|VA)-(?<Ring>INT|PLT|BRD|TST)(?<Group>[0-9]{2})(?<Slice>A|B)-(?<HostPool>[1-9])\z') {
+                $reasons += 'Unrecognized SessionHostPool format; the entire pool name must match the approved naming convention'
+            }
+            elseif ($null -ne $expected -and $actualPool -ine $expectedPool) {
+                foreach ($field in @('Region', 'Ring', 'Group', 'Slice', 'HostPool')) {
+                    if ($Matches[$field] -ine $expected[$field]) {
+                        $label = if ($field -eq 'HostPool') { 'host-pool number' } else { $field.ToLowerInvariant() }
+                        $reasons += "$label mismatch (expected $($expected[$field]), found $($Matches[$field]))"
+                    }
+                }
+            }
+        }
+    }
+    catch {
+        $reasons += "Cannot read SessionHostPool: $($_.Exception.Message)"
+    }
+
+    $passed = $reasons.Count -eq 0
+    $reason = if ($passed) { 'Entire pool name matches the device mapping' } else { $reasons -join '; ' }
+    $evidence = "Device=$DeviceName; Actual pool=$actualPool; Expected pool=$expectedPool; Reason=$reason."
+    return New-PrerequisiteResult 'Host Pool Status' $passed $evidence 'Verify the device naming and AVD registration with the expected host pool (TX maps only to AZ; DE maps only to VA). Restore a readable SessionHostPool value and rerun the prerequisite gate.'
+}
+
 try {
     New-Item -ItemType Directory -Path $OutputDirectory -Force -ErrorAction Stop | Out-Null
     Write-PrerequisiteLog "Prerequisite gate started. Computer=$computerName Context=$env:USERDOMAIN\$env:USERNAME"
@@ -124,6 +181,8 @@ try {
         Get-IntuneEnrollmentResult
         Get-RunningServiceResult 'Intune Management Extension' 'IntuneManagementExtension' 'Install or repair Microsoft Intune Management Extension and ensure the service is running.'
         Get-RunningServiceResult 'FSLogix' 'frxsvc' 'Install or repair FSLogix and ensure the frxsvc service is running.'
+        Get-RunningServiceResult 'Microsoft Dependency Agent' 'MicrosoftDependencyAgent' 'Install or repair Microsoft Dependency Agent and ensure the MicrosoftDependencyAgent service is running.'
+        Get-HostPoolResult
     )
     foreach ($result in $results) {
         Write-PrerequisiteLog "$($result.Prerequisite): $($result.Result) - $($result.Evidence)"
@@ -135,7 +194,7 @@ try {
         $class = if ($result.Result -eq 'Pass') { 'pass' } else { 'fail' }
         "<tr class='$class'><td>$(ConvertTo-HtmlText $result.Prerequisite)</td><td>$($result.Result)</td><td>$(ConvertTo-HtmlText $result.Evidence)</td><td>$(ConvertTo-HtmlText $result.Remediation)</td></tr>"
     }
-    $body = "<h1>AVD UAT Prerequisite Report</h1><p>Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') | Computer: $computerName | Context: $env:USERDOMAIN\$env:USERNAME</p><p>All four prerequisites must pass before UAT can run.</p><table><thead><tr><th>Prerequisite</th><th>Result</th><th>Evidence</th><th>Remediation</th></tr></thead><tbody>$($rows -join '')</tbody></table>"
+    $body = "<h1>AVD UAT Prerequisite Report</h1><p>Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') | Computer: $computerName | Context: $env:USERDOMAIN\$env:USERNAME</p><p>All $($results.Count) prerequisites must pass before UAT can run.</p><table><thead><tr><th>Prerequisite</th><th>Result</th><th>Evidence</th><th>Remediation</th></tr></thead><tbody>$($rows -join '')</tbody></table>"
     ConvertTo-Html -Title 'AVD UAT Prerequisite Report' -Head $head -Body $body | Set-Content -LiteralPath $reportPath -Encoding UTF8
 
     $gate = @{
@@ -161,8 +220,8 @@ catch {
 # SIG # Begin signature block
 # MIIHMAYJKoZIhvcNAQcCoIIHITCCBx0CAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCDpEyPTn5O1+WZ/
-# rSHq20M3b6ynl4EVK758JIuIR3yYW6CCBBwwggQYMIICgKADAgECAhARPahbg4yR
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCAs1Piy4uX6nhIa
+# dVTyzm4Ch/AwnApxs4GJdarOyQnT86CCBBwwggQYMIICgKADAgECAhARPahbg4yR
 # u0x0RWe84V06MA0GCSqGSIb3DQEBCwUAMCQxIjAgBgNVBAMMGUFWRCBVQVQgVGVz
 # dCBDb2RlIFNpZ25pbmcwHhcNMjYwOTIzMTk0MjUxWhcNMzEwOTIzMTk1MjUwWjAk
 # MSIwIAYDVQQDDBlBVkQgVUFUIFRlc3QgQ29kZSBTaWduaW5nMIIBojANBgkqhkiG
@@ -188,14 +247,14 @@ catch {
 # QVZEIFVBVCBUZXN0IENvZGUgU2lnbmluZwIQET2oW4OMkbtMdEVnvOFdOjANBglg
 # hkgBZQMEAgEFAKCBhDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3
 # DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEV
-# MC8GCSqGSIb3DQEJBDEiBCBHq2wUl0AEdxddfToOC9u8tSxhoEpuvVMDQReDI5Nu
-# rDANBgkqhkiG9w0BAQEFAASCAYBAEGwP9qTeBlah91zdQFfwmxum4ODGFvtT2qKs
-# 0redJ/ihxSEeYLHKIYf219bK/nDCD61/OnInmuGQGC5mnkGx+AlaDyD/zVEli5Vh
-# ZSGs15Mxi5u6dyx1s2iFgXO7OYDTiNNm5LoXyFFTGt6Iax90fe+u/iwOtls7cUh0
-# Ok0L08pWVbEKum9iHFF0qZAdes3oCHzlckLA4DzzNvJrMcdObYbQ/cSwzw/K30nd
-# AU8A8H3wB19wOWcCE1diBLFnZWJoFDd6022kbbZzn8uDQh7yKfVxh9yFlUIt5sx2
-# bN4/z3zjRmUStlBt2R8vsTDpeA4mvv/n/vlYelisMB9cWtNLgDkdi6SNVI3jjxHu
-# 7dGBsFEhZeJgWt3slD9z2zI+STR9uJQW2BrvXqFVwS+5Z9lH65mWd1dEMo6FY8ak
-# FKXoR/1L6VooktItpcCRCnKTfbaiI4RGAcDouSa4xj8cMknzY05lxuzS7EVzNDUu
-# wUkNvkNyYZuYVV7aa+KRhUch1I0=
+# MC8GCSqGSIb3DQEJBDEiBCBi9hex2QfTxPD5g4oo0ZCZAoUOscx08mLiQqdpYaJi
+# rTANBgkqhkiG9w0BAQEFAASCAYAHPKyU0ijqUBwT/RC5s6rIV1E9MEVmzNHgKKwU
+# o03kib3mwgd3pItrv5lte3V9vNo33JboWUPMs8t3NVYluDoi6Ql4mSNpwM1h5x3e
+# N5d5on3mwRBOprMshjRbk8UXdNKA9IYEchsh/PdxpUafGARO//TGClVvKALNrbvS
+# AriPNWAQ+u7db5/YJ3PHptXtScQzxd2uSM+rMkhhilhdqupJJm2AeD9RdfDr5OMl
+# QL5huX3sDrgBYDawM5duns56OvXTvBYYJYhBaw4vRZbIZWLy7UJVWmjYmaX6r0xo
+# DOy+Zoaw9CdGaEl8nKgkLimipx2fIBPLGhJQ0V8++41EumXWDw6l72xIKDjwi92s
+# OaicUp4ychgnDrkn/FgauSLLFj2djNBWEuQy96CxLTdEhoGbIZu9b0TqYJfsMCap
+# SxXJM8cz8GBXenzaWzkDGVPNGlF374skMDZ0MRqbcbvLMDLmGNQwQqj7FXZo54f6
+# I1UST5vsot2TNHwvrXwL4v487Kw=
 # SIG # End signature block
