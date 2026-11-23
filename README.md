@@ -34,6 +34,7 @@ AVD_Automation/
     |-- README.md                    Detailed deployment and operator instructions
     |-- AVD-UAT-Checklist*.ps1        Check engine and automated/manual launchers
     |-- AVD-UAT-Checklist*.exe        Packaged automated/manual launchers
+    |-- AVD-UAT-ManualActions.ps1     Grouped manual review and resumable progress
     |-- AVD-UAT-Prerequisite-Check.ps1
     |-- AVD-UAT-Paths.ps1
     |-- Install-AVDUATScheduledTask.ps1
@@ -41,6 +42,8 @@ AVD_Automation/
     |-- avd-uat.config*.json
     |-- army-bookmarks.json
     |-- tools/AvdChecklistTool/       Workbook helper executable
+    |-- tools/AvdManualFileTool/      Manual checkpoint hashing/replacement helper
+    |-- tests/                       Isolated development regression checks
     `-- ...                          Workbook, runbook, certificate, ZIP, and hashes
 ```
 
@@ -132,21 +135,23 @@ The [UAT suite](UAT/) separates unattended machine checks from interactive user 
 | Component | Purpose |
 | --- | --- |
 | [Automated launcher](UAT/AVD-UAT-Checklist-Automated.ps1) | Runs unattended checks through the shared engine and produces automated evidence. An EXE launcher is also included. |
-| [Manual launcher](UAT/AVD-UAT-Checklist-Manual.ps1) | Opens the latest automated evidence and prompts for remaining manual/partial results in the UAT user's session. An EXE launcher is also included. |
+| [Manual launcher](UAT/AVD-UAT-Checklist-Manual.ps1) | Reviews mapped application checks and unresolved evidence in grouped application sessions, saving progress after each observation. An EXE launcher is also included. |
+| [Manual actions helper](UAT/AVD-UAT-ManualActions.ps1) | Supplies application launches, operator guidance, checkpoint/resume, and manual result aggregation. Keep it beside the matching manual launcher. |
 | [Shared check engine](UAT/AVD-UAT-Checklist.ps1) | Collects evidence and produces HTML, CSV, and completed workbook reports. |
-| [Prerequisite checker](UAT/AVD-UAT-Prerequisite-Check.ps1) | Gates both launchers on Entra join, MDM enrollment/tasks, running Intune Management Extension, and running FSLogix. |
+| [Prerequisite checker](UAT/AVD-UAT-Prerequisite-Check.ps1) | Gates both launchers on Entra join, MDM enrollment/tasks, running Intune Management Extension, running FSLogix, running Microsoft Dependency Agent, and device-to-host-pool matching. |
 | [Path helper](UAT/AVD-UAT-Paths.ps1) | Shared UAT path-resolution logic. |
 | [Scheduled task installer](UAT/Install-AVDUATScheduledTask.ps1) | Registers SYSTEM execution using PowerShell or the executable launcher; startup execution waits five minutes after boot. |
 | [Pilot runner](UAT/Pilot_Run.ps1) | Invokes the automated launcher with the included configuration and a short performance sampling interval. |
 | [Configuration example](UAT/avd-uat.config.example.json) and [deployment configuration](UAT/avd-uat.config.json) | Environment-specific check settings and approved artifact paths. |
 | [Army bookmarks](UAT/army-bookmarks.json) | Supporting bookmark baseline data; see the UAT documentation for current managed-policy checks. |
 | [Workbook helper](UAT/tools/AvdChecklistTool/AvdChecklistTool.exe) | Reads and updates XLSX packages without requiring Excel COM or an Office installation for workbook I/O. |
+| [Manual file helper](UAT/tools/AvdManualFileTool/Program.cs) | Source for the bundled native utility that hashes source evidence and atomically replaces manual progress checkpoints without restricted PowerShell file APIs. |
 
 ### Supporting release resources
 
 - [AVD test plan template](UAT/AVD%20Test%20Plan%20Template%20-%20DO%20NOT%20DELETE%20OR%20MOVE.xlsx): source checklist; preserve its filename and placement.
 - [Deployment and operator runbook](UAT/AVD-UAT-Deployment-and-Operator-Runbook.docx): Word-format operating instructions.
-- [Live-test ZIP](UAT/AVD-UAT-Live-Test-Final.zip): packaged deployment bundle.
+- [Unsigned manual CLM test ZIP](UAT/AVD-UAT-Manual-CLM-Test-UNSIGNED-20261118-120623.zip): development snapshot, not an approved production release. The older live-test and November 11 test ZIPs have been removed from the working tree; rebuild a signed release from the current files rather than relying on an old package.
 - [Code-signing certificate](UAT/AVD-CodeSigning.cer) and [SHA-256 manifest](UAT/SHA256SUMS.txt): release verification resources. Their presence alone does not establish organizational trust or prove that the bundle matches the current scripts.
 
 ### Execution and results
@@ -165,6 +170,7 @@ This executes real checks and requires the documented prerequisites and permissi
 
 - Automated runs create a new `Automated_Results_<timestamp>` directory beneath the installation root by default, containing HTML, CSV, XLSX, and a troubleshooting log, plus prerequisite evidence.
 - Manual review uses the newest automated result set and preserves its source files. Final manual HTML, CSV, and XLSX outputs go to the UAT user's `OneDrive - US Army\Documents`.
+- Manual progress stays outside OneDrive under `%LOCALAPPDATA%\ArmyAVD\UAT\Manual`. Rerun against the same source evidence to resume; `-CheckpointPath` selects a separate review and `-NoAssistedLaunch` leaves all application launching to the operator. The tool never closes applications.
 - Results distinguish `Pass`, `Partial Pass`, `Fail`, and `Manual`. Authentication, visual checks, and user workflows still require an interactive standard-user session where documented.
 - SYSTEM runs cannot establish every user-scoped result. Do not treat automated prerequisite evidence as a substitute for completing the manual checklist.
 
@@ -175,5 +181,6 @@ This executes real checks and requires the documented prerequisites and permissi
 - Keep credentials, smart-card PINs, tokens, private keys, and other secrets out of scripts, JSON configuration, logs, and source control.
 - Validate signatures and hashes against an approved release. Follow organizational AllSigned, WDAC, and AppLocker requirements; do not bypass controls or automatically trust the bundled certificate.
 - After changing packaged UAT code, rebuild/sign the affected runtime artifacts and refresh the ZIP/hash manifest as described in the [UAT deployment guidance](UAT/README.md).
+- The changed manual scripts, launcher, and manual file helper are currently unsigned. Source review and local tests do not establish deployment approval or WDAC/AppLocker compatibility.
 - Scripts can install software, change certificate stores or security settings, alter update behavior, decrypt drives, or modify infrastructure. Test selected workflows on a non-production image before broad deployment.
 - Review applicable license files and vendor terms in the nested image project and bundled tooling. Inclusion in this repository does not grant licenses for third-party software or installation payloads.
